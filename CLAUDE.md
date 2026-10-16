@@ -1,6 +1,6 @@
 # Waypoint Daily
 
-Automated Instagram educational carousels (hook → 3 insights → follow/save CTA), twice a day, free to run.
+Automated Instagram educational carousels (tension hook → discovery → complication → payoff → takeaway sign-off), twice a day, free to run.
 
 **Read [PLAN.md](PLAN.md) sections 1–4 before any work, then do only your assigned phase (section 5).**
 When done, tick that phase's acceptance boxes and add a line to the Build log (section 7).
@@ -25,3 +25,6 @@ uv run ruff check                  # lint (CI runs both)
 - `state/posted.json` is append-only. Never rewrite history.
 - If any step fails, post nothing for that slot and record why. No partial carousels.
 - Keep model names, API versions and limits in config.yaml, not in code.
+- Slide look lives in `waypoint/render/templates/` (tokens.css, slide.css). Never edit the vendored
+  `visuals.js`; re-skin with CSS. A look change must update the golden image on purpose:
+  `WAYPOINT_UPDATE_GOLDEN=1 uv run pytest tests/test_render.py`, then inspect it.

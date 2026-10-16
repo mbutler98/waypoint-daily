@@ -1,0 +1,229 @@
+{
+  "id": "2026-10-17-am",
+  "slot": "am",
+  "faculty": "Trades & Home",
+  "topic": "Heat pumps",
+  "source": {
+    "url": "https://mbutler98.github.io/Daily_quiz/",
+    "title": "How Heat Pumps Work",
+    "publisher": "Waypoint",
+    "published": null,
+    "kind": "evergreen"
+  },
+  "key_claim": "Heat pumps move heat instead of making it, so they deliver two to four units of heat per unit of electricity.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "HVAC",
+      "headline": "A heat pump doesn't make heat. It moves it."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Heat flows downhill, unless you pump it",
+      "body": "Heat always flows from warm to cold. A heat pump pushes it the other way, like a pump pushing water uphill.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "One loop, four steps",
+      "body": "A liquid soaks up heat as it boils, then gives it off as it turns back to liquid.",
+      "figure": {
+        "type": "diagram",
+        "title": "The refrigeration cycle",
+        "size": [
+          360,
+          390
+        ],
+        "nodes": [
+          {
+            "id": "hout",
+            "at": [
+              180,
+              22
+            ],
+            "label": "Heat dumped outside",
+            "shape": "text",
+            "color": "hot"
+          },
+          {
+            "id": "cond",
+            "at": [
+              180,
+              86
+            ],
+            "label": "Condenser",
+            "sub": "gas gives up heat → liquid",
+            "color": "hot",
+            "w": 190
+          },
+          {
+            "id": "comp",
+            "at": [
+              302,
+              196
+            ],
+            "label": "Compressor",
+            "sub": "squeezes it",
+            "color": "warm",
+            "w": 100
+          },
+          {
+            "id": "exp",
+            "at": [
+              58,
+              196
+            ],
+            "label": "Expansion",
+            "sub": "valve",
+            "color": "cold",
+            "w": 92
+          },
+          {
+            "id": "evap",
+            "at": [
+              180,
+              306
+            ],
+            "label": "Evaporator",
+            "sub": "liquid soaks up heat → gas",
+            "color": "cold",
+            "w": 196
+          },
+          {
+            "id": "hin",
+            "at": [
+              180,
+              372
+            ],
+            "label": "Heat pulled from your home",
+            "shape": "text",
+            "color": "cold"
+          }
+        ],
+        "edges": [
+          {
+            "id": "qin",
+            "from": "hin",
+            "to": "evap",
+            "color": "warm",
+            "flow": true,
+            "dash": true
+          },
+          {
+            "id": "e1",
+            "from": "evap",
+            "to": "comp",
+            "via": [
+              [
+                302,
+                306
+              ]
+            ],
+            "color": "blue",
+            "flow": true,
+            "label": "cool gas",
+            "labelAt": [
+              330,
+              262
+            ]
+          },
+          {
+            "id": "e2",
+            "from": "comp",
+            "to": "cond",
+            "via": [
+              [
+                302,
+                86
+              ]
+            ],
+            "color": "hot",
+            "flow": true,
+            "label": "hot gas",
+            "labelAt": [
+              330,
+              136
+            ]
+          },
+          {
+            "id": "qout",
+            "from": "cond",
+            "to": "hout",
+            "color": "hot",
+            "flow": true,
+            "dash": true
+          },
+          {
+            "id": "e3",
+            "from": "cond",
+            "to": "exp",
+            "via": [
+              [
+                58,
+                86
+              ]
+            ],
+            "color": "warm",
+            "flow": true,
+            "label": "warm liquid",
+            "labelAt": [
+              40,
+              134
+            ]
+          },
+          {
+            "id": "e4",
+            "from": "exp",
+            "to": "evap",
+            "via": [
+              [
+                58,
+                306
+              ]
+            ],
+            "color": "cold",
+            "flow": true,
+            "label": "icy liquid",
+            "labelAt": [
+              36,
+              262
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Up to four times the heat",
+      "body": "Moving heat takes less energy than making it. A heat pump gives two to four units of heat for each unit of electricity.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "Even cold air has heat to give.",
+      "body": "In winter, a heat pump pulls warmth out of freezing outdoor air."
+    }
+  ],
+  "caption": "A heat pump doesn't make heat. It moves it.\n\nHeat naturally flows from warm to cold. A heat pump pushes it the other way, like a pump pushing water uphill.\n\nHow? A liquid inside soaks up heat as it boils, then gives it off as it turns back to liquid. Round and round.\n\nThe payoff: moving heat takes far less energy than making it, so you get 2 to 4 units of heat for each unit of electricity.\n\nSource: Waypoint — How Heat Pumps Work\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#HVAC",
+    "#HeatPump",
+    "#HowThingsWork",
+    "#Science",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Title slide: A heat pump doesn't make heat. It moves it.",
+    "Heat flows from warm to cold. A heat pump pushes it the other way, like a water pump pushing water uphill.",
+    "Diagram of the refrigeration cycle: evaporator, compressor, condenser and expansion valve in a loop, pulling heat from the home and dumping it outside.",
+    "Moving heat takes less energy than making it, so a heat pump gives two to four units of heat per unit of electricity.",
+    "Today's takeaway: Even cold air has heat to give. In winter, a heat pump pulls warmth out of freezing outdoor air."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

@@ -29,8 +29,13 @@ def test_round_trip(post_data):
         (("slides", 1, "body"), " ".join(["word"] * 31)),
         (("caption",), "x" * 2201),
         (("hashtags",), [f"#tag{i}" for i in range(6)]),
+        (("slides", 4, "headline"), " ".join(["word"] * 9)),
+        (("slides", 4, "body"), " ".join(["word"] * 15)),
     ],
-    ids=["hook>12", "insight-headline>8", "insight-body>30", "caption>2200", "hashtags>5"],
+    ids=[
+        "hook>12", "insight-headline>8", "insight-body>30", "caption>2200", "hashtags>5",
+        "takeaway>8", "takeaway-support>14",
+    ],
 )
 def test_over_length_copy_fails(post_data, path, value):
     data = copy.deepcopy(post_data)

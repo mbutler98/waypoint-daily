@@ -1,0 +1,211 @@
+/* Waypoint Daily slide layout (PLAN.md 4.1). Sizes come from tokens.css. */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: var(--canvas-w); height: var(--canvas-h); overflow: hidden; }
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background-color: var(--bg-2);
+  background-image:
+    radial-gradient(900px 700px at 100% 0%, var(--bg-light), transparent 70%),
+    linear-gradient(170deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.slide { position: absolute; inset: 0; }
+
+/* Content sits inside the margins and stops above the footer. */
+.content {
+  position: absolute;
+  top: var(--margin);
+  left: var(--margin);
+  right: var(--margin);
+  bottom: calc(var(--ui-clear) + 92px);
+  display: flex;
+  flex-direction: column;
+}
+.slide.hook .content,
+.slide.insight.text-only .content,
+.slide.insight.snug .content,
+.slide.cta .content { justify-content: center; }
+
+/* ---------- Type ---------- */
+.kicker {
+  font-size: var(--kicker-size);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+.hook-headline {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  text-wrap: balance;
+}
+.insight-headline {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: var(--text);
+  text-wrap: balance;
+}
+.body {
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text-soft);
+  margin-top: 32px;
+  text-wrap: pretty;
+}
+
+/* ---------- Figure card ---------- */
+.fig-card {
+  flex: 1 1 0;
+  min-height: 0;
+  margin-top: 48px;
+  background: var(--card-fill);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  padding: 32px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ---------- Sign-off (last slide): takeaway + repeatable brand signature ---------- */
+.takeaway {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  text-wrap: balance;
+}
+.signoff {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-strong);
+}
+.signoff-lead { font-size: 40px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
+.signoff-line { font-size: 32px; color: var(--muted); margin-top: 8px; }
+.signoff-handle { font-size: 32px; font-weight: 600; color: var(--text); margin-top: 8px; }
+
+/* ---------- Footer: logo + name bottom-left, counter bottom-right ---------- */
+.footer {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: var(--ui-clear);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
+.brand img { width: 44px; height: 44px; }
+.footer-right { display: flex; align-items: center; gap: 36px; }
+.swipe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--counter-size);
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.swipe svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: var(--counter-size);
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.counter::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ==========================================================
+   visuals.js figures, restyled (classes from Waypoint's style.css)
+   ========================================================== */
+.viz { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; }
+.snug .viz { flex: 0 0 auto; }
+
+/* Shared: title states the takeaway, source line underneath. */
+.v-title, .s-title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.v-sub { font-size: 26px; color: var(--muted); margin-top: 6px; }
+.v-src { font-size: 24px; line-height: 1.35; color: var(--muted); margin-top: 16px; }
+.v-tip, .v-table, .s-caption, .s-ctrl { display: none; }
+
+.v-plot, .s-stage { flex: 1 1 0; min-height: 0; margin-top: 20px; display: flex; }
+.v-plot svg, .s-stage svg { width: 100%; height: 100%; overflow: visible; }
+
+/* Charts */
+.v-mark { fill: var(--viz-ctx); }
+.v-mark.hi { fill: var(--viz-hi); }
+.v-val { fill: var(--viz-ink); font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.v-val:not(.hi) { fill: var(--muted); font-weight: 500; }
+.v-cat { fill: var(--muted); font-size: 18px; }
+.v-cat.strong { fill: var(--text); font-weight: 600; }
+.v-end { fill: var(--muted); font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.v-end.hi { fill: var(--text); }
+.v-base { stroke: var(--line-strong); stroke-width: 1.5; fill: none; }
+.v-conn { stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+.v-line { fill: none; stroke: var(--viz-ctx); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.v-line.hi { stroke: var(--viz-hi); stroke-width: 3.5; }
+.v-dot { fill: var(--viz-ctx); stroke: var(--read); stroke-width: 2; }
+.v-dot.hi { fill: var(--viz-hi); }
+.v-hit { fill: transparent; }
+.v-legend { display: none; }  /* line charts already label each series at its end */
+
+/* Scenes (maths curves), static final frame */
+.s-axis { stroke: var(--line-strong); stroke-width: 2; fill: none; }
+.s-tick { fill: var(--muted); font-size: 17px; font-variant-numeric: tabular-nums; }
+.s-axlabel { fill: var(--text-soft); font-size: 18px; }
+.s-curve { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.s-area { opacity: .25; }
+.s-label, .s-text { font-weight: 600; font-size: 18px; paint-order: stroke; stroke: var(--read); stroke-width: 5px; stroke-linejoin: round; }
+.s-obj.dim { opacity: .25; }
+
+/* Diagrams: text a little larger than Waypoint's, so it stays legible on a phone.
+   Node widths in visuals.js leave room for it. */
+.d-stage svg { overflow: visible; }
+.d-zone rect { fill-opacity: .04; stroke-opacity: .5; stroke-width: 1.2; stroke-dasharray: 5 4; }
+.d-zlabel { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.d-wire { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.d-wire.dash { stroke-dasharray: 4 5; }
+.d-elabel { font-size: 13px; font-weight: 600; paint-order: stroke; stroke: var(--read); stroke-width: 4px; stroke-linejoin: round; }
+.d-box { fill: var(--read); stroke-width: 1.6; }
+.d-label { fill: var(--text); font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.d-sub { fill: var(--muted); font-size: 13px; }
+.d-text .d-label { font-size: 14px; }
+.d-obj.dim { opacity: .25; }
+.d-obj.off { opacity: .08; }
+
+/* visuals.js colours diagrams with a Manim-style rainbow (SVG attributes). Fold it into
+   the brand palette: cold → chart blue, hot → accent yellow, everything else → grey. */
+.viz [stroke="#58C4DD"], .viz [stroke="#5CD0B3"], .viz [stroke="#83C167"] { stroke: var(--viz-hi); }
+.viz [fill="#58C4DD"], .viz [fill="#5CD0B3"], .viz [fill="#83C167"] { fill: var(--viz-hi); }
+.viz [stroke="#FC6255"], .viz [stroke="#F0AC5F"], .viz [stroke="#FFE14D"], .viz [stroke="#FF9900"] { stroke: var(--accent); }
+.viz [fill="#FC6255"], .viz [fill="#F0AC5F"], .viz [fill="#FFE14D"], .viz [fill="#FF9900"] { fill: var(--accent); }
+.viz [stroke="#8A94A6"], .viz [stroke="#5b6578"], .viz [stroke="#B189C6"] { stroke: var(--viz-ctx); }
+.viz [fill="#8A94A6"], .viz [fill="#5b6578"], .viz [fill="#B189C6"] { fill: var(--viz-ctx); }
+.viz [stroke="#ECEFF4"] { stroke: var(--viz-ink); }
+.viz [fill="#ECEFF4"] { fill: var(--viz-ink); }
+
+/* ---------- Static renders: final state, no motion (PLAN.md 4.1) ---------- */
+body.static *, body.static *::before, body.static *::after { transition: none !important; animation: none !important; }
+body.static .d-dot { display: none; }

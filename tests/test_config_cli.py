@@ -5,7 +5,7 @@ import pytest
 import yaml
 from pydantic import ValidationError
 
-from waypoint.cli import NOT_IMPLEMENTED_EXIT, main
+from waypoint.cli import NOT_IMPLEMENTED_EXIT, RENDER_FAILED_EXIT, main
 from waypoint.config import DEFAULT_CONFIG_PATH, Config, load_config
 
 COMMANDS = ["gather", "draft", "render", "publish", "refresh-token", "sample"]
@@ -47,10 +47,14 @@ def test_help_lists_all_commands():
 @pytest.mark.parametrize(
     "argv",
     [
-        ["gather"], ["draft"], ["render", "drafts/x"],
-        ["publish", "am"], ["refresh-token"], ["sample"],
+        ["gather"], ["draft"], ["publish", "am"], ["refresh-token"],
     ],
 )
 def test_stubs_exit_not_implemented(argv, capsys):
     assert main(argv) == NOT_IMPLEMENTED_EXIT
     assert "not implemented" in capsys.readouterr().err
+
+
+def test_render_without_post_json_fails_cleanly(tmp_path, capsys):
+    assert main(["render", str(tmp_path)]) == RENDER_FAILED_EXIT
+    assert "no post.json" in capsys.readouterr().err

@@ -65,10 +65,15 @@ brand:
   name: Waypoint
   handle: "@waypoint.daily"     # working handle; confirm with the user before creating it
   tagline: "1% smarter, twice a day."
-  cta_lines:
-    - "Follow for two a day."
-    - "Save this so it sticks."
-    - "1% smarter, twice a day."
+  # Last slide: "<name> · <signoff_kicker>", the post's takeaway, then these fixed lines + handle.
+  signoff_kicker: "Today's takeaway"
+  signoff_lines:
+    - "Stay curious."
+    - "Two ideas worth knowing. Every day."
+  # Every caption ends with these (the "save" ask lives here, not on the slides).
+  caption_cta:
+    - "Save this for your next curiosity rabbit hole."
+    - "Follow @waypoint.daily for two ideas worth knowing, every day."
 
 pages_base_url: https://mbutler98.github.io/waypoint-daily/
 media_retention_days: 14

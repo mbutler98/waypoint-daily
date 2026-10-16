@@ -1,0 +1,53 @@
+/* Waypoint Daily design tokens (PLAN.md 4.1): Waypoint's dark palette, Apple-style type.
+   Also defines the variables the vendored visuals.js styles expect (--viz-*, --text, …),
+   so charts and diagrams pick up this look without touching the renderer. */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  /* Canvas */
+  --canvas-w: 1080px;
+  --canvas-h: 1350px;
+  --margin: 96px;
+  --ui-clear: 140px;            /* keep the bottom 140 px free of anything important */
+
+  /* Background */
+  --bg-1: #0b1c3a;
+  --bg-2: #050c1c;
+  --bg-light: rgba(64, 140, 255, 0.14);
+
+  /* Text */
+  --text: #eef4fb;
+  --text-soft: #c9d6e6;         /* "secondary" in PLAN.md */
+  --muted: #8ea3bd;
+  --line: rgba(160, 200, 255, 0.14);
+  --line-strong: rgba(160, 200, 255, 0.24);
+
+  /* The one accent: kicker, counter dot, logo. Never body text. */
+  --accent: #f4d64a;
+
+  /* Charts (Waypoint's colour-blind-safe pair) */
+  --viz-hi: #5A82F5;
+  --viz-ctx: #62728A;
+  --viz-ink: #dfe7f1;
+
+  /* Figure card */
+  --card-fill: rgba(255, 255, 255, 0.04);
+  --card-radius: 36px;
+  --read: #0c1830;              /* dot outlines, label halos: matches the card over the bg */
+
+  /* Type */
+  --font: "Inter", system-ui, sans-serif;
+  --hook-sizes: 112, 104, 96;
+  --insight-head-sizes: 72, 68, 64;
+  --body-sizes: 44, 42, 40;
+  --takeaway-sizes: 96, 88, 80;
+  --kicker-size: 28px;
+  --counter-size: 26px;
+}

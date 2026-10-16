@@ -1,0 +1,227 @@
+{
+  "id": "2026-10-17-am",
+  "slot": "am",
+  "faculty": "Trades & Home",
+  "topic": "Heat pumps",
+  "source": {
+    "url": "https://www.energy.gov/energysaver/heat-pump-systems",
+    "title": "Heat Pump Systems",
+    "publisher": "U.S. Department of Energy",
+    "published": "2026-10-15",
+    "kind": "evergreen"
+  },
+  "key_claim": "A heat pump moves heat instead of making it, so it can deliver more heat energy than the electricity it uses.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "HVAC",
+      "headline": "Your heat pump is a fridge running backwards."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "It moves heat, it doesn't make it",
+      "body": "A heat pump pulls warmth from outside air, even cold air, and pumps it indoors.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Moving heat costs much less than making heat",
+      "body": "Because a heat pump only moves warmth that already exists outside, it can deliver around three units of heat to your home for every single unit of electricity it uses.",
+      "figure": {
+        "type": "diagram",
+        "title": "The refrigeration cycle",
+        "size": [
+          360,
+          390
+        ],
+        "nodes": [
+          {
+            "id": "hout",
+            "at": [
+              180,
+              22
+            ],
+            "label": "Heat dumped outside",
+            "shape": "text",
+            "color": "hot"
+          },
+          {
+            "id": "cond",
+            "at": [
+              180,
+              86
+            ],
+            "label": "Condenser",
+            "sub": "gas gives up heat → liquid",
+            "color": "hot",
+            "w": 190
+          },
+          {
+            "id": "comp",
+            "at": [
+              302,
+              196
+            ],
+            "label": "Compressor",
+            "sub": "squeezes it",
+            "color": "warm",
+            "w": 100
+          },
+          {
+            "id": "exp",
+            "at": [
+              58,
+              196
+            ],
+            "label": "Expansion",
+            "sub": "valve",
+            "color": "cold",
+            "w": 92
+          },
+          {
+            "id": "evap",
+            "at": [
+              180,
+              306
+            ],
+            "label": "Evaporator",
+            "sub": "liquid soaks up heat → gas",
+            "color": "cold",
+            "w": 196
+          },
+          {
+            "id": "hin",
+            "at": [
+              180,
+              372
+            ],
+            "label": "Heat pulled from your home",
+            "shape": "text",
+            "color": "cold"
+          }
+        ],
+        "edges": [
+          {
+            "id": "qin",
+            "from": "hin",
+            "to": "evap",
+            "color": "warm",
+            "flow": true,
+            "dash": true
+          },
+          {
+            "id": "e1",
+            "from": "evap",
+            "to": "comp",
+            "via": [
+              [
+                302,
+                306
+              ]
+            ],
+            "color": "blue",
+            "flow": true,
+            "label": "cool gas",
+            "labelAt": [
+              330,
+              262
+            ]
+          },
+          {
+            "id": "e2",
+            "from": "comp",
+            "to": "cond",
+            "via": [
+              [
+                302,
+                86
+              ]
+            ],
+            "color": "hot",
+            "flow": true,
+            "label": "hot gas",
+            "labelAt": [
+              330,
+              136
+            ]
+          },
+          {
+            "id": "qout",
+            "from": "cond",
+            "to": "hout",
+            "color": "hot",
+            "flow": true,
+            "dash": true
+          },
+          {
+            "id": "e3",
+            "from": "cond",
+            "to": "exp",
+            "via": [
+              [
+                58,
+                86
+              ]
+            ],
+            "color": "warm",
+            "flow": true,
+            "label": "warm liquid",
+            "labelAt": [
+              40,
+              134
+            ]
+          },
+          {
+            "id": "e4",
+            "from": "exp",
+            "to": "evap",
+            "via": [
+              [
+                58,
+                306
+              ]
+            ],
+            "color": "cold",
+            "flow": true,
+            "label": "icy liquid",
+            "labelAt": [
+              36,
+              262
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Flip a valve, get cooling",
+      "body": "In summer a reversing valve swaps the flow, and the same machine cools your home.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "Even cold air has heat to give.",
+      "body": "A heat pump pulls warmth from outdoor air, even in winter."
+    }
+  ],
+  "caption": "Your heat pump is a fridge running backwards.\n\nIt moves heat, it doesn't make it.\nUp to three times the heat.\nFlip a valve, get cooling.\n\nSource: U.S. Department of Energy — Heat Pump Systems\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#hvac",
+    "#heatpump",
+    "#science"
+  ],
+  "alt_text": [
+    "Title slide: Your heat pump is a fridge running backwards.",
+    "A heat pump moves warmth from outside air into the home.",
+    "Diagram of the refrigeration cycle.",
+    "A reversing valve lets the same machine cool the home in summer.",
+    "Today's takeaway: Even cold air has heat to give."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}
