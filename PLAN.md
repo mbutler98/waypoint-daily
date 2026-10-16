@@ -239,10 +239,10 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 11. Push to the public GitHub repo. Enable Pages (source: `gh-pages` branch; the branch is created in Phase 6).
 
 **Acceptance:**
-- [ ] `uv run python -m waypoint --help` lists all subcommands
-- [ ] `uv run pytest` passes; CI is green on GitHub
-- [ ] The repo is public; no secrets in the repo
-- [ ] Models match 3.2/3.3 field for field
+- [x] `uv run python -m waypoint --help` lists all subcommands
+- [x] `uv run pytest` passes; CI is green on GitHub
+- [x] The repo is public; no secrets in the repo
+- [x] Models match 3.2/3.3 field for field
 
 **Out of scope:** any real gathering, rendering or posting.
 
@@ -440,3 +440,4 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 | Date | Phase | Agent notes |
 |---|---|---|
 | 2026-10-16 | Plan | Plan written. Decisions: public repo, approval at launch, Gemini free, Waypoint brand. |
+| 2026-10-16 | 1 | Scaffold pushed to github.com/mbutler98/waypoint-daily (public); CI green (ruff + 38 tests). Repo lives in the `waypoint-daily/` subfolder; this copy of PLAN.md is canonical. Added `status` (published/rejected/failed) to PostedEntry and documented it in 3.3. `.gitattributes` forces LF. Actions pinned: checkout v7.0.1, setup-uv v9.0.0. Gemini model and IG API version in config are placeholders for Phases 3/5 to verify. Pages not enabled yet: GitHub needs the `gh-pages` branch to exist, so do it in Phase 6. CI warns `ubuntu-latest` moves to Ubuntu 26 from 2026-10-19; recheck Playwright deps in Phase 2. |
