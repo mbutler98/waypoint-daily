@@ -1,0 +1,61 @@
+{
+  "id": "2026-10-17-am",
+  "slot": "am",
+  "faculty": "Trades & Home",
+  "topic": "Heat pumps",
+  "source": {
+    "url": "https://www.energy.gov/energysaver/heat-pump-systems",
+    "title": "Heat Pump Systems",
+    "publisher": "U.S. Department of Energy",
+    "published": "2026-10-15",
+    "kind": "evergreen"
+  },
+  "key_claim": "A heat pump moves heat instead of making it, so it can deliver more heat energy than the electricity it uses.",
+  "slides": [
+    { "type": "hook", "kicker": "HVAC", "headline": "Your heat pump is a fridge running backwards." },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "It moves heat, it doesn't make it",
+      "body": "A heat pump pulls warmth from outside air, even cold air, and pumps it indoors.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Up to three times the heat",
+      "body": "Moving heat takes less energy than making it, so you can get about three units of heat for each unit of power.",
+      "figure": {
+        "type": "chart",
+        "kind": "column",
+        "title": "A heat pump gives about 3x the heat",
+        "data": [
+          { "label": "Electric heater", "value": 1 },
+          { "label": "Heat pump", "value": 3, "highlight": true }
+        ],
+        "source": "U.S. Department of Energy"
+      }
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Flip a valve, get cooling",
+      "body": "In summer a reversing valve swaps the flow, and the same machine cools your home.",
+      "figure": null
+    },
+    { "type": "cta", "headline": "Follow for two a day.", "body": "Save this so it sticks." }
+  ],
+  "caption": "Your heat pump is a fridge running backwards.\n\nIt moves heat, it doesn't make it.\nUp to three times the heat.\nFlip a valve, get cooling.\n\nSource: U.S. Department of Energy — Heat Pump Systems\n\nFollow for two a day. Save this so it sticks.",
+  "hashtags": ["#hvac", "#heatpump", "#science"],
+  "alt_text": [
+    "Title slide: Your heat pump is a fridge running backwards.",
+    "A heat pump moves warmth from outside air into the home.",
+    "Column chart: an electric heater gives 1 unit of heat per unit of power, a heat pump about 3.",
+    "A reversing valve lets the same machine cool the home in summer.",
+    "Follow for two a day. Save this so it sticks."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

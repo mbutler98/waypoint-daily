@@ -1,0 +1,14 @@
+# Placeholder. Phase 6 adds the schedule (~20:00 Toronto) and the real steps; see PLAN.md 3 and 5.
+name: Draft
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Not implemented yet (PLAN.md Phase 6)."

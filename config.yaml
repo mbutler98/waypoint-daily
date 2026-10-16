@@ -1,0 +1,74 @@
+# Waypoint Daily configuration. Validated on load by waypoint/config.py.
+# Secrets never go here; they live in GitHub Actions secrets (PLAN.md 4.6).
+
+timezone: America/Toronto
+
+# Local publish times (24h, in `timezone`).
+slots:
+  am: "08:00"
+  pm: "18:00"
+
+# Local time the daily draft run prepares tomorrow's posts.
+draft_time: "20:00"
+
+# Approval via GitHub Issues. Set to false to post without review.
+require_approval: true
+
+# When true, every network write (Instagram, Issues, secrets, Pages) is a logged no-op.
+dry_run: true
+
+# Which source kinds each slot prefers (PLAN.md 4.4).
+slot_kinds:
+  am: [news, paper]
+  pm: [evergreen]
+
+# Relative selection weights. Every faculty in PLAN.md 4.4 must be listed.
+faculties:
+  Animals & Nature: 1.0
+  Space: 1.0
+  Human Body & Health: 1.0
+  Mind & Behaviour: 1.0
+  Everyday Physics & Chemistry: 1.0
+  Trades & Home: 1.0
+  Engineering & Tech: 1.0
+  AI & Computing: 1.0
+  Money & Markets: 1.0
+  History: 1.0
+  Geography & Earth: 1.0
+  Food & Cooking: 1.0
+  Sport & Strength: 1.0
+  Flight: 1.0
+
+limits:
+  faculty_cooldown_posts: 4     # same faculty not within the last N posts
+  topic_cooldown_days: 30       # same topic not within the last N days
+  title_jaccard_max: 0.6        # dedupe check 2
+  embedding_cosine_max: 0.85    # dedupe check 3
+  llm_dedupe_window: 60         # dedupe check 4: compare against the last N key claims
+  min_source_words: 300
+  max_reading_grade: 7          # Flesch-Kincaid, checked with textstat
+  candidates_per_slot: 5
+  max_gemini_calls_per_run: 100
+  max_writer_retries: 2
+
+gemini:
+  # Free-tier model names and rate limits change: verify in Google's docs (Phase 3).
+  model: gemini-2.5-flash
+  embedding_model: gemini-embedding-001
+  requests_per_minute: 8
+
+instagram:
+  # Verify the current Graph API version in Meta's docs (Phase 5).
+  api_version: v23.0
+
+brand:
+  name: Waypoint
+  handle: "@waypoint.daily"     # working handle; confirm with the user before creating it
+  tagline: "1% smarter, twice a day."
+  cta_lines:
+    - "Follow for two a day."
+    - "Save this so it sticks."
+    - "1% smarter, twice a day."
+
+pages_base_url: https://mbutler98.github.io/waypoint-daily/
+media_retention_days: 14

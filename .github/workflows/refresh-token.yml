@@ -1,0 +1,14 @@
+# Placeholder. Phase 6 adds the weekly schedule and the real steps; see PLAN.md 5.
+name: Refresh Instagram token
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Not implemented yet (PLAN.md Phases 5-6)."
