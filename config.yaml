@@ -52,10 +52,23 @@ limits:
   max_writer_retries: 2
 
 gemini:
-  # Free-tier model names and rate limits change: verify in Google's docs (Phase 3).
-  model: gemini-2.5-flash
+  # Free-tier model names and rate limits change: check ai.google.dev/gemini-api/docs/models.
+  # Verified 2026-10-16: 3.8 Flash and 3.5 Flash-Lite are free-tier stable models; 2.5 Flash is
+  # closed to new projects. Per-model RPM/RPD are shown only in AI Studio, so stay conservative.
+  model: gemini-3.8-flash            # writer + fact-check (Phase 4)
+  fast_model: gemini-3.5-flash-lite  # cheap calls: triage, safety label, dedupe check 4
   embedding_model: gemini-embedding-001
   requests_per_minute: 8
+
+gather:
+  user_agent: "waypoint-daily/0.1 (+https://github.com/mbutler98/waypoint-daily)"
+  per_host_delay_s: 1.0         # politeness: at most 1 request per second per host
+  timeout_s: 20
+  cache_ttl_hours: 12           # .cache/http: re-runs within a day don't refetch
+  max_items_per_feed: 3
+  max_triage: 60                # at most this many candidates get a Gemini triage label
+  triage_batch_size: 10         # candidates per triage call
+  fallback_items: 6             # Wikipedia-in-faculty articles fetched when a slot runs dry
 
 instagram:
   # Verify the current Graph API version in Meta's docs (Phase 5).

@@ -20,8 +20,8 @@ uv run ruff check                  # lint (CI runs both)
 - Python 3.12, managed with uv. Lint with ruff; tests with pytest. CI must stay green.
 - `waypoint/models.py` is the data contract (PLAN.md 3.2/3.3). Change it only together with PLAN.md.
 - `dry_run` (config.yaml) must be respected by every network write: log it and skip it.
-- Never print, log or commit secrets. They come from env vars / GitHub Actions secrets only.
-- No live network in tests: use recorded fixtures and mock the Gemini client.
+- Never print, log or commit secrets: env vars / Actions secrets only (locally a gitignored `.env`).
+- No live network in tests: recorded fixtures + the fake Gemini in `tests/helpers.py` (`import helpers`).
 - `state/posted.json` is append-only. Never rewrite history.
 - If any step fails, post nothing for that slot and record why. No partial carousels.
 - Keep model names, API versions and limits in config.yaml, not in code.

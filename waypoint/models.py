@@ -263,6 +263,55 @@ class Post(_Model):
         return self
 
 
+# --- Gather candidates ----------------------------------------------------------------------
+
+
+class Candidate(_Model):
+    """A source article that may become a post (Phase 3 output, Phase 4 input).
+
+    `text` is the extracted article body; it is saved as source.txt, not in the JSON.
+    The triage fields (faculty, topic, key_claim, surprise, safe) are filled by
+    waypoint.gather.triage, by Gemini or, with --no-llm, by simple heuristics.
+    """
+
+    url: str
+    title: NonEmptyStr
+    publisher: NonEmptyStr
+    published: dt.date | None = None
+    kind: SourceKind
+    feed: NonEmptyStr
+    faculty_hints: list[str] = Field(default_factory=list)
+    summary: str = ""
+    text: str = Field(default="", exclude=True, repr=False)
+    word_count: int = 0
+    faculty: str | None = None
+    topic: str | None = None
+    key_claim: str | None = None
+    surprise: int | None = Field(default=None, ge=1, le=5)
+    safe: bool = True
+    safety_reason: str | None = None
+    score: float = 0.0
+
+    @field_validator("url")
+    @classmethod
+    def _url(cls, v: str) -> str:
+        return _check_canonical_url(v)
+
+    @field_validator("faculty_hints")
+    @classmethod
+    def _hints(cls, v: list[str]) -> list[str]:
+        return [_check_faculty(f) for f in v]
+
+    @field_validator("faculty")
+    @classmethod
+    def _faculty(cls, v: str | None) -> str | None:
+        return None if v is None else _check_faculty(v)
+
+    def to_source(self) -> Source:
+        return Source(url=self.url, title=self.title, publisher=self.publisher,
+                      published=self.published, kind=self.kind)
+
+
 
 # --- state/posted.json ----------------------------------------------------------------------
 

@@ -47,7 +47,7 @@ def test_help_lists_all_commands():
 @pytest.mark.parametrize(
     "argv",
     [
-        ["gather"], ["draft"], ["publish", "am"], ["refresh-token"],
+        ["draft"], ["publish", "am"], ["refresh-token"],
     ],
 )
 def test_stubs_exit_not_implemented(argv, capsys):

@@ -63,8 +63,20 @@ class Limits(_Model):
 
 class Gemini(_Model):
     model: str = Field(min_length=1)
+    fast_model: str = Field(min_length=1)
     embedding_model: str = Field(min_length=1)
     requests_per_minute: int = Field(ge=1)
+
+
+class Gather(_Model):
+    user_agent: str = Field(min_length=1)
+    per_host_delay_s: float = Field(ge=0)
+    timeout_s: float = Field(gt=0)
+    cache_ttl_hours: float = Field(ge=0)
+    max_items_per_feed: int = Field(ge=1)
+    max_triage: int = Field(ge=1)
+    triage_batch_size: int = Field(ge=1)
+    fallback_items: int = Field(ge=0)
 
 
 class Instagram(_Model):
@@ -90,6 +102,7 @@ class Config(_Model):
     faculties: dict[str, float]
     limits: Limits
     gemini: Gemini
+    gather: Gather
     instagram: Instagram
     brand: Brand
     pages_base_url: str = Field(pattern=r"^https://.+/$")

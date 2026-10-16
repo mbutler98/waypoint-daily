@@ -72,7 +72,8 @@ waypoint-daily/
     cli.py                    ← `python -m waypoint <command>` entry point
     config.py                 ← loads + validates config.yaml (pydantic)
     models.py                 ← pydantic models for Candidate, Post, Slide, Figure, PostedEntry
-    gather/                   ← sources.py, feeds.yaml, fetch.py (article text)
+    state.py                  ← load posted.json, local .env
+    gather/                   ← sources.py, feeds.yaml, fetch.py (article text), triage.py, pipeline.py
     select.py                 ← topic rotation + dedupe gate
     dedupe.py
     write/                    ← prompts/, writer.py, factcheck.py, gemini.py (client + retry + rate limit)
@@ -129,6 +130,20 @@ Every stage reads or writes this. Phase 1 defines it as pydantic models; later p
 The `cta` slide is the **sign-off** (renamed in Phase 2 in spirit; the type name stays `cta`). Its `headline` and `body` are written per post. The fixed brand lines around them (`<name> · Today's takeaway`, "Stay curious.", "Two ideas worth knowing. Every day.", the handle) come from `config.yaml` → `brand`.
 
 `figure` is either a Waypoint `visuals.js` spec (`{"type":"chart",...}` or `{"type":"diagram",...}`) or `{"type":"manim","template":"cycle","params":{...}}` (Phase 7).
+
+### 3.2.1 Gather output: `Candidate` (Phase 3)
+
+`waypoint gather` writes `.cache/gather/<date>/candidates.json` (`slots: {am: [...], pm: [...]}` ranked best first, every candidate, every rejection with its reason, call counts) and `candidates/<slug>/{candidate.json, source.txt}`. A candidate is:
+
+```jsonc
+{ "url": "https://…", "title": "…", "publisher": "ScienceDaily", "published": "2026-10-16",
+  "kind": "news | paper | evergreen", "feed": "sciencedaily-animals",
+  "faculty_hints": ["Animals & Nature"], "summary": "feed blurb", "word_count": 912,
+  "faculty": "Animals & Nature", "topic": "Bee counting", "key_claim": "One sentence.",
+  "surprise": 4, "safe": true, "safety_reason": null, "score": 0.81 }
+```
+
+`key_claim` here is triage's best guess; Phase 4's writer produces the post's real `key_claim`. `Candidate.to_source()` gives the `source` block of `post.json`.
 
 ### 3.3 `state/posted.json` entry
 
@@ -218,7 +233,7 @@ GitHub Actions secrets. Never commit them; never print them in logs.
 | `IG_ACCESS_TOKEN` | long-lived Instagram User access token (60-day life) |
 | `GH_PAT` | fine-grained PAT, this repo only, **Secrets: read/write**, used to save the refreshed IG token. The default `GITHUB_TOKEN` cannot write secrets. |
 
-`config.yaml` keys (minimum): `timezone: America/Toronto`, `slots: {am: "08:00", pm: "18:00"}`, `draft_time: "20:00"`, `require_approval: true`, `dry_run: true`, `faculties: {...weights}`, `limits: {...}`, `brand: {name, handle, tagline, signoff_kicker, signoff_lines, caption_cta}`, `pages_base_url`, `media_retention_days: 14`.
+`config.yaml` keys (minimum): `timezone: America/Toronto`, `slots: {am: "08:00", pm: "18:00"}`, `draft_time: "20:00"`, `require_approval: true`, `dry_run: true`, `faculties: {...weights}`, `limits: {...}`, `gemini: {model, fast_model, embedding_model, requests_per_minute}`, `gather: {user_agent, per_host_delay_s, timeout_s, cache_ttl_hours, max_items_per_feed, max_triage, triage_batch_size, fallback_items}`, `brand: {name, handle, tagline, signoff_kicker, signoff_lines, caption_cta}`, `pages_base_url`, `media_retention_days: 14`.
 
 **Gemini free-tier caveats:** model names and rate limits change. Verify the current free model (a "Flash" model) and its limits in Google's docs at implementation time, and keep the model name in config. Use the `google-genai` SDK with structured JSON output (`response_schema`). Free-tier prompts may be used by Google to improve its products; that is acceptable because all inputs are public articles. Never send secrets or personal data.
 
@@ -282,7 +297,7 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 - [x] Checked visually (open the images): margins, bottom 140 px clear, logo and counter on every slide, one accent colour, no HUD styling
 - [x] The diagram and chart render crisply in the new style
 - [x] Rendering works on Windows locally and in CI (Ubuntu, using `playwright install --with-deps chromium`)
-- [ ] **The user has explicitly approved the look** (record the date in the Build log)
+- [x] **The user has explicitly approved the look** (record the date in the Build log)
 
 **Out of scope:** LLM, sources, Instagram.
 
@@ -306,9 +321,9 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 7. Tests with recorded fixtures (no live network in CI): URL canonicalisation, title Jaccard, rotation rules, fallback chain.
 
 **Acceptance:**
-- [ ] A live `gather` run locally returns at least 10 candidates across at least 5 faculties, each with `source.txt` content
-- [ ] A seeded `posted.json` duplicate is rejected by each of the 4 checks (one test per check)
-- [ ] Faculty rotation holds over a simulated 20-post sequence
+- [x] A live `gather` run locally returns at least 10 candidates across at least 5 faculties, each with `source.txt` content (`--no-llm`, 2026-10-16: 60 candidates, 13 faculties)
+- [x] A seeded `posted.json` duplicate is rejected by each of the 4 checks (one test per check)
+- [x] Faculty rotation holds over a simulated 20-post sequence
 - [ ] Stays within Gemini free-tier limits (log the number of calls per run)
 
 **Out of scope:** writing slide copy.
@@ -452,3 +467,5 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 | 2026-10-16 | 1 | Scaffold pushed to github.com/mbutler98/waypoint-daily (public); CI green (ruff + 38 tests). Repo lives in the `waypoint-daily/` subfolder; this copy of PLAN.md is canonical. Added `status` (published/rejected/failed) to PostedEntry and documented it in 3.3. `.gitattributes` forces LF. Actions pinned: checkout v7.0.1, setup-uv v9.0.0. Gemini model and IG API version in config are placeholders for Phases 3/5 to verify. Pages not enabled yet: GitHub needs the `gh-pages` branch to exist, so do it in Phase 6. CI warns `ubuntu-latest` moves to Ubuntu 26 from 2026-10-19; recheck Playwright deps in Phase 2. |
 | 2026-10-16 | 2 | Renderer + 3 samples on branch `phase-2` (CI green on Ubuntu, incl. golden image made on Windows). Templates in `waypoint/render/templates/`; visuals.js vendored at Daily_quiz `dcb5a35`, re-skinned by CSS only. New 4.1 rules: figure legibility floor (card >= 360 px, figure text >= 18 px) and diagram colour folding (cold -> blue, hot -> accent yellow). Diagram text sizes raised slightly for phones. Fixed the Phase 1 fixture chart to real visuals.js format. Daily_quiz has no licence file; credit kept in README. **Awaiting user approval of the look; merge `phase-2` to `main` only after sign-off.** |
 | 2026-10-16 | 2 | User feedback round 1 ("less mini textbook, more story with a payoff"): swipe hint on slide 1; insight numbering dropped; last slide is now an editorial sign-off (takeaway + fixed brand promise from config, `brand.cta_lines` replaced by `signoff_kicker`/`signoff_lines`/`caption_cta`); "Save this" moved to the caption; takeaway limits ≤ 8 / ≤ 14 words in models; 4.2 gains the story arc and tension-led hooks; Phase 8 gains the sign-off A/B test. Short figures (e.g. timelines) now get a snug card instead of a stretched one. Samples rewritten as stories; history hook shortened to "Not always for the better" because "Not necessarily…" broke the 3-line hook limit. Golden image regenerated. Still awaiting look approval. |
+| 2026-10-16 | 2 | **Look approved**: the user merged PR #1 (`phase-2` → `main`). |
+| 2026-10-16 | 3 | Gather/select/dedupe on branch `phase-3`. Feeds verified live: ScienceDaily (9 sections), phys.org (3), Quanta, NASA, The Conversation (tech/environment/health/business), Smithsonian (3), HN, arXiv (HTML full text), Wikipedia featured + DYK, Wikipedia categories per faculty (also the fallback). Dropped: EurekAlert! (all RSS URLs 404), NASA APOD (DEMO_KEY 500, texts < 300 words), Conversation /science (404). Gemini: 2.5 Flash is closed to new projects, so config now uses `gemini-3.8-flash` (writer) and `gemini-3.5-flash-lite` (`fast_model`: triage, safety, dedupe-4); per-model free RPM/RPD are only shown in AI Studio, so `requests_per_minute: 8` stays conservative. One batched triage call labels 10 candidates (faculty, topic, key claim, surprise, safety); labels are cached in `.cache/triage.json`. Estimated calls per run: about 6 triage + 2 embed + 1 dedupe-4 (+1–2 if the fallback runs), against a budget of 100. `Candidate` added to models (3.2.1). Live `--no-llm` run: 60 candidates, 13 faculties, 162 HTTP requests, ~2 min. **Open:** a live run with Gemini needs `GEMINI_API_KEY` (in `.env` locally) to confirm the call count; then tick the last box. |
