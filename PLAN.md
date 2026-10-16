@@ -160,6 +160,8 @@ Append-only. Never rewrite history. Rejected drafts are also recorded, with `"st
 - **Brand marks:** diamond logo (from `assets/icon.svg`, stroke `#f4d64a`) plus "Waypoint" in Inter 600 at the bottom-left of every slide. Counter at the bottom-right. The CTA slide shows the logo large, centred.
 - **Consistency:** every post uses the same 5-slide skeleton. Text auto-fits by stepping down through the allowed sizes; if it still overflows at the minimum, rendering **fails** (the writer must shorten). Never shrink below the minimums.
 - **Charts and diagrams:** follow Waypoint's rules. The title states the takeaway; grey context with one highlighted mark; direct labels; no gridlines; a source line. Re-skin through CSS variables only; do not fork the renderer logic.
+- **Figures must stay legible** (added in Phase 2): on a figure slide, rendering fails if the figure card is under 360 px tall or any figure text renders under 18 px after scaling. Tall figures (e.g. the portrait refrigeration-cycle diagram) need short copy: about a one-line headline and a body of ≤ 20 words. The Phase 4 writer prompt must say so.
+- **Diagram colours** (Phase 2): `visuals.js` colours diagrams with a Manim-style rainbow. CSS folds it into the brand palette: cold/blue/teal/green → chart blue `#5A82F5`, hot/warm/gold/yellow → accent `#f4d64a`, everything else → context grey. Line charts hide the legend because every series is labelled at its end.
 
 ### 4.2 Voice and copy rules
 
@@ -269,9 +271,9 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 9. Render one deliberately over-long copy fixture and check that it fails loudly.
 
 **Acceptance:**
-- [ ] `samples/` holds 3 × 5 JPEGs at 1080×1350, each under 1 MB, plus contact sheets
-- [ ] Checked visually (open the images): margins, bottom 140 px clear, logo and counter on every slide, one accent colour, no HUD styling
-- [ ] The diagram and chart render crisply in the new style
+- [x] `samples/` holds 3 × 5 JPEGs at 1080×1350, each under 1 MB, plus contact sheets
+- [x] Checked visually (open the images): margins, bottom 140 px clear, logo and counter on every slide, one accent colour, no HUD styling
+- [x] The diagram and chart render crisply in the new style
 - [ ] Rendering works on Windows locally and in CI (Ubuntu, using `playwright install --with-deps chromium`)
 - [ ] **The user has explicitly approved the look** (record the date in the Build log)
 

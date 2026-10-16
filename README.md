@@ -4,7 +4,7 @@
 
 An automated Instagram account that posts a 5-slide educational carousel twice a day, on topics from heat pumps to honeybees. Each post has a hook, three short insights and a follow/save call to action. It runs entirely on free tiers: GitHub Actions, GitHub Pages and the Gemini API free tier.
 
-> **Status:** Phase 1 (scaffold). The CLI commands are stubs. See [PLAN.md](PLAN.md) for the build plan.
+> **Status:** Phase 2 (design system and slide renderer), awaiting sign-off on the samples in [`samples/`](samples/). Other CLI commands are still stubs. See [PLAN.md](PLAN.md) for the build plan.
 
 ## How it works
 
@@ -40,7 +40,14 @@ uv run python -m waypoint --help
 uv run pytest
 ```
 
-From Phase 2 on, rendering also needs a headless browser: `uv run playwright install chromium` (on Linux CI: `--with-deps chromium`).
+Rendering also needs a headless browser, installed once: `uv run playwright install chromium` (on Linux: `--with-deps chromium`). Then:
+
+```
+uv run python -m waypoint sample                    # re-render samples/*/post.json in place
+uv run python -m waypoint render drafts/<id>        # render one draft's post.json
+```
+
+Each render writes `slides/01.jpg … 05.jpg` (1080×1350, JPEG q90, sRGB) and a `preview.png` contact sheet. If a slide's copy doesn't fit at the minimum type sizes, or a figure would be too small to read, the render fails and writes nothing.
 
 Secrets (`GEMINI_API_KEY`, `IG_USER_ID`, `IG_ACCESS_TOKEN`, `GH_PAT`) live in GitHub Actions secrets. For local runs, put them in a `.env` file. It is gitignored, so never commit it.
 
@@ -51,6 +58,7 @@ config.yaml        slots, timezone, approval and dry-run flags, topic weights, l
 waypoint/          Python package (python -m waypoint <command>)
   models.py        post.json and posted.json contracts
   config.py        config loader and validation
+  render/          Playwright renderer + templates/ (slide.html, tokens.css, Inter, vendored visuals.js)
 state/posted.json  append-only record of every published or rejected post
 drafts/            one folder per draft: drafts/<date>-<am|pm>/
 samples/           design samples (Phase 2)

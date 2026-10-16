@@ -29,10 +29,9 @@
         "type": "chart",
         "kind": "column",
         "title": "A heat pump gives about 3x the heat",
-        "data": [
-          { "label": "Electric heater", "value": 1 },
-          { "label": "Heat pump", "value": 3, "highlight": true }
-        ],
+        "data": [["Electric heater", 1], ["Heat pump", 3]],
+        "highlight": 1,
+        "suffix": "x",
         "source": "U.S. Department of Energy"
       }
     },

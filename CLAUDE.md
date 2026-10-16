@@ -25,3 +25,6 @@ uv run ruff check                  # lint (CI runs both)
 - `state/posted.json` is append-only. Never rewrite history.
 - If any step fails, post nothing for that slot and record why. No partial carousels.
 - Keep model names, API versions and limits in config.yaml, not in code.
+- Slide look lives in `waypoint/render/templates/` (tokens.css, slide.css). Never edit the vendored
+  `visuals.js`; re-skin with CSS. A look change must update the golden image on purpose:
+  `WAYPOINT_UPDATE_GOLDEN=1 uv run pytest tests/test_render.py`, then inspect it.

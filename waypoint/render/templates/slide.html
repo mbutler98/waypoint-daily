@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Waypoint slide</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="slide.css">
+<script src="vendor/visuals.js"></script>
+</head>
+<body class="static">
+<div id="root"></div>
+<script>
+/* Slide renderer. render.py calls WPS.render(data) once per slide, then screenshots.
+   data = { slide, index (1-based), total, brand: { name, handle, tagline }, animate }
+   WPS.render throws an Error starting "OVERFLOW:" if the copy cannot fit at the
+   minimum allowed sizes (PLAN.md 4.1): the writer must shorten it. */
+(function () {
+  "use strict";
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const css = getComputedStyle(document.documentElement);
+  const sizes = (name) => css.getPropertyValue(name).split(",").map((x) => parseFloat(x));
+  const HOOK = sizes("--hook-sizes");
+  const IHEAD = sizes("--insight-head-sizes");
+  const BODY = sizes("--body-sizes");
+  const HOOK_MAX_LINES = 3;
+  const FIG_MIN_TEXT_PX = 18;   // smallest legible text inside a figure, after scaling
+  const FIG_MIN_HEIGHT = 360;   // smallest figure card
+
+  const footer = (d) => `
+    <div class="footer">
+      <div class="brand"><img src="logo.svg" alt="">${esc(d.brand.name)}</div>
+      <div class="counter">${d.index} / ${d.total}</div>
+    </div>`;
+
+  function markup(d) {
+    const s = d.slide;
+    if (s.type === "hook") {
+      return `<div class="slide hook"><div class="content">
+        <div class="kicker">${esc(s.kicker)}</div>
+        <h1 class="hook-headline" data-fit="hook">${esc(s.headline)}</h1>
+      </div>${footer(d)}</div>`;
+    }
+    if (s.type === "insight") {
+      const fig = s.figure ? WPV.render(s.figure, { static: !d.animate, compact: true }) : "";
+      if (s.figure && !fig) throw new Error("FIGURE: visuals.js could not render this figure spec");
+      return `<div class="slide insight ${fig ? "with-figure" : "text-only"}"><div class="content">
+        <div class="insight-n">${String(s.n).padStart(2, "0")}</div>
+        <h2 class="insight-headline" data-fit="ihead">${esc(s.headline)}</h2>
+        <p class="body" data-fit="body">${esc(s.body)}</p>
+        ${fig ? `<div class="fig-card">${fig}</div>` : ""}
+      </div>${footer(d)}</div>`;
+    }
+    if (s.type === "cta") {
+      return `<div class="slide cta"><div class="content">
+        <img class="cta-logo" src="logo.svg" alt="">
+        <h2 class="cta-headline">${esc(s.headline)}</h2>
+        <p class="cta-body">${esc(s.body)}</p>
+        <p class="cta-tagline">${esc(d.brand.tagline)}</p>
+        <p class="cta-handle">${esc(d.brand.handle)}</p>
+      </div>${footer(d)}</div>`;
+    }
+    throw new Error("unknown slide type " + s.type);
+  }
+
+  const lines = (el) => Math.round(el.getBoundingClientRect().height / parseFloat(getComputedStyle(el).lineHeight));
+  const overflowsX = (el) => el.scrollWidth > el.clientWidth + 1;
+
+  // Smallest rendered font size (px) of any SVG text in the figure, after viewBox scaling.
+  function smallestFigureText(card) {
+    let min = Infinity;
+    card.querySelectorAll("svg").forEach((svg) => {
+      const vb = svg.viewBox.baseVal;
+      if (!vb || !vb.width) return;
+      const r = svg.getBoundingClientRect();
+      const scale = Math.min(r.width / vb.width, r.height / vb.height);
+      svg.querySelectorAll("text").forEach((t) => {
+        if (getComputedStyle(t).display === "none" || !t.textContent.trim()) return;
+        min = Math.min(min, parseFloat(getComputedStyle(t).fontSize) * scale);
+      });
+    });
+    return min;
+  }
+
+  // Problems with the current layout, or [] if it fits.
+  function problems(root) {
+    const out = [];
+    const content = root.querySelector(".content");
+    if (content.scrollHeight > content.clientHeight + 1) out.push(`text is ${content.scrollHeight - content.clientHeight}px too tall`);
+    root.querySelectorAll("[data-fit]").forEach((el) => {
+      if (overflowsX(el)) out.push(`a word in the ${el.dataset.fit} is too wide for the slide`);
+    });
+    const hook = root.querySelector(".hook-headline");
+    if (hook && lines(hook) > HOOK_MAX_LINES) out.push(`hook takes ${lines(hook)} lines (max ${HOOK_MAX_LINES})`);
+    const card = root.querySelector(".fig-card");
+    if (card) {
+      const h = card.getBoundingClientRect().height;
+      if (h < FIG_MIN_HEIGHT) out.push(`figure is ${Math.round(h)}px tall (min ${FIG_MIN_HEIGHT})`);
+      const t = smallestFigureText(card);
+      if (t < FIG_MIN_TEXT_PX) out.push(`figure text is ${t.toFixed(1)}px (min ${FIG_MIN_TEXT_PX})`);
+      card.querySelectorAll(".v-title, .s-title, .v-sub, .v-src").forEach((el) => {
+        if (overflowsX(el)) out.push("figure title or source line is too wide");
+      });
+    }
+    return out;
+  }
+
+  // Step every fitted element down through its allowed sizes together; never go below the last.
+  function fit(root) {
+    const els = [...root.querySelectorAll("[data-fit]")];
+    const ladder = { hook: HOOK, ihead: IHEAD, body: BODY };
+    const steps = Math.max(1, ...els.map((el) => ladder[el.dataset.fit].length));
+    let last = [];
+    for (let i = 0; i < steps; i++) {
+      els.forEach((el) => {
+        const l = ladder[el.dataset.fit];
+        el.style.fontSize = l[Math.min(i, l.length - 1)] + "px";
+      });
+      last = problems(root);
+      if (!last.length) return els.map((el) => [el.dataset.fit, parseFloat(el.style.fontSize)]);
+    }
+    throw new Error("OVERFLOW: " + last.join("; "));
+  }
+
+  function render(d) {
+    document.body.classList.toggle("static", !d.animate);
+    const root = document.getElementById("root");
+    root.innerHTML = markup(d);
+    if (d.animate) WPV.mount(root);
+    else root.querySelectorAll("svg").forEach((svg) => svg.pauseAnimations && svg.pauseAnimations());
+    return { sizes: fit(root) };
+  }
+
+  window.WPS = { render };
+})();
+</script>
+</body>
+</html>
