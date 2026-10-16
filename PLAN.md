@@ -1,6 +1,6 @@
 # Waypoint Daily — Build Plan
 
-An automated Instagram account that posts a 5-slide educational carousel twice a day on a wide range of topics (HVAC to animals). Each post: an engaging hook, three insights, a call to action to follow and save. Free to run. Visual identity and rendering engine derived from the Waypoint repo.
+An automated Instagram account that posts a 5-slide educational carousel twice a day on a wide range of topics (HVAC to animals). Each post is a short story with a surprising payoff: a hook built on tension, three slides that each do a different job, and a branded sign-off with a memorable takeaway that earns the follow. Free to run. Visual identity and rendering engine derived from the Waypoint repo.
 
 This file is the hand-off document for a sequence of build agents. **Each agent: read sections 1–4 in full, then do only your phase in section 5.** Do not start a later phase. When you finish, tick your phase's acceptance checklist in this file and add a short entry to section 7 (Build log).
 
@@ -113,7 +113,8 @@ Every stage reads or writes this. Phase 1 defines it as pydantic models; later p
     { "type": "insight", "n": 1, "headline": "≤ 8 words", "body": "≤ 30 words", "figure": null },
     { "type": "insight", "n": 2, "headline": "…", "body": "…", "figure": { /* visuals.js spec or manim template call */ } },
     { "type": "insight", "n": 3, "headline": "…", "body": "…", "figure": null },
-    { "type": "cta",     "headline": "Follow for two a day.", "body": "Save this so it sticks." }
+    { "type": "cta",     "headline": "Civilisation started with a trade-off.",          // the takeaway, ≤ 8 words
+                         "body": "More food. Bigger societies. A new set of problems." } // support line, ≤ 14 words
   ],
   "caption": "…",                        // ≤ 2,200 chars; restates the 3 points + source credit
   "hashtags": ["#science", "#hvac"],     // max 5
@@ -124,6 +125,8 @@ Every stage reads or writes this. Phase 1 defines it as pydantic models; later p
   "ig_permalink": null
 }
 ```
+
+The `cta` slide is the **sign-off** (renamed in Phase 2 in spirit; the type name stays `cta`). Its `headline` and `body` are written per post. The fixed brand lines around them (`<name> · Today's takeaway`, "Stay curious.", "Two ideas worth knowing. Every day.", the handle) come from `config.yaml` → `brand`.
 
 `figure` is either a Waypoint `visuals.js` spec (`{"type":"chart",...}` or `{"type":"diagram",...}`) or `{"type":"manim","template":"cycle","params":{...}}` (Phase 7).
 
@@ -157,7 +160,8 @@ Append-only. Never rewrite history. Rejected drafts are also recorded, with `"st
   - Counter (e.g. `2 / 5`): 26 px, weight 500, muted
   - Build hierarchy from size and weight, not colour.
 - **Layout:** left-aligned text, generous negative space, one idea per slide. Figures sit in a card with rounded corners (radius 36 px), fill `rgba(255,255,255,0.04)` and a 1 px hairline border. Depth comes from subtle layering, never glow.
-- **Brand marks:** diamond logo (from `assets/icon.svg`, stroke `#f4d64a`) plus "Waypoint" in Inter 600 at the bottom-left of every slide. Counter at the bottom-right. The CTA slide shows the logo large, centred.
+- **Brand marks:** diamond logo (from `assets/icon.svg`, stroke `#f4d64a`) plus "Waypoint" in Inter 600 at the bottom-left of every slide. Counter at the bottom-right. Slide 1 adds a muted "Swipe →" beside the counter. Insight slides carry no "01/02/03" numbering (it read like a textbook).
+- **Sign-off slide** (Phase 2, from user feedback): an editorial, left-aligned closing card that is the same on every topic. Accent kicker `WAYPOINT · TODAY'S TAKEAWAY`, the post's takeaway (96–80 px, 700), one support line (body style), a hairline, then "Stay curious." / "Two ideas worth knowing. Every day." / `@waypoint.daily`. It ends the story instead of asking for a follow; "Save this" lives in the caption only.
 - **Consistency:** every post uses the same 5-slide skeleton. Text auto-fits by stepping down through the allowed sizes; if it still overflows at the minimum, rendering **fails** (the writer must shorten). Never shrink below the minimums.
 - **Charts and diagrams:** follow Waypoint's rules. The title states the takeaway; grey context with one highlighted mark; direct labels; no gridlines; a source line. Re-skin through CSS variables only; do not fork the renderer logic.
 - **Figures must stay legible** (added in Phase 2): on a figure slide, rendering fails if the figure card is under 360 px tall or any figure text renders under 18 px after scaling. Tall figures (e.g. the portrait refrigeration-cycle diagram) need short copy: about a one-line headline and a body of ≤ 20 words. The Phase 4 writer prompt must say so.
@@ -167,10 +171,13 @@ Append-only. Never rewrite history. Rejected drafts are also recorded, with `"st
 
 - Plain English at a reading age of about 12 (Flesch-Kincaid grade ≤ 7, checked with `textstat` in the writer's validation).
 - Hook ≤ 12 words. Insight headline ≤ 8 words. Insight body ≤ 30 words. No jargon unless it's explained in the same slide.
-- Hook patterns: surprising fact; myth vs reality; "you've been doing X wrong"; big-number contrast; "why does…?" question. The hook must be **true and supported by the source**. No "you won't believe", no outrage bait.
+- **Tell a story, not a textbook.** Each swipe has a different job: hook (tension) → discovery → complication → payoff → sign-off (takeaway). The payoff should resolve the tension the hook set up.
+- **Lead with tension, not a category label.** The kicker gives context; the headline does the work. Hook patterns: a contradiction ("Farming changed everything. Not always for the better."); surprising consequence; myth vs reality; big-number contrast; a "why does…?" question with an answer worth swiping for. The hook must be **true and supported by the source**. No "you won't believe", no outrage bait.
+- **One simple visual** on an information-heavy slide (chart, diagram or a small timeline) so the five slides don't look alike. Optional, never decorative.
+- **Takeaway** (sign-off headline): ≤ 8 words, memorable, true to the source, works as a standalone line. Support line ≤ 14 words. No "follow"/"save" asks on any slide.
 - At most 1 emoji per post, and never in headlines.
-- CTA slide text is fixed per brand (stored in config): "Follow for two a day." / "Save this so it sticks." / "1% smarter, twice a day."
-- Caption: line 1 repeats the hook, then the 3 points as short lines, then `Source: <publisher> — <title>`, then the CTA, then ≤ 5 hashtags (Instagram now caps hashtags; check the current limit).
+- Sign-off brand lines are fixed in config (`brand.signoff_kicker`, `brand.signoff_lines`); only the takeaway changes per post. The tagline "1% smarter, twice a day." stays the account tagline (bio, README) but is no longer on the slides.
+- Caption: line 1 repeats the hook, then the story in short paragraphs (discovery, "The catch?", "The payoff?"), then `Source: <publisher> — <title>`, then the `brand.caption_cta` lines ("Save this for your next curiosity rabbit hole." / "Follow @waypoint.daily for two ideas worth knowing, every day."), then ≤ 5 hashtags, one of them `#WaypointDaily` (Instagram now caps hashtags; check the current limit).
 
 ### 4.3 Accuracy and rights
 
@@ -211,7 +218,7 @@ GitHub Actions secrets. Never commit them; never print them in logs.
 | `IG_ACCESS_TOKEN` | long-lived Instagram User access token (60-day life) |
 | `GH_PAT` | fine-grained PAT, this repo only, **Secrets: read/write**, used to save the refreshed IG token. The default `GITHUB_TOKEN` cannot write secrets. |
 
-`config.yaml` keys (minimum): `timezone: America/Toronto`, `slots: {am: "08:00", pm: "18:00"}`, `draft_time: "20:00"`, `require_approval: true`, `dry_run: true`, `faculties: {...weights}`, `limits: {...}`, `brand: {handle, tagline, cta_lines}`, `pages_base_url`, `media_retention_days: 14`.
+`config.yaml` keys (minimum): `timezone: America/Toronto`, `slots: {am: "08:00", pm: "18:00"}`, `draft_time: "20:00"`, `require_approval: true`, `dry_run: true`, `faculties: {...weights}`, `limits: {...}`, `brand: {name, handle, tagline, signoff_kicker, signoff_lines, caption_cta}`, `pages_base_url`, `media_retention_days: 14`.
 
 **Gemini free-tier caveats:** model names and rate limits change. Verify the current free model (a "Flash" model) and its limits in Google's docs at implementation time, and keep the model name in config. Use the `google-genai` SDK with structured JSON output (`response_schema`). Free-tier prompts may be used by Google to improve its products; that is acceptable because all inputs are public articles. Never send secrets or personal data.
 
@@ -315,7 +322,7 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 **User actions:** read 5–10 generated drafts and give feedback on voice. Tune the prompts until they're good.
 
 **Tasks:**
-1. `write/prompts/writer.md`: system prompt carrying all of 4.2 and 4.3, the slide skeleton, hook patterns, two good and two bad examples, and the instruction "only use facts present in SOURCE". Output uses structured JSON matching the `slides`/`caption`/`hashtags`/`alt_text`/`key_claim` parts of 3.2.
+1. `write/prompts/writer.md`: system prompt carrying all of 4.2 and 4.3, the story arc (each slide's job) and the takeaway rules, the slide skeleton, hook patterns, the 3 rewritten `samples/*/post.json` as reference, two good and two bad examples, and the instruction "only use facts present in SOURCE". Output uses structured JSON matching the `slides`/`caption`/`hashtags`/`alt_text`/`key_claim` parts of 3.2.
 2. Figure choice: the writer may add **at most 2** figures, each a valid `visuals.js` `chart` or `diagram` spec. Give it the spec docs (summarised from the top of `visuals.js`) and 3 examples taken from `content/visuals.js` and `content/diagrams.js`. Figures are optional; text-only is fine.
 3. `write/factcheck.py`: a second Gemini call with SOURCE and the draft. It returns, for each claim, `{claim, supported: bool, evidence_quote}`. Then the programmatic number check (4.3).
    - Any failure → one rewrite with the failures attached → re-check → if it still fails, discard the candidate and try the next one.
@@ -420,7 +427,7 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 
 ### Phase 8 (later): learn from performance
 
-**Tasks:** fetch insights (reach, saves, shares) for each post through the API (verify the available metrics). Store them in `state/metrics.json`. Weekly, adjust faculty weights and hook-pattern weights within bounds. Write a weekly summary Issue. Never change the visual identity automatically.
+**Tasks:** fetch insights (reach, saves, shares, follows) for each post through the API (verify the available metrics). Store them in `state/metrics.json`. A/B test the sign-off: the takeaway-led ending (default) against a direct "Follow for two ideas a day" ending, measured as follows per reach; add a config flag for the variant. Weekly, adjust faculty weights and hook-pattern weights within bounds. Write a weekly summary Issue. Never change the visual identity automatically.
 
 ---
 
@@ -444,3 +451,4 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 | 2026-10-16 | Plan | Plan written. Decisions: public repo, approval at launch, Gemini free, Waypoint brand. |
 | 2026-10-16 | 1 | Scaffold pushed to github.com/mbutler98/waypoint-daily (public); CI green (ruff + 38 tests). Repo lives in the `waypoint-daily/` subfolder; this copy of PLAN.md is canonical. Added `status` (published/rejected/failed) to PostedEntry and documented it in 3.3. `.gitattributes` forces LF. Actions pinned: checkout v7.0.1, setup-uv v9.0.0. Gemini model and IG API version in config are placeholders for Phases 3/5 to verify. Pages not enabled yet: GitHub needs the `gh-pages` branch to exist, so do it in Phase 6. CI warns `ubuntu-latest` moves to Ubuntu 26 from 2026-10-19; recheck Playwright deps in Phase 2. |
 | 2026-10-16 | 2 | Renderer + 3 samples on branch `phase-2` (CI green on Ubuntu, incl. golden image made on Windows). Templates in `waypoint/render/templates/`; visuals.js vendored at Daily_quiz `dcb5a35`, re-skinned by CSS only. New 4.1 rules: figure legibility floor (card >= 360 px, figure text >= 18 px) and diagram colour folding (cold -> blue, hot -> accent yellow). Diagram text sizes raised slightly for phones. Fixed the Phase 1 fixture chart to real visuals.js format. Daily_quiz has no licence file; credit kept in README. **Awaiting user approval of the look; merge `phase-2` to `main` only after sign-off.** |
+| 2026-10-16 | 2 | User feedback round 1 ("less mini textbook, more story with a payoff"): swipe hint on slide 1; insight numbering dropped; last slide is now an editorial sign-off (takeaway + fixed brand promise from config, `brand.cta_lines` replaced by `signoff_kicker`/`signoff_lines`/`caption_cta`); "Save this" moved to the caption; takeaway limits ≤ 8 / ≤ 14 words in models; 4.2 gains the story arc and tension-led hooks; Phase 8 gains the sign-off A/B test. Short figures (e.g. timelines) now get a snug card instead of a stretched one. Samples rewritten as stories; history hook shortened to "Not always for the better" because "Not necessarily…" broke the 3-line hook limit. Golden image regenerated. Still awaiting look approval. |

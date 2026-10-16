@@ -12,46 +12,108 @@
   },
   "key_claim": "Compounding means returns earn returns, so most long-term growth comes late, and fees compound against you too.",
   "slides": [
-    { "type": "hook", "kicker": "Investing", "headline": "Leave $10,000 alone for 30 years. Get $76,000." },
     {
-      "type": "insight", "n": 1,
+      "type": "hook",
+      "kicker": "Investing",
+      "headline": "The same $10,000 can become $32,000 or $76,000."
+    },
+    {
+      "type": "insight",
+      "n": 1,
       "headline": "Returns earn returns",
       "body": "At 7% a year, $10,000 grows to about $19,700 in 10 years. After that it speeds up, because each year builds on a bigger pile.",
       "figure": null
     },
     {
-      "type": "insight", "n": 2,
-      "headline": "A few points, a huge gap",
-      "body": "Over 30 years, 7% a year ends with more than double what 4% does.",
-      "figure": {
-        "type": "chart", "kind": "line",
-        "title": "Value of $10,000 invested, $ thousands",
-        "x": ["0", "5", "10", "15", "20", "25", "30 yrs"],
-        "series": [
-          { "name": "7% a year", "values": [10, 14, 19.7, 27.6, 38.7, 54.3, 76.1], "highlight": true },
-          { "name": "4% a year", "values": [10, 12.2, 14.8, 18, 21.9, 26.7, 32.4] },
-          { "name": "Cash at 0%", "values": [10, 10, 10, 10, 10, 10, 10] }
-        ],
-        "prefix": "$", "suffix": "k", "decimals": 0,
-        "note": "Illustrative: one lump sum, compounded yearly, before fees and taxes."
-      }
-    },
-    {
-      "type": "insight", "n": 3,
+      "type": "insight",
+      "n": 2,
       "headline": "Fees compound too, against you",
       "body": "On $100,000 over 30 years, a 2% yearly fee instead of 0.2% can cost you over $200,000.",
       "figure": null
     },
-    { "type": "cta", "headline": "Follow for two a day.", "body": "Save this so it sticks." }
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "A few points, a huge gap",
+      "body": "Over 30 years, 7% a year ends with more than double what 4% does.",
+      "figure": {
+        "type": "chart",
+        "kind": "line",
+        "title": "Value of $10,000 invested, $ thousands",
+        "x": [
+          "0",
+          "5",
+          "10",
+          "15",
+          "20",
+          "25",
+          "30 yrs"
+        ],
+        "series": [
+          {
+            "name": "7% a year",
+            "values": [
+              10,
+              14,
+              19.7,
+              27.6,
+              38.7,
+              54.3,
+              76.1
+            ],
+            "highlight": true
+          },
+          {
+            "name": "4% a year",
+            "values": [
+              10,
+              12.2,
+              14.8,
+              18,
+              21.9,
+              26.7,
+              32.4
+            ]
+          },
+          {
+            "name": "Cash at 0%",
+            "values": [
+              10,
+              10,
+              10,
+              10,
+              10,
+              10,
+              10
+            ]
+          }
+        ],
+        "prefix": "$",
+        "suffix": "k",
+        "decimals": 0,
+        "note": "Illustrative: one lump sum, compounded yearly, before fees and taxes."
+      }
+    },
+    {
+      "type": "cta",
+      "headline": "Small differences become big ones, given time.",
+      "body": "That works for your returns, and against you on fees."
+    }
   ],
-  "caption": "Leave $10,000 alone for 30 years. Get $76,000.\n\n1. Returns earn returns, so growth speeds up over time.\n2. At 7% a year you end with more than double what 4% gives you.\n3. Fees compound too: 2% instead of 0.2% can cost over $200,000.\n\nIllustrative numbers, before fees and taxes. Not financial advice.\n\nSource: Waypoint — Compounding and Index Funds\n\nFollow for two a day. Save this so it sticks.",
-  "hashtags": ["#investing", "#compounding", "#personalfinance", "#money"],
+  "caption": "The same $10,000 can become $32,000 or $76,000.\n\nReturns earn returns: at 7% a year, $10,000 grows to about $19,700 in 10 years, then speeds up.\n\nThe catch? Fees compound too. On $100,000 over 30 years, a 2% yearly fee instead of 0.2% can cost over $200,000.\n\nThe payoff: over 30 years, 7% a year ends with more than double what 4% does.\n\nIllustrative numbers, before fees and taxes. Not financial advice.\n\nSource: Waypoint — Compounding and Index Funds\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Investing",
+    "#Compounding",
+    "#PersonalFinance",
+    "#Money",
+    "#WaypointDaily"
+  ],
   "alt_text": [
-    "Title slide: Leave $10,000 alone for 30 years. Get $76,000.",
+    "Title slide: The same $10,000 can become $32,000 or $76,000.",
     "At 7% a year, $10,000 grows to about $19,700 in 10 years, then speeds up.",
-    "Line chart: $10,000 at 7% a year reaches $76,000 after 30 years, at 4% it reaches $32,000, and cash at 0% stays at $10,000.",
     "A 2% yearly fee instead of 0.2% can cost over $200,000 on $100,000 over 30 years.",
-    "Follow for two a day. Save this so it sticks."
+    "Line chart: $10,000 at 7% a year reaches $76,000 after 30 years, at 4% it reaches $32,000, and cash at 0% stays at $10,000.",
+    "Today's takeaway: Small differences become big ones, given time. That works for your returns, and against you on fees."
   ],
   "status": "draft",
   "approval_issue": null,

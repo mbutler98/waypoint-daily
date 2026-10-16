@@ -47,6 +47,7 @@
   --hook-sizes: 112, 104, 96;
   --insight-head-sizes: 72, 68, 64;
   --body-sizes: 44, 42, 40;
+  --takeaway-sizes: 96, 88, 80;
   --kicker-size: 28px;
   --counter-size: 26px;
 }

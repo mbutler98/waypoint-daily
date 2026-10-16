@@ -75,7 +75,9 @@ class Brand(_Model):
     name: str = Field(min_length=1)
     handle: str = Field(pattern=r"^@[A-Za-z0-9._]{1,30}$")
     tagline: str = Field(min_length=1)
-    cta_lines: list[str] = Field(min_length=1)
+    signoff_kicker: str = Field(min_length=1)       # small line on the last slide
+    signoff_lines: list[str] = Field(min_length=1)  # fixed brand promise on the last slide
+    caption_cta: list[str] = Field(min_length=1)    # closing lines of every caption
 
 
 class Config(_Model):

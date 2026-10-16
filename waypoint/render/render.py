@@ -88,8 +88,12 @@ def render_post(
     Nothing is written unless every slide renders.
     """
     config = config or load_config()
-    brand = {"name": config.brand.name, "handle": config.brand.handle,
-             "tagline": config.brand.tagline}
+    brand = {
+        "name": config.brand.name,
+        "handle": config.brand.handle,
+        "signoff_kicker": config.brand.signoff_kicker,
+        "signoff_lines": config.brand.signoff_lines,
+    }
     total = len(post.slides)
     pngs: list[bytes] = []
     sizes: list[list[tuple[str, float]]] = []

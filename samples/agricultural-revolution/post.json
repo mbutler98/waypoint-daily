@@ -10,37 +10,142 @@
     "published": null,
     "kind": "evergreen"
   },
-  "key_claim": "Farming let humans build cities, states and writing, but early farmers often lived harder, less healthy lives than foragers.",
+  "key_claim": "Farming let humans build bigger societies and even writing, but early farmers often had worse health than hunter-gatherers.",
   "slides": [
-    { "type": "hook", "kicker": "History", "headline": "Farming built civilisation. It also made life harder." },
     {
-      "type": "insight", "n": 1,
-      "headline": "It started in many places",
-      "body": "About 12,000 years ago, people in several parts of the world began farming on their own. It was not one idea that spread.",
+      "type": "hook",
+      "kicker": "History",
+      "headline": "Farming changed everything. Not always for the better."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "It began in many places at once",
+      "body": "About 12,000 years ago, people in several parts of the world started growing food. Each region worked it out on its own.",
       "figure": null
     },
     {
-      "type": "insight", "n": 2,
-      "headline": "More food, harder lives",
-      "body": "Farming fed far more people. But early farmers were often shorter, had worse teeth and caught more diseases than foragers.",
+      "type": "insight",
+      "n": 2,
+      "headline": "More food, worse health",
+      "body": "Farming fed far more people. But early farmers were often shorter, had worse teeth and caught more diseases than hunter-gatherers.",
       "figure": null
     },
     {
-      "type": "insight", "n": 3,
-      "headline": "Writing began as bookkeeping",
-      "body": "Around 3200 BCE, the Sumerians began writing to track grain and taxes. Many early tablets just count barley and beer.",
-      "figure": null
+      "type": "insight",
+      "n": 3,
+      "headline": "Its strangest legacy? Writing.",
+      "body": "Around 3200 BCE, Sumerians began writing to track grain and taxes. Many early tablets just count barley and beer.",
+      "figure": {
+        "type": "diagram",
+        "title": "Writing came thousands of years after farming",
+        "size": [
+          540,
+          150
+        ],
+        "nodes": [
+          {
+            "id": "a",
+            "at": [
+              80,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "grey"
+          },
+          {
+            "id": "b",
+            "at": [
+              300,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "hot"
+          },
+          {
+            "id": "c",
+            "at": [
+              470,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "grey"
+          },
+          {
+            "id": "ta",
+            "at": [
+              80,
+              90
+            ],
+            "shape": "text",
+            "label": "Farming begins",
+            "sub": "about 10,000 BCE",
+            "color": "white"
+          },
+          {
+            "id": "tb",
+            "at": [
+              300,
+              90
+            ],
+            "shape": "text",
+            "label": "Writing begins",
+            "sub": "around 3200 BCE",
+            "color": "hot"
+          },
+          {
+            "id": "tc",
+            "at": [
+              470,
+              90
+            ],
+            "shape": "text",
+            "label": "Today",
+            "color": "white"
+          }
+        ],
+        "edges": [
+          {
+            "from": "a",
+            "to": "b",
+            "color": "grey",
+            "arrow": false
+          },
+          {
+            "from": "b",
+            "to": "c",
+            "color": "grey",
+            "arrow": false
+          }
+        ]
+      }
     },
-    { "type": "cta", "headline": "Follow for two a day.", "body": "Save this so it sticks." }
+    {
+      "type": "cta",
+      "headline": "Civilisation started with a trade-off.",
+      "body": "More food. Bigger societies. A new set of problems."
+    }
   ],
-  "caption": "Farming built civilisation. It also made life harder.\n\n1. Farming began on its own in several places, about 12,000 years ago.\n2. It fed far more people, but early farmers were often less healthy than foragers.\n3. Writing began around 3200 BCE as a way to track grain and taxes.\n\nSource: Waypoint — The Agricultural Revolution\n\nFollow for two a day. Save this so it sticks.",
-  "hashtags": ["#history", "#archaeology", "#civilisation", "#learnsomethingnew"],
+  "caption": "Farming changed everything. Not always for the better.\n\nAround 12,000 years ago, humans began growing food, independently in multiple parts of the world.\n\nThe payoff? Larger populations and, eventually, complex civilisations.\n\nThe catch? Early farmers often had worse health than hunter-gatherers.\n\nAnd one of farming's surprising legacies? Writing. Some of the earliest written records tracked goods like grain and beer.\n\nThree reminders that progress is rarely as simple as it looks.\n\nSource: Waypoint — The Agricultural Revolution\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#History",
+    "#Archaeology",
+    "#HumanHistory",
+    "#LearnSomethingNew",
+    "#WaypointDaily"
+  ],
   "alt_text": [
-    "Title slide: Farming built civilisation. It also made life harder.",
-    "About 12,000 years ago, people in several parts of the world began farming independently.",
-    "Farming fed more people, but early farmers were often shorter, had worse teeth and more disease than foragers.",
-    "Around 3200 BCE, Sumerians began writing to track grain and taxes.",
-    "Follow for two a day. Save this so it sticks."
+    "Title slide: Farming changed everything. Not always for the better.",
+    "About 12,000 years ago, people in several parts of the world began growing food independently.",
+    "Farming fed more people, but early farmers were often shorter, had worse teeth and more disease than hunter-gatherers.",
+    "Timeline: farming begins about 10,000 BCE, writing begins around 3200 BCE to track grain and taxes, then today.",
+    "Today's takeaway: Civilisation started with a trade-off. More food. Bigger societies. A new set of problems."
   ],
   "status": "draft",
   "approval_issue": null,

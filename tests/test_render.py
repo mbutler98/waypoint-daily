@@ -87,6 +87,17 @@ def test_text_fits_at_largest_sizes(rendered):
     # The fixture's copy is short, so nothing should need to shrink.
     assert rendered.sizes[0] == [("hook", 112.0)]
     assert rendered.sizes[1] == [("ihead", 72.0), ("body", 44.0)]
+    assert rendered.sizes[4] == [("takeaway", 96.0), ("body", 44.0)]
+
+
+def test_swipe_hint_only_on_first_slide(rendered):
+    """The hook shows 'Swipe ->' beside the counter; later slides only show the counter."""
+    def footer_ink(path):
+        with Image.open(path) as im:
+            band = im.convert("L").crop((560, HEIGHT - 190, 860, HEIGHT - 140))
+            return sum(1 for v in band.histogram()[100:] if v)
+    assert footer_ink(rendered.slides[0]) > 0
+    assert footer_ink(rendered.slides[1]) == 0
 
 
 def test_unbreakable_word_fails_loudly(tmp_path):

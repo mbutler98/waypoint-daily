@@ -26,8 +26,9 @@ body {
   flex-direction: column;
 }
 .slide.hook .content,
-.slide.insight.text-only .content { justify-content: center; }
-.slide.cta .content { justify-content: center; align-items: center; text-align: center; }
+.slide.insight.text-only .content,
+.slide.insight.snug .content,
+.slide.cta .content { justify-content: center; }
 
 /* ---------- Type ---------- */
 .kicker {
@@ -44,14 +45,6 @@ body {
   line-height: 1.05;
   color: var(--text);
   text-wrap: balance;
-}
-.insight-n {
-  font-size: var(--kicker-size);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  margin-bottom: 28px;
-  font-variant-numeric: tabular-nums;
 }
 .insight-headline {
   font-weight: 700;
@@ -82,22 +75,22 @@ body {
   overflow: hidden;
 }
 
-/* ---------- CTA ---------- */
-.cta-logo { width: 220px; height: 220px; margin-bottom: 64px; }
-.cta-headline {
-  font-size: 80px;
+/* ---------- Sign-off (last slide): takeaway + repeatable brand signature ---------- */
+.takeaway {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
+  color: var(--text);
+  text-wrap: balance;
 }
-.cta-body { font-size: 44px; line-height: 1.35; color: var(--text-soft); margin-top: 28px; }
-.cta-tagline {
+.signoff {
   margin-top: 72px;
-  font-size: 30px;
-  font-weight: 500;
-  color: var(--muted);
+  padding-top: 40px;
+  border-top: 1px solid var(--line-strong);
 }
-.cta-handle { margin-top: 10px; font-size: 30px; font-weight: 600; color: var(--text); }
+.signoff-lead { font-size: 40px; font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
+.signoff-line { font-size: 32px; color: var(--muted); margin-top: 8px; }
+.signoff-handle { font-size: 32px; font-weight: 600; color: var(--text); margin-top: 8px; }
 
 /* ---------- Footer: logo + name bottom-left, counter bottom-right ---------- */
 .footer {
@@ -112,6 +105,16 @@ body {
 }
 .brand { display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
 .brand img { width: 44px; height: 44px; }
+.footer-right { display: flex; align-items: center; gap: 36px; }
+.swipe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--counter-size);
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.swipe svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .counter {
   display: flex;
   align-items: center;
@@ -133,6 +136,7 @@ body {
    visuals.js figures, restyled (classes from Waypoint's style.css)
    ========================================================== */
 .viz { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; }
+.snug .viz { flex: 0 0 auto; }
 
 /* Shared: title states the takeaway, source line underneath. */
 .v-title, .s-title {
@@ -201,9 +205,6 @@ body {
 .viz [fill="#8A94A6"], .viz [fill="#5b6578"], .viz [fill="#B189C6"] { fill: var(--viz-ctx); }
 .viz [stroke="#ECEFF4"] { stroke: var(--viz-ink); }
 .viz [fill="#ECEFF4"] { fill: var(--viz-ink); }
-/* Diagram box outlines stay neutral; the wires carry the colour. Node labels in text-only
-   nodes keep their colour. Edge labels use their wire's colour. */
-.d-node .d-box[stroke] { stroke: var(--line-strong); }
 
 /* ---------- Static renders: final state, no motion (PLAN.md 4.1) ---------- */
 body.static *, body.static *::before, body.static *::after { transition: none !important; animation: none !important; }

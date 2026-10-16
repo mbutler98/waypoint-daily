@@ -2,7 +2,7 @@
 
 *1% smarter, twice a day.*
 
-An automated Instagram account that posts a 5-slide educational carousel twice a day, on topics from heat pumps to honeybees. Each post has a hook, three short insights and a follow/save call to action. It runs entirely on free tiers: GitHub Actions, GitHub Pages and the Gemini API free tier.
+An automated Instagram account that posts a 5-slide educational carousel twice a day, on topics from heat pumps to honeybees. Each post is a short story: a hook built on tension, three slides (discovery, complication, payoff) and a branded sign-off with a memorable takeaway. It runs entirely on free tiers: GitHub Actions, GitHub Pages and the Gemini API free tier.
 
 > **Status:** Phase 2 (design system and slide renderer), awaiting sign-off on the samples in [`samples/`](samples/). Other CLI commands are still stubs. See [PLAN.md](PLAN.md) for the build plan.
 

@@ -17,6 +17,8 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator, model_valida
 HOOK_MAX_WORDS = 12
 INSIGHT_HEADLINE_MAX_WORDS = 8
 INSIGHT_BODY_MAX_WORDS = 30
+TAKEAWAY_MAX_WORDS = 8  # last slide headline: the post's memorable takeaway
+TAKEAWAY_SUPPORT_MAX_WORDS = 14
 CAPTION_MAX_CHARS = 2200
 MAX_HASHTAGS = 5
 MAX_EMOJI_PER_POST = 1
@@ -157,6 +159,9 @@ class InsightSlide(_Model):
 
 
 class CtaSlide(_Model):
+    """The sign-off slide: the post's takeaway (headline) and one supporting line (body).
+    The fixed brand promise and handle come from config, not from here."""
+
     type: Literal["cta"]
     headline: NonEmptyStr
     body: NonEmptyStr
@@ -164,7 +169,14 @@ class CtaSlide(_Model):
     @field_validator("headline")
     @classmethod
     def _headline(cls, v: str) -> str:
-        return _no_emoji(v, "cta headline")
+        _no_emoji(v, "takeaway")
+        return _max_words(v, TAKEAWAY_MAX_WORDS, "takeaway")
+
+    @field_validator("body")
+    @classmethod
+    def _body(cls, v: str) -> str:
+        _no_emoji(v, "takeaway support line")
+        return _max_words(v, TAKEAWAY_SUPPORT_MAX_WORDS, "takeaway support line")
 
 
 Slide = Annotated[HookSlide | InsightSlide | CtaSlide, Field(discriminator="type")]

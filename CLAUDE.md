@@ -1,6 +1,6 @@
 # Waypoint Daily
 
-Automated Instagram educational carousels (hook → 3 insights → follow/save CTA), twice a day, free to run.
+Automated Instagram educational carousels (tension hook → discovery → complication → payoff → takeaway sign-off), twice a day, free to run.
 
 **Read [PLAN.md](PLAN.md) sections 1–4 before any work, then do only your assigned phase (section 5).**
 When done, tick that phase's acceptance boxes and add a line to the Build log (section 7).
