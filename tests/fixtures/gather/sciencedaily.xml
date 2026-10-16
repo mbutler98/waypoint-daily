@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>Plants &amp; Animals News -- ScienceDaily</title>
+		<link>https://www.sciencedaily.com/news/plants_animals/</link>
+		<description>Drought Research. Read where droughts are predicted, and what can be done about them.</description>
+		<language>en-us</language>
+		<pubDate>Fri, 16 Oct 2026 09:06:34 EDT</pubDate>
+		<lastBuildDate>Fri, 16 Oct 2026 09:06:34 EDT</lastBuildDate>
+		<ttl>60</ttl>
+		<image>
+			<title>Plants &amp; Animals News -- ScienceDaily</title>
+			<url>https://www.sciencedaily.com/images/scidaily-logo-rss.png</url>
+			<link>https://www.sciencedaily.com/news/plants_animals/</link>
+			<description>For more science news, visit ScienceDaily.</description>
+		</image>
+		<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://www.sciencedaily.com/rss/plants_animals.xml" type="application/rss+xml" />
+		<item>
+			<title>“Crawzilla” was huge. Then scientists found an even bigger crayfish</title>
+			<link>https://www.sciencedaily.com/releases/2026/10/261015073220.htm</link>
+			<description>A nationwide search for giant crayfish uncovered a record-breaking Tennessee specimen and a surprising mystery about how big these freshwater creatures can grow. Scientists found that North American crayfish seem to hit a biological size limit, possibly because of their muscles or protective shells.</description>
+			<pubDate>Thu, 15 Oct 2026 23:45:22 EDT</pubDate>
+			<guid isPermaLink="true">https://www.sciencedaily.com/releases/2026/10/261015073220.htm</guid>
+		</item>
+		<item>
+			<title>Scientists discover a plastic-eating “Pac-Man” enzyme with a surprising secret</title>
+			<link>https://www.sciencedaily.com/releases/2026/10/261014015509.htm</link>
+			<description>Scientists have discovered a remarkable “Pac-Man enzyme” that helps bacteria devour certain types of plastic and may offer new hope in the fight against plastic pollution. Researchers found that several biodegradable plastics completely broke down in soil within about a year, while conventional plastic remained largely unchanged.</description>
+			<pubDate>Fri, 16 Oct 2026 06:32:03 EDT</pubDate>
+			<guid isPermaLink="true">https://www.sciencedaily.com/releases/2026/10/261014015509.htm</guid>
+		</item>
+		<item>
+			<title>A fungus is threatening the world’s food supply. Scientists just found a new defense</title>
+			<link>https://www.sciencedaily.com/releases/2026/10/261014015501.htm</link>
+			<description>Scientists have discovered a potential new weapon against a devastating fungus that threatens rice, wheat, and barley worldwide. By engineering a special type of plant immune receptor, researchers created defenses capable of recognizing multiple fungal threats at once. The breakthrough could eventually lead to crops with powerful, long-lasting disease resistance, helping protect a global food supply increasingly threatened by spreading infections and climate change.</description>
+			<pubDate>Thu, 15 Oct 2026 07:45:43 EDT</pubDate>
+			<guid isPermaLink="true">https://www.sciencedaily.com/releases/2026/10/261014015501.htm</guid>
+		</item>
+</channel>
+</rss>

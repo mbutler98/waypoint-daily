@@ -4,7 +4,7 @@
 
 An automated Instagram account that posts a 5-slide educational carousel twice a day, on topics from heat pumps to honeybees. Each post is a short story: a hook built on tension, three slides (discovery, complication, payoff) and a branded sign-off with a memorable takeaway. It runs entirely on free tiers: GitHub Actions, GitHub Pages and the Gemini API free tier.
 
-> **Status:** Phase 2 (design system and slide renderer), awaiting sign-off on the samples in [`samples/`](samples/). Other CLI commands are still stubs. See [PLAN.md](PLAN.md) for the build plan.
+> **Status:** Phase 3 (gather, select, dedupe). The look was signed off in Phase 2 ([`samples/`](samples/)). Writing, publishing and scheduling are still stubs. See [PLAN.md](PLAN.md) for the build plan.
 
 ## How it works
 
@@ -47,6 +47,15 @@ uv run python -m waypoint sample                    # re-render samples/*/post.j
 uv run python -m waypoint render drafts/<id>        # render one draft's post.json
 ```
 
+Gathering candidates (Phase 3):
+
+```
+uv run python -m waypoint gather --no-llm   # sources + dedupe checks 1-2 only, no Gemini key needed
+uv run python -m waypoint gather            # adds Gemini triage, safety label and dedupe checks 3-4
+```
+
+It reads the feeds in `waypoint/gather/feeds.yaml`, fetches politely (1 request/s per host, robots.txt), and writes a ranked shortlist per slot to `.cache/gather/<date>/candidates.json`, with each article's text in `candidates/<slug>/source.txt`. The run prints how many Gemini calls it used.
+
 Each render writes `slides/01.jpg … 05.jpg` (1080×1350, JPEG q90, sRGB) and a `preview.png` contact sheet. If a slide's copy doesn't fit at the minimum type sizes, or a figure would be too small to read, the render fails and writes nothing.
 
 Secrets (`GEMINI_API_KEY`, `IG_USER_ID`, `IG_ACCESS_TOKEN`, `GH_PAT`) live in GitHub Actions secrets. For local runs, put them in a `.env` file. It is gitignored, so never commit it.
@@ -58,6 +67,10 @@ config.yaml        slots, timezone, approval and dry-run flags, topic weights, l
 waypoint/          Python package (python -m waypoint <command>)
   models.py        post.json and posted.json contracts
   config.py        config loader and validation
+  gather/          feeds.yaml, polite fetcher, source adapters, triage, pipeline
+  dedupe.py        the four duplicate checks (PLAN.md 4.5)
+  select.py        faculty rotation, scoring, per-slot fallback chain
+  write/gemini.py  Gemini client: rate limit, retries, per-run call budget
   render/          Playwright renderer + templates/ (slide.html, tokens.css, Inter, vendored visuals.js)
 state/posted.json  append-only record of every published or rejected post
 drafts/            one folder per draft: drafts/<date>-<am|pm>/

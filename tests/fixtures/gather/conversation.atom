@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <id>tag:theconversation.com,2011:/us/technology/articles</id>
+  <link rel="alternate" type="text/html" href="https://theconversation.com"/>
+  <link rel="self" type="application/atom+xml" href="https://theconversation.com/us/technology/articles.atom"/>
+  <title>Science + Tech – The Conversation</title>
+  <updated>2026-10-16T12:21:52Z</updated>
+  <entry>
+    <id>tag:theconversation.com,2011:article/294345</id>
+    <published>2026-10-16T12:21:52Z</published>
+    <updated>2026-10-16T12:21:52Z</updated>
+    <link rel="alternate" type="text/html" href="https://theconversation.com/for-centuries-bird-migration-was-a-mystery-a-tech-revolution-is-changing-that-and-could-help-save-these-amazing-creatures-294345"/>
+    <title>For centuries, bird migration was a mystery – a tech revolution is changing that, and could help save these amazing creatures</title>
+    <content type="html">trimmed</content>
+    <summary>An early clue came from storks found in Europe with African arrows in their bodies. Today, an atlas reveals hundreds of bird migration routes that are both complicated and remarkable.</summary>
+    <author>
+      <name>Peter P. Marra, Dean of The Earth Commons, Professor of Biology and the Environment, Georgetown University</name>
+      <foaf:homepage rdf:resource="https://theconversation.com/profiles/peter-p-marra-2692554"/>
+    </author>
+    <author>
+      <name>Amy L. Scarpignato, Senior Species Recovery Specialist, Road to Recovery, The Earth Commons, Georgetown University</name>
+      <foaf:homepage rdf:resource="https://theconversation.com/profiles/amy-l-scarpignato-2771327"/>
+    </author>
+    <rights>Licensed as Creative Commons – attribution, no derivatives.</rights>
+  </entry>
+  <entry>
+    <id>tag:theconversation.com,2011:article/293926</id>
+    <published>2026-10-15T12:16:35Z</published>
+    <updated>2026-10-15T12:16:35Z</updated>
+    <link rel="alternate" type="text/html" href="https://theconversation.com/using-light-to-control-brain-cells-neuroscientist-karl-deisseroth-explains-how-he-made-his-nobel-winning-discovery-293926"/>
+    <title>Using light to control brain cells – neuroscientist Karl Deisseroth explains how he made his Nobel-winning discovery</title>
+    <content type="html">trimmed</content>
+    <summary>Optogenetics, a field that started with an algae gene, is shedding light on new treatments for eye and neuropsychiatric conditions.</summary>
+    <author>
+      <name>Karl Deisseroth, D. H. Chen Professor, Professor of Bioengineering and of Psychiatry and Behavioral Sciences, Stanford University</name>
+      <foaf:homepage rdf:resource="https://theconversation.com/profiles/karl-deisseroth-2770199"/>
+    </author>
+    <rights>Licensed as Creative Commons – attribution, no derivatives.</rights>
+  </entry>
+</feed>

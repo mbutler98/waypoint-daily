@@ -1,0 +1,209 @@
+# Curated free sources (PLAN.md Phase 3). Every URL was checked live on 2026-10-16.
+# Not used: EurekAlert! RSS (all feed URLs return 404) and NASA APOD (DEMO_KEY returned 500;
+# its explanations are also under the 300-word floor). The Conversation's /science feed is 404.
+#
+# type:      rss | hn | arxiv | wikipedia_featured | wikipedia_category
+# kind:      news | paper | evergreen (AM leans news/paper, PM leans evergreen; config slot_kinds)
+# faculties: hints for triage. With one hint the faculty is fixed; with several (or none)
+#            triage picks one.
+# max_items: optional override of config gather.max_items_per_feed.
+
+feeds:
+  # --- Research and news ------------------------------------------------------------------
+  - id: sciencedaily-top
+    type: rss
+    url: https://www.sciencedaily.com/rss/top/science.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: []
+  - id: sciencedaily-animals
+    type: rss
+    url: https://www.sciencedaily.com/rss/plants_animals.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [Animals & Nature]
+  - id: sciencedaily-space
+    type: rss
+    url: https://www.sciencedaily.com/rss/space_time.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [Space]
+  - id: sciencedaily-health
+    type: rss
+    url: https://www.sciencedaily.com/rss/health_medicine.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [Human Body & Health, Food & Cooking, Sport & Strength]
+  - id: sciencedaily-mind
+    type: rss
+    url: https://www.sciencedaily.com/rss/mind_brain.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [Mind & Behaviour]
+  - id: sciencedaily-matter
+    type: rss
+    url: https://www.sciencedaily.com/rss/matter_energy.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [Everyday Physics & Chemistry, Engineering & Tech, Trades & Home, Flight]
+  - id: sciencedaily-computers
+    type: rss
+    url: https://www.sciencedaily.com/rss/computers_math.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [AI & Computing, Engineering & Tech, Money & Markets]
+  - id: sciencedaily-earth
+    type: rss
+    url: https://www.sciencedaily.com/rss/earth_climate.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [Geography & Earth]
+  - id: sciencedaily-fossils
+    type: rss
+    url: https://www.sciencedaily.com/rss/fossils_ruins.xml
+    publisher: ScienceDaily
+    kind: news
+    faculties: [History, Animals & Nature]
+  - id: physorg-space
+    type: rss
+    url: https://phys.org/rss-feed/space-news/
+    publisher: Phys.org
+    kind: news
+    faculties: [Space]
+  - id: physorg-biology
+    type: rss
+    url: https://phys.org/rss-feed/biology-news/
+    publisher: Phys.org
+    kind: news
+    faculties: [Animals & Nature]
+  - id: physorg-earth
+    type: rss
+    url: https://phys.org/rss-feed/earth-news/
+    publisher: Phys.org
+    kind: news
+    faculties: [Geography & Earth]
+  - id: quanta
+    type: rss
+    url: https://www.quantamagazine.org/feed/
+    publisher: Quanta Magazine
+    kind: news
+    faculties: [Space, Everyday Physics & Chemistry, AI & Computing, Animals & Nature,
+                Human Body & Health, Mind & Behaviour]
+  - id: nasa
+    type: rss
+    url: https://www.nasa.gov/news-release/feed/
+    publisher: NASA
+    kind: news
+    faculties: [Space, Flight]
+  - id: conversation-tech
+    type: rss
+    url: https://theconversation.com/us/technology/articles.atom
+    publisher: The Conversation
+    kind: news
+    faculties: [AI & Computing, Engineering & Tech]
+  - id: conversation-environment
+    type: rss
+    url: https://theconversation.com/us/environment/articles.atom
+    publisher: The Conversation
+    kind: news
+    faculties: [Geography & Earth, Animals & Nature]
+  - id: conversation-health
+    type: rss
+    url: https://theconversation.com/us/health/articles.atom
+    publisher: The Conversation
+    kind: news
+    faculties: [Human Body & Health, Mind & Behaviour, Food & Cooking, Sport & Strength]
+  - id: conversation-business
+    type: rss
+    url: https://theconversation.com/us/business/articles.atom
+    publisher: The Conversation
+    kind: news
+    faculties: [Money & Markets]
+  - id: smithsonian-science
+    type: rss
+    url: https://www.smithsonianmag.com/rss/science-nature/
+    publisher: Smithsonian Magazine
+    kind: news
+    faculties: [Animals & Nature, Space, Geography & Earth, Everyday Physics & Chemistry]
+  - id: smithsonian-history
+    type: rss
+    url: https://www.smithsonianmag.com/rss/history/
+    publisher: Smithsonian Magazine
+    kind: evergreen
+    faculties: [History]
+  - id: smithsonian-innovation
+    type: rss
+    url: https://www.smithsonianmag.com/rss/innovation/
+    publisher: Smithsonian Magazine
+    kind: news
+    faculties: [Engineering & Tech, AI & Computing, Flight]
+  - id: hackernews
+    type: hn
+    url: https://hacker-news.firebaseio.com/v0/
+    publisher: Hacker News
+    kind: news
+    faculties: [AI & Computing, Engineering & Tech]
+    min_score: 200
+    scan: 15                       # how many top stories to look at
+  - id: arxiv
+    type: arxiv
+    url: https://export.arxiv.org/api/query
+    publisher: arXiv
+    kind: paper
+    faculties: [AI & Computing, Space, Animals & Nature]
+    query: "cat:cs.AI OR cat:astro-ph.EP OR cat:q-bio.PE"
+    max_items: 2
+
+  # --- Evergreen --------------------------------------------------------------------------
+  - id: wikipedia-featured
+    type: wikipedia_featured          # today's featured article + "Did you know" articles
+    url: https://en.wikipedia.org/api/rest_v1/feed/featured/
+    publisher: Wikipedia
+    kind: evergreen
+    faculties: []
+    max_items: 4
+  # Wikipedia by category: random articles per faculty, for "how things work" topics.
+  # These feeds are also the last fallback when a slot runs out of candidates.
+  - {id: wiki-animals, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Animals & Nature], max_items: 1,
+     categories: [Ethology, Animal intelligence, Animal migration]}
+  - {id: wiki-space, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Space], max_items: 1,
+     categories: [Planetary science, Stellar astronomy, Space exploration]}
+  - {id: wiki-body, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Human Body & Health], max_items: 1,
+     categories: [Human physiology, Human anatomy]}
+  - {id: wiki-mind, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Mind & Behaviour], max_items: 1,
+     categories: [Cognitive biases, Memory]}
+  - {id: wiki-physics, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Everyday Physics & Chemistry], max_items: 1,
+     categories: [Physical phenomena, Chemical reactions, Thermodynamics]}
+  - {id: wiki-trades, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Trades & Home], max_items: 2,
+     categories: ["Heating, ventilation, and air conditioning", Woodworking, Plumbing,
+                  Home appliances]}
+  - {id: wiki-engineering, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Engineering & Tech], max_items: 1,
+     categories: [Structural engineering, Engines, Bridges]}
+  - {id: wiki-computing, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [AI & Computing], max_items: 1,
+     categories: [Machine learning, Computer architecture]}
+  - {id: wiki-money, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Money & Markets], max_items: 1,
+     categories: [Behavioral finance, Monetary economics, Financial markets]}
+  - {id: wiki-history, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [History], max_items: 1,
+     categories: [History of technology, Inventions]}
+  - {id: wiki-earth, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Geography & Earth], max_items: 1,
+     categories: [Geomorphology, Volcanology, Plate tectonics]}
+  - {id: wiki-food, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Food & Cooking], max_items: 1,
+     categories: [Cooking techniques, Food science]}
+  - {id: wiki-sport, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Sport & Strength], max_items: 1,
+     categories: [Exercise physiology, Strength training]}
+  - {id: wiki-flight, type: wikipedia_category, publisher: Wikipedia, kind: evergreen,
+     faculties: [Flight], max_items: 1,
+     categories: [Aerodynamics, Aircraft components]}
