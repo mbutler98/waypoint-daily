@@ -274,7 +274,7 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 - [x] `samples/` holds 3 × 5 JPEGs at 1080×1350, each under 1 MB, plus contact sheets
 - [x] Checked visually (open the images): margins, bottom 140 px clear, logo and counter on every slide, one accent colour, no HUD styling
 - [x] The diagram and chart render crisply in the new style
-- [ ] Rendering works on Windows locally and in CI (Ubuntu, using `playwright install --with-deps chromium`)
+- [x] Rendering works on Windows locally and in CI (Ubuntu, using `playwright install --with-deps chromium`)
 - [ ] **The user has explicitly approved the look** (record the date in the Build log)
 
 **Out of scope:** LLM, sources, Instagram.
@@ -443,3 +443,4 @@ Each phase lists: **Goal → User actions needed → Tasks → Acceptance criter
 |---|---|---|
 | 2026-10-16 | Plan | Plan written. Decisions: public repo, approval at launch, Gemini free, Waypoint brand. |
 | 2026-10-16 | 1 | Scaffold pushed to github.com/mbutler98/waypoint-daily (public); CI green (ruff + 38 tests). Repo lives in the `waypoint-daily/` subfolder; this copy of PLAN.md is canonical. Added `status` (published/rejected/failed) to PostedEntry and documented it in 3.3. `.gitattributes` forces LF. Actions pinned: checkout v7.0.1, setup-uv v9.0.0. Gemini model and IG API version in config are placeholders for Phases 3/5 to verify. Pages not enabled yet: GitHub needs the `gh-pages` branch to exist, so do it in Phase 6. CI warns `ubuntu-latest` moves to Ubuntu 26 from 2026-10-19; recheck Playwright deps in Phase 2. |
+| 2026-10-16 | 2 | Renderer + 3 samples on branch `phase-2` (CI green on Ubuntu, incl. golden image made on Windows). Templates in `waypoint/render/templates/`; visuals.js vendored at Daily_quiz `dcb5a35`, re-skinned by CSS only. New 4.1 rules: figure legibility floor (card >= 360 px, figure text >= 18 px) and diagram colour folding (cold -> blue, hot -> accent yellow). Diagram text sizes raised slightly for phones. Fixed the Phase 1 fixture chart to real visuals.js format. Daily_quiz has no licence file; credit kept in README. **Awaiting user approval of the look; merge `phase-2` to `main` only after sign-off.** |
