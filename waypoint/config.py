@@ -59,6 +59,8 @@ class Limits(_Model):
     candidates_per_slot: int = Field(ge=1)
     max_gemini_calls_per_run: int = Field(ge=1)
     max_writer_retries: int = Field(ge=0)
+    max_draft_candidates: int = Field(ge=1)
+    min_surprise: int = Field(ge=1, le=5)
 
 
 class Gemini(_Model):
@@ -66,6 +68,20 @@ class Gemini(_Model):
     fast_model: str = Field(min_length=1)
     embedding_model: str = Field(min_length=1)
     requests_per_minute: int = Field(ge=1)
+    # Max calls per run per model. Free-tier caps are per model per day (AI Studio shows
+    # them), and the draft runs once a day, so keep each at <= 50% of the model's cap.
+    model_budgets: dict[str, int] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _budgets_name_models(self) -> Gemini:
+        known = {self.model, self.fast_model, self.embedding_model}
+        unknown = set(self.model_budgets) - known
+        if unknown:  # a renamed model would otherwise silently lose its budget
+            raise ValueError(f"model_budgets names unknown model(s) {sorted(unknown)}; "
+                             f"use one of {sorted(known)}")
+        if any(n < 1 for n in self.model_budgets.values()):
+            raise ValueError("model_budgets values must be >= 1")
+        return self
 
 
 class Gather(_Model):

@@ -49,7 +49,9 @@ limits:
   max_reading_grade: 7          # Flesch-Kincaid, checked with textstat
   candidates_per_slot: 5
   max_gemini_calls_per_run: 100
-  max_writer_retries: 2
+  max_writer_retries: 2         # rewrites per candidate (after checks, overflow or fact-check)
+  max_draft_candidates: 3       # candidates tried per slot before writing FAILED.md
+  min_surprise: 3               # triage score floor (1-5); institutional news scores 1-2
 
 gemini:
   # Free-tier model names and rate limits change: check ai.google.dev/gemini-api/docs/models.
@@ -59,6 +61,11 @@ gemini:
   fast_model: gemini-3.5-flash-lite  # cheap calls: triage, safety label, dedupe check 4
   embedding_model: gemini-embedding-001
   requests_per_minute: 8
+  # Max calls per run per model (the draft runs once a day). Free tier on 2026-10-16:
+  # gemini-3.8-flash allows 20 requests/day (seen in a 429), so cap it at half of that.
+  # A clean draft costs 2 (write + fact-check); each slot gets an equal share.
+  model_budgets:
+    gemini-3.8-flash: 10
 
 gather:
   user_agent: "waypoint-daily/0.1 (+https://github.com/mbutler98/waypoint-daily)"
