@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-19-am",
+  "slot": "am",
+  "faculty": "Engineering & Tech",
+  "topic": "ECDSA curve seeds",
+  "source": {
+    "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
+    "title": "Claude reveals ECDSA curve origins",
+    "publisher": "Hacker News",
+    "published": "2026-10-16",
+    "kind": "news"
+  },
+  "key_claim": "The seeds of several standard ECDSA curves were generated from a simple random-number generator started from timestamps, which makes backdoors much less plausible.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Cryptography",
+      "headline": "Crypto's mystery numbers came from timestamps"
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Solved in under half an hour",
+      "body": "The NSA gave out seed numbers for ECDSA curves with no explanation. Claude traced several to a random-number generator started from a Unix timestamp, not a hash.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "The famous joke story was wrong",
+      "body": "A tip said the seeds came from hashing a funny phrase. That turned out to be wrong. The ten prime-curve seeds trace to dates between May 1997 and April 1998.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Boring answer, more trust",
+      "body": "This is no new attack or weakness. A simple generator started from the clock leaves much less room for backdoors, and anyone can reproduce it.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "A boring answer made the curves more trustworthy.",
+      "body": "A simple clock-based generator leaves much less room for hidden tricks."
+    }
+  ],
+  "caption": "Crypto's mystery numbers came from timestamps\n\nFor years, people wondered where the seed numbers behind ECDSA's standard curves came from. The NSA supplied them with no explanation, and the best story was a hashed joke phrase.\n\nThe catch? That story was wrong. Claude found the seeds for several curves came from the C library's lrand48 random-number generator, started from a Unix timestamp. It took under half an hour. One seed, B-163, is still unexplained.\n\nThe payoff? It's not an attack or a weakness. A simple generator started from the clock leaves much less room for backdoors, so the authors are more confident the curves are secure. 🔐\n\nSource: Hacker News — Claude reveals ECDSA curve origins\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Cryptography",
+    "#ECDSA",
+    "#NIST",
+    "#Encryption",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Title slide with the kicker Cryptography and the headline: Crypto's mystery numbers came from timestamps.",
+    "Text slide titled Solved in under half an hour, explaining that several seed numbers came from a random-number generator started from a Unix timestamp.",
+    "Text slide titled The famous joke story was wrong, saying the hashed-phrase tip failed and the ten prime-curve seeds trace to dates between May 1997 and April 1998.",
+    "Text slide titled Boring answer, more trust, saying the finding is not an attack and leaves little room for backdoors.",
+    "Closing slide: A boring answer made the curves more trustworthy, with a line about the simple clock-based generator."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

@@ -1,0 +1,273 @@
+{
+  "source_url": "https://phys.org/news/2026-10-shift-gene-minutes-spaceflight-reveals.html",
+  "title": "Plants shift gene activity within minutes of entering spaceflight, experiment reveals",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "checks",
+      "problems": [
+        "insight 1 figure: step name 'Before launch' is too long for 4 items (max 9 characters; use fewer items or shorter words)",
+        "insight 1 has a figure, so its body must be <= 20 words; it has 25. Cut 5+ words or drop the figure"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [
+        "figure on slide 2: \"Four sampling moments: launch, space, descent, landing\" is not supported by SOURCE. The first sample was taken before launch, not at launch; relabel it 'Before launch'."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Plants react to space within minutes",
+          "supported": true,
+          "evidence_quote": "Plants shift gene activity within minutes of entering spaceflight",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "A scientist (Rob Ferl) flew with the plants",
+          "supported": true,
+          "evidence_quote": "Ferl carried dozens of Arabidopsis plants in specially designed tubes attached to his flight suit",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Ferl carried dozens of Arabidopsis plants in special tubes",
+          "supported": true,
+          "evidence_quote": "Ferl carried dozens of Arabidopsis plants in specially designed tubes attached to his flight suit",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "He used the tubes at four points in the flight",
+          "supported": true,
+          "evidence_quote": "that he activated at four different points during the trip to space and back",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Four sampling moments: launch, space, descent, landing",
+          "supported": false,
+          "evidence_quote": "before launch, upon reaching microgravity, at the end of the weightless period as the vehicle began its descent and upon landing",
+          "problem": "The first sample was taken before launch, not at launch; relabel it 'Before launch'."
+        },
+        {
+          "where": "slide 3",
+          "claim": "More than 1,200 genes changed activity during the flight",
+          "supported": true,
+          "evidence_quote": "The researchers identified more than 1,200 genes whose activity changed during the flight.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Leaves and roots responded differently",
+          "supported": true,
+          "evidence_quote": "The responses differed between leaves and roots and varied across different phases of the mission.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Responses differed across mission phases",
+          "supported": true,
+          "evidence_quote": "The responses differed between leaves and roots and varied across different phases of the mission.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Many of the affected genes help plants handle stress",
+          "supported": true,
+          "evidence_quote": "Many of the affected genes are involved in how plants respond to environmental stress and changing conditions.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Adjusting to space is a gradual/progressive process, not one step",
+          "supported": true,
+          "evidence_quote": "acclimation to spaceflight is not a single biological adjustment that occurs after an organism reaches space. Instead, it is a progressive process",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Different responses occur during launch, microgravity, descent and return",
+          "supported": true,
+          "evidence_quote": "involving different responses during launch, entry into microgravity, descent and return to Earth.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Adapting to space starts almost instantly",
+          "supported": true,
+          "evidence_quote": "Plants begin responding to spaceflight almost immediately after leaving Earth",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Plants kept changing their responses at each stage of the flight",
+          "supported": true,
+          "evidence_quote": "The results show that the plants' responses changed as the flight progressed",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A University of Florida team sent Arabidopsis plants on a short commercial suborbital flight",
+          "supported": true,
+          "evidence_quote": "captured the earliest stages of biological adaptation during a commercial suborbital mission",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Ferl rode along and preserved samples at four points: before launch, in microgravity, on descent, at landing",
+          "supported": true,
+          "evidence_quote": "before launch, upon reaching microgravity, at the end of the weightless period as the vehicle began its descent and upon landing",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Adapting to space is not one adjustment made after arriving",
+          "supported": true,
+          "evidence_quote": "acclimation to spaceflight is not a single biological adjustment that occurs after an organism reaches space",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "More than 1,200 genes changed activity; leaves and roots responded differently across phases",
+          "supported": true,
+          "evidence_quote": "The responses differed between leaves and roots and varied across different phases of the mission.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Preserving samples along the way let scientists see the transition itself, not just before and after",
+          "supported": true,
+          "evidence_quote": "allowed us to look at the transition itself, rather than simply comparing plants on Earth with plants that had already spent time in space",
+          "problem": ""
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Plants react to space within minutes",
+          "supported": true,
+          "evidence_quote": "Plants shift gene activity within minutes of entering spaceflight",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "A scientist (Rob Ferl) flew with the plants",
+          "supported": true,
+          "evidence_quote": "Ferl flew for the specific purpose of tending the experiment that he and Paul had developed.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Ferl carried dozens of Arabidopsis plants in special tubes",
+          "supported": true,
+          "evidence_quote": "Ferl carried dozens of Arabidopsis plants in specially designed tubes attached to his flight suit",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "He activated the tubes at four points in the flight",
+          "supported": true,
+          "evidence_quote": "that he activated at four different points during the trip to space and back",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Four sampling moments: before, space, descent, landing",
+          "supported": true,
+          "evidence_quote": "before launch, upon reaching microgravity, at the end of the weightless period as the vehicle began its descent and upon landing.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "More than 1,200 genes changed activity during the flight",
+          "supported": true,
+          "evidence_quote": "The researchers identified more than 1,200 genes whose activity changed during the flight.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Leaves and roots responded differently, and so did different phases",
+          "supported": true,
+          "evidence_quote": "The responses differed between leaves and roots and varied across different phases of the mission.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Many of the genes help plants handle stress",
+          "supported": true,
+          "evidence_quote": "Many of the affected genes are involved in how plants respond to environmental stress and changing conditions.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Adjusting to space is a gradual/progressive process, not one step, with different responses during launch, microgravity, descent and return",
+          "supported": true,
+          "evidence_quote": "acclimation to spaceflight is not a single biological adjustment that occurs after an organism reaches space. Instead, it is a progressive process involving different responses during launch, entry into microgravity, descent and return to Earth.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Adapting to space starts almost instantly",
+          "supported": true,
+          "evidence_quote": "Plants begin responding to spaceflight almost immediately after leaving Earth",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Plants kept changing their responses at each stage of the flight",
+          "supported": true,
+          "evidence_quote": "The results show that the plants' responses changed as the flight progressed",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A University of Florida team sent Arabidopsis plants on a short commercial suborbital flight",
+          "supported": true,
+          "evidence_quote": "a new University of Florida study that captured the earliest stages of biological adaptation during a commercial suborbital mission.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Ferl rode along and preserved samples at four points: before launch, in microgravity, on descent and at landing",
+          "supported": true,
+          "evidence_quote": "before launch, upon reaching microgravity, at the end of the weightless period as the vehicle began its descent and upon landing.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Adapting to space is not one adjustment made after arriving",
+          "supported": true,
+          "evidence_quote": "acclimation to spaceflight is not a single biological adjustment that occurs after an organism reaches space.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "More than 1,200 genes changed activity; leaves and roots responded differently across phases",
+          "supported": true,
+          "evidence_quote": "The responses differed between leaves and roots and varied across different phases of the mission.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Preserving samples along the way let scientists see the transition itself, not just before and after",
+          "supported": true,
+          "evidence_quote": "allowed us to look at the transition itself, rather than simply comparing plants on Earth with plants that had already spent time in space",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

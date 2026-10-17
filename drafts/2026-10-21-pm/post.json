@@ -1,0 +1,155 @@
+{
+  "id": "2026-10-21-pm",
+  "slot": "pm",
+  "faculty": "Animals & Nature",
+  "topic": "Sahara wet-dry migration",
+  "source": {
+    "url": "https://en.wikipedia.org/wiki/Sahara_pump_theory",
+    "title": "Sahara pump theory",
+    "publisher": "Wikipedia",
+    "published": null,
+    "kind": "evergreen"
+  },
+  "key_claim": "The Sahara swings between green grassland and desert, which moved plants and animals between Africa and Eurasia, and the idea has been used to date human migrations.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Sahara",
+      "headline": "The Sahara was once grassland. It keeps flipping."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "The Sahara was once grassland",
+      "body": "Rainy spells lasting many thousands of years brought more lakes and rivers. The Sahara became savanna.",
+      "figure": {
+        "type": "diagram",
+        "title": "The last green Sahara",
+        "size": [
+          540,
+          150
+        ],
+        "nodes": [
+          {
+            "id": "d0",
+            "at": [
+              80,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "grey"
+          },
+          {
+            "id": "t0",
+            "at": [
+              80,
+              90
+            ],
+            "shape": "text",
+            "label": "Wetter",
+            "color": "white",
+            "sub": "about 12,500 BC"
+          },
+          {
+            "id": "d1",
+            "at": [
+              270,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "hot"
+          },
+          {
+            "id": "t1",
+            "at": [
+              270,
+              90
+            ],
+            "shape": "text",
+            "label": "Wettest",
+            "color": "hot",
+            "sub": "4000 BC"
+          },
+          {
+            "id": "d2",
+            "at": [
+              460,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "grey"
+          },
+          {
+            "id": "t2",
+            "at": [
+              460,
+              90
+            ],
+            "shape": "text",
+            "label": "Floods shrink",
+            "color": "white",
+            "sub": "2700 to 2100 BC"
+          }
+        ],
+        "edges": [
+          {
+            "from": "d0",
+            "to": "d1",
+            "color": "grey",
+            "arrow": false
+          },
+          {
+            "from": "d1",
+            "to": "d2",
+            "color": "grey",
+            "arrow": false
+          }
+        ]
+      }
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Dry spells scatter wildlife",
+      "body": "Lakes fall and rivers dry up. Plants and animals retreat north, south or east, splitting groups apart. That may give rise to new species.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Even human journeys follow the pump",
+      "body": "Scientists have used the Saharan pump to date waves of human migration from Africa, from Homo erectus to Homo sapiens.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "The Sahara works like a pump.",
+      "body": "It moved plants and animals, and has been used to date human migrations."
+    }
+  ],
+  "caption": "The Sahara was once grassland. It keeps flipping.\n\nLong, rainy spells have turned the Sahara and Arabia into savanna grassland, with more lakes and rivers. African plants and animals became common there. The last green phase began about 12,500 BC and peaked around 4000 BC.\n\nThe catch? The green never lasts. When the rains retreat, lakes fall and rivers dry up. Plants and animals retreat north, south or east, and groups get split apart. That may give rise to new species.\n\nThe payoff? This is the Sahara pump theory. It explains how plants and animals moved between Africa and Eurasia, and it has been used to date waves of human migration from Africa.\n\nSource: Wikipedia — Sahara pump theory\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Sahara",
+    "#GreenSahara",
+    "#ClimateHistory",
+    "#HumanMigration",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Title slide: The Sahara was once grassland. It keeps flipping. Kicker: Sahara.",
+    "Timeline of the last green Sahara: wetter phase begins about 12,500 BC, wettest point 4000 BC, Nile floods shrink 2700 to 2100 BC.",
+    "Text slide: when the Sahara dries, plants and animals retreat north, south or east, splitting groups apart.",
+    "Text slide: the Saharan pump has been used to date waves of human migration from Africa.",
+    "Closing slide: The Sahara works like a pump, moving plants and animals, and helping date human migrations."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

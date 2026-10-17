@@ -352,3 +352,32 @@ def test_pending_drafts_count_as_planned(cfg, tmp_path):
             post.model_copy(update={"id": pid}).model_dump_json(), encoding="utf-8")
     got = pending_drafts(tmp_path, {"2026-10-16-pm"}, "2026-10-18")
     assert [c.url for c in got] == [post.source.url]  # only 10-17: 10-16 posted, 10-18 is today
+
+
+def test_content_failures_are_skipped_for_a_while(cfg, tmp_path):
+    import datetime as dt
+
+    from waypoint.draft import recently_skipped, skipped_entries
+    from waypoint.state import append_skipped, load_skipped
+
+    gemini, _ = fake_gemini(cfg, scripted([GOOD, GOOD], [UNSUPPORTED, UNSUPPORTED]))
+    res = draft_slot("am", "2026-10-17-am", [cand()], cfg, gemini, tmp_path / "d",
+                     tmp_path / "s", fake_render())
+    path = tmp_path / "skipped.json"
+    append_skipped(skipped_entries(res, "2026-10-16"), path)
+    entries = load_skipped(path)
+    assert [e["reason"] for e in entries] == ["fact-check failed after a rewrite"]
+    assert recently_skipped(entries, dt.date(2026, 10, 20), 14) == {"example.com/bees-can-count"}
+    assert recently_skipped(entries, dt.date(2026, 10, 30), 14) == set()
+
+
+def test_pending_drafts_after_a_date(cfg, tmp_path):
+    from waypoint.draft import pending_drafts
+
+    post = assemble(draft(), cand(), "2026-10-17-am", "am", cfg, SOURCE).post
+    for pid in ("2026-10-17-am", "2026-10-18-am"):
+        (tmp_path / pid).mkdir()
+        (tmp_path / pid / "post.json").write_text(
+            post.model_copy(update={"id": pid}).model_dump_json(), encoding="utf-8")
+    got = pending_drafts(tmp_path, set(), "", after="2026-10-17-zz")
+    assert len(got) == 1  # only 10-18; the day being redone is not "later"

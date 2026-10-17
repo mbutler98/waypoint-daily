@@ -1,0 +1,259 @@
+{
+  "source_url": "https://en.wikipedia.org/wiki/Ercol",
+  "title": "Ercol",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 4,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "factcheck",
+      "problems": [
+        "slide 5: \"Wartime scraps built a furniture giant\" is not supported by SOURCE. SOURCE doesn't say tent pegs from scraps built the company or that Ercol became a 'giant'; Ercol was founded in 1920, so remove or rephrase.",
+        "caption: \"In 1944 the company was asked to make 100,000 low-cost Windsor chairs from elm\" is not supported by SOURCE. SOURCE says the chairs used steam bending of English elm, so the elm and 100,000 chairs are supported, but 'asked' loosely fits; actually acceptable—however the elm warping and drying link is supported, so this is fine."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Ercol, a furniture maker, produced 36 million tent pegs",
+          "supported": true,
+          "evidence_quote": "Over the course of the war Ercol produced 36 million such pegs.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Ercol's factory switched to war work when WWII began",
+          "supported": true,
+          "evidence_quote": "At the beginning of the Second World War, the Ercol factory was repurposed to contribute to the war effort",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "It first made tent pegs from wood too small for anything else",
+          "supported": true,
+          "evidence_quote": "initially making tent pegs from pieces of wood too small for other uses.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "In 1944 Ercol got an order for 100,000 low-cost Windsor chairs",
+          "supported": true,
+          "evidence_quote": "In 1944, Ercol was contracted by the government's Board of Trade to produce 100,000 low-cost Windsor chairs under the Utility Furniture Scheme.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Elm tended to warp",
+          "supported": true,
+          "evidence_quote": "elm was not generally used for furniture because of its tendency to warp",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Ercolani developed a new way to dry elm to fix the warping",
+          "supported": true,
+          "evidence_quote": "Ercolani developed a new drying process for the wood to combat this.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "The new method let a chair be built from 14 pre-formed parts",
+          "supported": true,
+          "evidence_quote": "This method allowed the chair to be assembled from 14 pre-formed components",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "With machines, a chair could be made every 20 seconds",
+          "supported": true,
+          "evidence_quote": "mechanization meant that a chair could be made every 20 seconds.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Wartime scraps built a furniture giant",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "SOURCE doesn't say tent pegs from scraps built the company or that Ercol became a 'giant'; Ercol was founded in 1920, so remove or rephrase."
+        },
+        {
+          "where": "slide 5",
+          "claim": "Post-war Britain wanted simpler, smaller furniture",
+          "supported": true,
+          "evidence_quote": "post-war Britain, which demanded smaller pieces with simpler lines than their chunky pre-war counterparts.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Ercol's mass-produced pieces sold well post-war",
+          "supported": true,
+          "evidence_quote": "Ercol's mass-produced furniture found a good market in post-war Britain",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Ercol made 36 million tent pegs from wood too small for other uses at start of WWII",
+          "supported": true,
+          "evidence_quote": "initially making tent pegs from pieces of wood too small for other uses. Over the course of the war Ercol produced 36 million such pegs.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "In 1944 the company was asked to make 100,000 low-cost Windsor chairs from elm",
+          "supported": false,
+          "evidence_quote": "In 1944, Ercol was contracted by the government's Board of Trade to produce 100,000 low-cost Windsor chairs under the Utility Furniture Scheme.",
+          "problem": "SOURCE says the chairs used steam bending of English elm, so the elm and 100,000 chairs are supported, but 'asked' loosely fits; actually acceptable—however the elm warping and drying link is supported, so this is fine."
+        },
+        {
+          "where": "caption",
+          "claim": "Elm tended to warp and Ercolani developed a new drying process to fix it",
+          "supported": true,
+          "evidence_quote": "Ercolani developed a new drying process for the wood to combat this.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A chair could be built from 14 pre-formed parts and one made every 20 seconds",
+          "supported": true,
+          "evidence_quote": "This method allowed the chair to be assembled from 14 pre-formed components, and mechanization meant that a chair could be made every 20 seconds.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Mass-produced Ercol furniture found a good market in post-war Britain",
+          "supported": true,
+          "evidence_quote": "Ercol's mass-produced furniture found a good market in post-war Britain",
+          "problem": ""
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Ercol is a furniture maker",
+          "supported": true,
+          "evidence_quote": "Ercol is a British furniture manufacturer.",
+          "problem": ""
+        },
+        {
+          "where": "slide 1",
+          "claim": "Ercol produced 36 million tent pegs",
+          "supported": true,
+          "evidence_quote": "Over the course of the war Ercol produced 36 million such pegs.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "When WWII began, Ercol's factory switched to war work",
+          "supported": true,
+          "evidence_quote": "At the beginning of the Second World War, the Ercol factory was repurposed to contribute to the war effort",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "It first made tent pegs from wood too small for anything else",
+          "supported": true,
+          "evidence_quote": "initially making tent pegs from pieces of wood too small for other uses",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Elm tends to warp",
+          "supported": true,
+          "evidence_quote": "Before this, elm was not generally used for furniture because of its tendency to warp",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "In 1944 Ercol was hired to make 100,000 low-cost Windsor chairs",
+          "supported": true,
+          "evidence_quote": "In 1944, Ercol was contracted by the government's Board of Trade to produce 100,000 low-cost Windsor chairs",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Ercolani developed a new way to dry elm to fix warping",
+          "supported": true,
+          "evidence_quote": "Ercolani developed a new drying process for the wood to combat this.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "The new method let a chair be built from 14 pre-formed parts",
+          "supported": true,
+          "evidence_quote": "This method allowed the chair to be assembled from 14 pre-formed components",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "With mechanization a chair could be made every 20 seconds",
+          "supported": true,
+          "evidence_quote": "mechanization meant that a chair could be made every 20 seconds.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Post-war Britain wanted simpler, smaller furniture",
+          "supported": true,
+          "evidence_quote": "post-war Britain, which demanded smaller pieces with simpler lines than their chunky pre-war counterparts.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Ercol's mass-produced pieces found a good market in post-war Britain",
+          "supported": true,
+          "evidence_quote": "Ercol's mass-produced furniture found a good market in post-war Britain",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Factory switched to war work at start of WWII, making tent pegs from wood too small for other uses; produced 36 million",
+          "supported": true,
+          "evidence_quote": "initially making tent pegs from pieces of wood too small for other uses. Over the course of the war Ercol produced 36 million such pegs.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "In 1944 the Board of Trade hired Ercol to make 100,000 low-cost Windsor chairs",
+          "supported": true,
+          "evidence_quote": "In 1944, Ercol was contracted by the government's Board of Trade to produce 100,000 low-cost Windsor chairs",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The chairs used English elm, not generally used for furniture because it tended to warp",
+          "supported": true,
+          "evidence_quote": "using the steam bending of English elm. Before this, elm was not generally used for furniture because of its tendency to warp",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Ercolani developed a new drying process to fix warping",
+          "supported": true,
+          "evidence_quote": "Ercolani developed a new drying process for the wood to combat this.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A chair could be built from 14 pre-formed parts and one made every 20 seconds",
+          "supported": true,
+          "evidence_quote": "assembled from 14 pre-formed components, and mechanization meant that a chair could be made every 20 seconds.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Mass-produced Ercol furniture then found a good market in post-war Britain",
+          "supported": true,
+          "evidence_quote": "Ercol's mass-produced furniture found a good market in post-war Britain",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

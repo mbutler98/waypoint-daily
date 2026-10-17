@@ -12,6 +12,7 @@ Work happens in .cache/staging/<id>/ and only a complete draft is copied into dr
 
 from __future__ import annotations
 
+import datetime as dt
 import json
 import logging
 import shutil
@@ -21,6 +22,7 @@ from pathlib import Path
 from typing import Any
 
 from waypoint.config import REPO_ROOT, Config
+from waypoint.dedupe import url_key
 from waypoint.models import Candidate, Post, Slot
 from waypoint.render.render import RenderError, RenderResult, SlideOverflowError
 from waypoint.state import CACHE_DIR
@@ -108,7 +110,9 @@ def check_and_render(draft: WriterDraft, c: Candidate, post_id: str, slot: Slot,
                 continue
             hint = (f" The hook is {len(d.hook)} characters and none of the alternatives "
                     f"fit either; write hooks under {HOOK_FIT_CHARS - 10} characters."
-                    if e.slide_index == 1 else "")
+                    if e.slide_index == 1 else
+                    " The figure is too cramped to read: use fewer items and shorter labels, "
+                    "or drop the figure." if "figure" in e.detail else "")
             return None, d, "render", [f"slide {e.slide_index} does not fit on the slide "
                                        f"({e.detail}); shorten that slide's text.{hint}"]
         except RenderError as e:
@@ -233,6 +237,22 @@ def draft_slot(slot: Slot, post_id: str, ranked: Sequence[Candidate], cfg: Confi
     return result
 
 
+CONTENT_FAILURES = ("no valid draft", "fact-check failed")  # not Gemini errors or budgets
+
+
+def skipped_entries(res: SlotResult, date: str) -> list[dict]:
+    """The candidates this slot gave up on for content reasons (state/skipped.json)."""
+    return [{"url": r.url, "title": r.title, "date": date, "post_id": res.post_id,
+             "reason": r.reason}
+            for r in res.reports if not r.passed and r.reason.startswith(CONTENT_FAILURES)]
+
+
+def recently_skipped(entries: Sequence[dict], today: dt.date, days: int) -> set[str]:
+    """url_keys of candidates skipped in the last `days` days."""
+    since = today - dt.timedelta(days=days)
+    return {url_key(e["url"]) for e in entries if dt.date.fromisoformat(e["date"]) > since}
+
+
 def candidate_from_post(post: Post) -> Candidate:
     """An already-written draft as a planned pick, so the other slot respects rotation."""
     return Candidate(url=post.source.url, title=post.source.title,
@@ -241,14 +261,17 @@ def candidate_from_post(post: Post) -> Candidate:
                      key_claim=post.key_claim)
 
 
-def pending_drafts(drafts_dir: Path, posted_ids: set[str], before: str) -> list[Candidate]:
-    """Drafts for earlier dates that aren't in posted.json yet (awaiting approval or
-    publishing), oldest first, as planned picks: their articles, topics and faculties
-    count for rotation, so a later day's draft can't pick the same thing again."""
+def pending_drafts(drafts_dir: Path, posted_ids: set[str], before: str,
+                   after: str | None = None) -> list[Candidate]:
+    """Drafts that aren't in posted.json yet (awaiting approval or publishing), oldest
+    first, as planned picks: their articles, topics and faculties count for rotation, so
+    another day's draft can't pick the same thing again. Ids < `before`, or with `after`,
+    ids > `after` (later days, when an earlier day is redone)."""
     out = []
     for path in sorted(drafts_dir.glob("*/post.json")):
         post_id = path.parent.name
-        if post_id < before and post_id not in posted_ids:
+        wanted = post_id > after if after is not None else post_id < before
+        if wanted and post_id not in posted_ids:
             post = load_existing(path.parent)
             if post is not None and post.status in ("draft", "approved"):
                 out.append(candidate_from_post(post))

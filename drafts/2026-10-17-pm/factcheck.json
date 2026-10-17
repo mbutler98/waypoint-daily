@@ -1,15 +1,17 @@
 {
-  "source_url": "https://en.wikipedia.org/wiki/Sahara_pump_theory",
-  "title": "Sahara pump theory",
+  "source_url": "https://en.wikipedia.org/wiki/Vogt%E2%80%93Russell_theorem",
+  "title": "Vogt–Russell theorem",
   "passed": true,
   "reason": "",
   "gemini_calls": 3,
   "attempts": [
     {
       "attempt": 1,
-      "stage": "render",
+      "stage": "checks",
       "problems": [
-        "slide 1 does not fit on the slide (hook takes 4 lines (max 3)); shorten that slide's text. The hook is 55 characters; keep it under 50."
+        "insight 2 figure: event name 'Russell publishes' is too long for 3 items (max 16 characters; use fewer items or shorter words)",
+        "insight 2 has a figure, so its body must be <= 20 words; it has 27. Cut 7+ words or drop the figure",
+        "reading grade is 7.6; it must be <= 7. Use shorter sentences and words"
       ]
     },
     {
@@ -20,100 +22,135 @@
       "claims": [
         {
           "where": "slide 1",
-          "claim": "The Sahara keeps flipping between green and desert.",
+          "claim": "A star's whole structure is set by two things (mass and composition)",
           "supported": true,
-          "evidence_quote": "During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland and African flora and fauna become common. Following inter-pluvial arid periods, the Sahara area then reverts to desert conditions",
+          "evidence_quote": "the structure of a star in hydrostatic and thermal equilibrium is determined solely by its total mass and chemical composition.",
           "problem": ""
         },
         {
           "where": "slide 2",
-          "claim": "In long wet periods, the Sahara and Arabia turn into savanna grassland.",
+          "claim": "Total mass and composition decide a steady star's structure per the Vogt–Russell idea",
           "supported": true,
-          "evidence_quote": "During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "evidence_quote": "the structure of a star in hydrostatic and thermal equilibrium is determined solely by its total mass and chemical composition.",
           "problem": ""
         },
         {
           "where": "slide 2",
-          "claim": "Lakes grow and more rivers flow during wet periods.",
+          "claim": "The structure includes radius and luminosity",
           "supported": true,
-          "evidence_quote": "during which larger lakes and more rivers existed",
-          "problem": ""
-        },
-        {
-          "where": "slide 2",
-          "claim": "African plants and animals become common in the Sahara and Arabia during wet periods.",
-          "supported": true,
-          "evidence_quote": "the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "evidence_quote": "as well as its observable global parameters, radius and luminosity, would be uniquely determined by the total mass",
           "problem": ""
         },
         {
           "where": "slide 3",
-          "claim": "Rivers shrink to dry wadis when the Sahara dries.",
+          "claim": "Vogt had the idea in 1926",
           "supported": true,
-          "evidence_quote": "Evaporation exceeds precipitation, the level of water in lakes like Lake Chad falls, and rivers become dry wadis.",
+          "evidence_quote": "The idea dates back to 1926 when Heinrich Vogt (astronomer) formulated the theorem",
           "problem": ""
         },
         {
           "where": "slide 3",
-          "claim": "Plants and animals retreat north, south or east, some along the Nile Valley, then on toward Asia.",
+          "claim": "Vogt published in 1931",
           "supported": true,
-          "evidence_quote": "retreat northward to the Atlas Mountains, southward into West Africa, or eastward into the Nile Valley and thence either southeast to the Ethiopian Highlands and Kenya or northeast across the Sinai into Asia.",
+          "evidence_quote": "The first formal exposition appears in his 1931 article in Astronomische Nachrichten",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Russell, working alone/independently, published the same idea in 1931",
+          "supported": true,
+          "evidence_quote": "Independently, Henry Norris Russell published in 1931 two technical articles in the Monthly Notices of the Royal Astronomical Society",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "The idea sat unpublished for years",
+          "supported": true,
+          "evidence_quote": "The original formulation of the principle attributed to Heinrich Vogt (astronomer) dates from 1926, but there is no publication from that year.",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 3",
+          "claim": "Vogt's idea waited five years (1926 to 1931)",
+          "supported": true,
+          "evidence_quote": "dates from 1926, but there is no publication from that year. The first formal exposition appears in his 1931 article",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 3",
+          "claim": "Vogt's idea 1926; Vogt's paper 1931; Russell's paper 1931",
+          "supported": true,
+          "evidence_quote": "Independently, Henry Norris Russell published in 1931 two technical articles",
           "problem": ""
         },
         {
           "where": "slide 4",
-          "claim": "Moving apart can separate some species into different climates, forcing them to adapt.",
+          "claim": "Later studies found that near some limits, or with instabilities, the same mass and mix can give many solutions",
           "supported": true,
-          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt",
+          "evidence_quote": "under some conditions like near structural limits such as the Schönberg-Chandrasekhar limit, or in cases involving instabilities, multiple mathematical solutions may exist",
           "problem": ""
         },
         {
           "where": "slide 4",
-          "claim": "Adaptation may possibly lead to new species over time.",
+          "claim": "So the idea is not universal",
           "supported": true,
-          "evidence_quote": "forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "evidence_quote": "indicating that the originally postulated uniqueness is not universal.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Models (numerical studies) found the exceptions",
+          "supported": true,
+          "evidence_quote": "Numerical studies developed from the second half of the twentieth century onward showed that",
           "problem": ""
         },
         {
           "where": "slide 5",
-          "claim": "The Sahara works like a pump, with wet and dry swings pushing life around.",
+          "claim": "For most ordinary stars, mass and makeup give one stable answer",
           "supported": true,
-          "evidence_quote": "It posits that extended periods of abundant rainfall lasting many thousands of years (pluvial periods) in Africa are associated with a \"wet-green Sahara\" phase",
+          "evidence_quote": "For most stars under normal conditions like nondegenerate main-sequence stars, numerical solutions do indeed converge to a single stable solution.",
           "problem": ""
         },
         {
           "where": "slide 5",
-          "claim": "Wet and dry swings may split species apart.",
+          "claim": "The theorem is a first guess/approximation",
           "supported": true,
-          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "evidence_quote": "it remains fundamental as a practical first approximation in stellar astrophysics.",
           "problem": ""
         },
         {
           "where": "caption",
-          "claim": "In long wet periods, the Sahara and Arabia become savanna grassland, with larger lakes and more rivers.",
+          "claim": "Heinrich Vogt formed the idea in 1926, but his first paper came in 1931",
           "supported": true,
-          "evidence_quote": "the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "evidence_quote": "The first formal exposition appears in his 1931 article in Astronomische Nachrichten",
           "problem": ""
         },
         {
           "where": "caption",
-          "claim": "Lakes fall, rivers become dry wadis, and plants and animals move north, south or east, some along the Nile Valley toward Asia.",
+          "claim": "Russell developed it on his own",
           "supported": true,
-          "evidence_quote": "the level of water in lakes like Lake Chad falls, and rivers become dry wadis.",
+          "evidence_quote": "Independently, Henry Norris Russell developed the same theorem in the early 1930s.",
           "problem": ""
         },
         {
           "where": "caption",
-          "claim": "Separation can split some species into different climates, forcing them to adapt, and may give rise to new species.",
+          "claim": "Mass and composition set the whole structure when the star is in steady balance",
           "supported": true,
-          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "evidence_quote": "the structure of a star in hydrostatic and thermal equilibrium is determined solely by its total mass and chemical composition.",
           "problem": ""
         },
         {
           "where": "caption",
-          "claim": "This is called the Sahara pump theory.",
+          "claim": "Models settle on one stable answer for most stars under normal conditions, like main-sequence stars",
           "supported": true,
-          "evidence_quote": "The Sahara pump theory is a hypothesis that explains how flora and fauna migrated",
+          "evidence_quote": "For most stars under normal conditions like nondegenerate main-sequence stars, numerical solutions do indeed converge to a single stable solution.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "That is why it still works as a first approximation",
+          "supported": true,
+          "evidence_quote": "Thus, although the theorem is not strictly valid as a general law, it remains fundamental as a practical first approximation in stellar astrophysics.",
           "problem": ""
         }
       ]

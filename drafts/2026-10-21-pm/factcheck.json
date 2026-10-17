@@ -1,0 +1,310 @@
+{
+  "source_url": "https://en.wikipedia.org/wiki/Sahara_pump_theory",
+  "title": "Sahara pump theory",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "checks",
+      "problems": [
+        "insight 1 figure: event name 'Wetter phase begins' is too long for 3 items (max 16 characters; use fewer items or shorter words)",
+        "insight 1 has a figure, so its body must be <= 20 words; it has 23. Cut 3+ words or drop the figure",
+        "slides.4.cta.body: takeaway support line has 15 words; the limit is 14"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [
+        "slide 5: \"The Sahara's wet and dry swings moved plants, animals and people out of Africa.\" is not supported by SOURCE. The source says the pump explains migration between Eurasia and Africa in both directions and was used to date human waves; it doesn't state that swings caused people to move out of Africa, so soften it to 'moved plants and animals, and has been used to date human migrations'.",
+        "caption: \"A swinging climate helped shape who went where.\" is not supported by SOURCE. The source only says the pump has been used to date migration waves, not that climate swings shaped which groups went where; rephrase to match the dating claim."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "The Sahara was once grassland.",
+          "supported": true,
+          "evidence_quote": "During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "problem": ""
+        },
+        {
+          "where": "slide 1",
+          "claim": "The Sahara keeps flipping (cycles between wet and dry).",
+          "supported": true,
+          "evidence_quote": "Following inter-pluvial arid periods, the Sahara area then reverts to desert conditions",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Rainy phases lasting many thousands of years brought more lakes and rivers.",
+          "supported": true,
+          "evidence_quote": "extended periods of abundant rainfall lasting many thousands of years (pluvial periods) in Africa are associated with a \"wet-green Sahara\" phase, during which larger lakes and more rivers existed",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The Sahara became savanna.",
+          "supported": true,
+          "evidence_quote": "the Sahara and Arabia become a savanna grassland",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Wetter conditions began about 12,500 BC.",
+          "supported": true,
+          "evidence_quote": "The moister Saharan conditions had begun about 12,500 BC",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Wettest around 4000 BC.",
+          "supported": true,
+          "evidence_quote": "peaked during the Holocene thermal maximum climatic phase at 4000 BC",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Floods shrink 2700 to 2100 BC.",
+          "supported": true,
+          "evidence_quote": "This is linked to a marked decline in the scale of the Nile floods between 2700 and 2100 BC.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Dry spells scatter wildlife; lakes fall and rivers dry up.",
+          "supported": true,
+          "evidence_quote": "the level of water in lakes like Lake Chad falls, and rivers become dry wadis.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Plants and animals retreat north, south or east, splitting populations apart.",
+          "supported": true,
+          "evidence_quote": "previously widespread flora and fauna retreat northward to the Atlas Mountains, southward into West Africa, or eastward into the Nile Valley",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "This may give rise to new species.",
+          "supported": true,
+          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Scientists have used the Saharan pump to date waves of human migration from Africa.",
+          "supported": true,
+          "evidence_quote": "The Saharan pump has been used to date a number of waves of human migration from Africa",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "The migration waves range from Homo erectus to Homo sapiens.",
+          "supported": true,
+          "evidence_quote": "Lower Paleolithic: Homo erectus (ssp. ergaster) into Southeast and East Asia",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "The Sahara's wet and dry swings moved plants, animals and people out of Africa.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source says the pump explains migration between Eurasia and Africa in both directions and was used to date human waves; it doesn't state that swings caused people to move out of Africa, so soften it to 'moved plants and animals, and has been used to date human migrations'."
+        },
+        {
+          "where": "caption",
+          "claim": "Long rainy spells turned the Sahara and Arabia into savanna grassland with more lakes and rivers.",
+          "supported": true,
+          "evidence_quote": "During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "African plants and animals spread out.",
+          "supported": true,
+          "evidence_quote": "the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The last green phase began about 12,500 BC and peaked around 4000 BC.",
+          "supported": true,
+          "evidence_quote": "The moister Saharan conditions had begun about 12,500 BC",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The green never lasts; when the rains retreat, lakes fall and rivers dry up.",
+          "supported": true,
+          "evidence_quote": "the Sahara area then reverts to desert conditions, usually as a result of the retreat of the West African Monsoon southwards. Evaporation exceeds precipitation",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A swinging climate helped shape who went where.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source only says the pump has been used to date migration waves, not that climate swings shaped which groups went where; rephrase to match the dating claim."
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "The Sahara was once grassland",
+          "supported": true,
+          "evidence_quote": "During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland",
+          "problem": ""
+        },
+        {
+          "where": "slide 1",
+          "claim": "The Sahara keeps flipping (cycles between wet and dry)",
+          "supported": true,
+          "evidence_quote": "Following inter-pluvial arid periods, the Sahara area then reverts to desert conditions",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Rainy spells lasting many thousands of years brought more lakes and rivers",
+          "supported": true,
+          "evidence_quote": "extended periods of abundant rainfall lasting many thousands of years (pluvial periods) in Africa are associated with a \"wet-green Sahara\" phase, during which larger lakes and more rivers existed",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The Sahara became savanna",
+          "supported": true,
+          "evidence_quote": "the Sahara and Arabia become a savanna grassland",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Wetter conditions began about 12,500 BC",
+          "supported": true,
+          "evidence_quote": "The moister Saharan conditions had begun about 12,500 BC",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Wettest/peak at 4000 BC",
+          "supported": true,
+          "evidence_quote": "peaked during the Holocene thermal maximum climatic phase at 4000 BC",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Nile floods shrink 2700 to 2100 BC",
+          "supported": true,
+          "evidence_quote": "This is linked to a marked decline in the scale of the Nile floods between 2700 and 2100 BC.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Dry spells scatter wildlife; lakes fall and rivers dry up",
+          "supported": true,
+          "evidence_quote": "the level of water in lakes like Lake Chad falls, and rivers become dry wadis.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Plants and animals retreat north, south or east, splitting groups apart",
+          "supported": true,
+          "evidence_quote": "retreat northward to the Atlas Mountains, southward into West Africa, or eastward into the Nile Valley",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "This may give rise to new species",
+          "supported": true,
+          "evidence_quote": "forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Scientists have used the Saharan pump to date waves of human migration from Africa",
+          "supported": true,
+          "evidence_quote": "The Saharan pump has been used to date a number of waves of human migration from Africa",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "The waves range from Homo erectus to Homo sapiens",
+          "supported": true,
+          "evidence_quote": "Lower Paleolithic: Homo erectus (ssp. ergaster) into Southeast and East Asia",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "The Sahara pump moved plants and animals",
+          "supported": true,
+          "evidence_quote": "a hypothesis that explains how flora and fauna migrated between Eurasia and Africa",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "The pump has been used to date human migrations",
+          "supported": true,
+          "evidence_quote": "The Saharan pump has been used to date a number of waves of human migration from Africa",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Long rainy spells turned the Sahara and Arabia into savanna grassland with more lakes and rivers",
+          "supported": true,
+          "evidence_quote": "the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "African plants and animals became common there",
+          "supported": true,
+          "evidence_quote": "African flora and fauna become common.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The last green phase began about 12,500 BC and peaked around 4000 BC",
+          "supported": true,
+          "evidence_quote": "The moister Saharan conditions had begun about 12,500 BC",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The green never lasts; when rains retreat lakes fall and rivers dry up",
+          "supported": true,
+          "evidence_quote": "Evaporation exceeds precipitation, the level of water in lakes like Lake Chad falls, and rivers become dry wadis.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Plants and animals retreat north, south or east and groups get split apart; may give rise to new species",
+          "supported": true,
+          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The Sahara pump theory explains how plants and animals moved between Africa and Eurasia",
+          "supported": true,
+          "evidence_quote": "explains how flora and fauna migrated between Eurasia and Africa via a land bridge in the Levant region",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "It has been used to date waves of human migration from Africa",
+          "supported": true,
+          "evidence_quote": "The Saharan pump has been used to date a number of waves of human migration from Africa",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

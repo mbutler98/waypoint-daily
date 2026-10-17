@@ -1,0 +1,300 @@
+{
+  "source_url": "https://www.quantamagazine.org/he-wants-ai-benchmarking-to-be-a-science-not-a-dark-art-20261016",
+  "title": "He Wants AI Benchmarking To Be a Science, Not a Dark Art",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "checks",
+      "problems": [
+        "insight 1 has a figure, so its body must be <= 20 words; it has 27. Cut 7+ words or drop the figure"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [
+        "figure on slide 2: \"Same model scores 90% on one dataset and 73% on another\" is not supported by SOURCE. The 90% vs 73% is a hypothetical example, not real data; the figure presents it as a real measured result ('Same model'), so it should be labeled illustrative/hypothetical."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "AI test scores (benchmark scores) are shaky",
+          "supported": true,
+          "evidence_quote": "If you look at a model’s accuracy numbers on one benchmark, and then you change the test set only slightly, you get completely different accuracy numbers.",
+          "problem": ""
+        },
+        {
+          "where": "slide 1",
+          "claim": "Rankings of models are not shaky (stable)",
+          "supported": true,
+          "evidence_quote": "those rankings tend to be very stable across different datasets.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Changing a test set only slightly makes accuracy numbers come out completely different",
+          "supported": true,
+          "evidence_quote": "you change the test set only slightly, you get completely different accuracy numbers.",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 2",
+          "claim": "Same model scores 90% on one dataset and 73% on another",
+          "supported": false,
+          "evidence_quote": "If you have 90% accuracy on one dataset and 73% on another, which is it? I have no idea how good this model is.",
+          "problem": "The 90% vs 73% is a hypothetical example, not real data; the figure presents it as a real measured result ('Same model'), so it should be labeled illustrative/hypothetical."
+        },
+        {
+          "where": "slide 3",
+          "claim": "Rankings hold up; order tends to stay stable across datasets when comparing models",
+          "supported": true,
+          "evidence_quote": "those rankings tend to be very stable across different datasets.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "The 90% model still beats the 80% model, even on different data",
+          "supported": true,
+          "evidence_quote": "If one model gets 90% on a particular test set, and another model gets 80%, then the 90% model is the model you’d want to use in the real world. It’ll still do better on other datasets, even ones that are quite different than the test set.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Rankings only hold if models train on the same data",
+          "supported": true,
+          "evidence_quote": "The stability of model rankings has one big caveat: Models need to train on the same training set.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "We don't know what LLMs were trained on",
+          "supported": true,
+          "evidence_quote": "But we don’t know what LLMs were trained on.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Builders can tailor data to boost benchmark results",
+          "supported": true,
+          "evidence_quote": "model builders can strategically assemble data mixes that best promote benchmark performance.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Models may study for the test",
+          "supported": true,
+          "evidence_quote": "It’s a little bit like studying to the test, which we all do in high school.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Trust who ranks higher, not the score",
+          "supported": true,
+          "evidence_quote": "We should avoid comparisons or conclusions that implicitly require the absolute number to make sense.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Rankings stay reliable only when every model gets the same kind of preparation",
+          "supported": true,
+          "evidence_quote": "If everyone optimizes, or “altitude trains,” the absolute numbers will be inflated, but you can restore the validity of the rankings.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "AI benchmarks are tests that score and rank models",
+          "supported": true,
+          "evidence_quote": "you use the test set only to compare and rank models — to have a leaderboard",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Moritz Hardt is a computer scientist",
+          "supported": true,
+          "evidence_quote": "Moritz Hardt, a computer scientist and a director at the Max Planck Institute for Intelligent Systems",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Hardt says scores themselves can mislead",
+          "supported": true,
+          "evidence_quote": "These scores really get misused.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Like 90% on one dataset and 73% on another",
+          "supported": true,
+          "evidence_quote": "If you have 90% accuracy on one dataset and 73% on another, which is it?",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Rankings have held up well historically",
+          "supported": true,
+          "evidence_quote": "And this has been pretty consistent across the history of machine learning.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The model that beats another on one test tends to beat it on other datasets too",
+          "supported": true,
+          "evidence_quote": "It’ll still do better on other datasets, even ones that are quite different than the test set.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Hardt's idea is to let everyone prepare, like athletes who all train at altitude",
+          "supported": true,
+          "evidence_quote": "If everyone optimizes, or “altitude trains,” the absolute numbers will be inflated, but you can restore the validity of the rankings.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Scores may be inflated but rankings can be restored",
+          "supported": true,
+          "evidence_quote": "the absolute numbers will be inflated, but you can restore the validity of the rankings.",
+          "problem": ""
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "AI test (benchmark) scores are shaky",
+          "supported": true,
+          "evidence_quote": "If you look at a model’s accuracy numbers on one benchmark, and then you change the test set only slightly, you get completely different accuracy numbers.",
+          "problem": ""
+        },
+        {
+          "where": "slide 1",
+          "claim": "Rankings aren't shaky (they are stable)",
+          "supported": true,
+          "evidence_quote": "those rankings tend to be very stable across different datasets.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Changing a test set only slightly gives completely different accuracy numbers",
+          "supported": true,
+          "evidence_quote": "you change the test set only slightly, you get completely different accuracy numbers.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Example: a model getting 90% on one dataset and 73% on another",
+          "supported": true,
+          "evidence_quote": "If you have 90% accuracy on one dataset and 73% on another, which is it?",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Rankings tend to be stable across datasets",
+          "supported": true,
+          "evidence_quote": "those rankings tend to be very stable across different datasets.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "If one model gets 90% and another 80%, the 90% model still does better on other datasets",
+          "supported": true,
+          "evidence_quote": "If one model gets 90% on a particular test set, and another model gets 80%, then the 90% model is the model you’d want to use in the real world. It’ll still do better on other datasets",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Rankings only hold if models train on the same data",
+          "supported": true,
+          "evidence_quote": "The stability of model rankings has one big caveat: Models need to train on the same training set.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "We don't know what LLMs were trained on",
+          "supported": true,
+          "evidence_quote": "But we don’t know what LLMs were trained on.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Builders can tailor data to boost benchmark results",
+          "supported": true,
+          "evidence_quote": "model builders can strategically assemble data mixes that best promote benchmark performance.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Models may study for the test",
+          "supported": true,
+          "evidence_quote": "It’s a little bit like studying to the test, which we all do in high school.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Trust who ranks higher, not the score",
+          "supported": true,
+          "evidence_quote": "We should avoid comparisons or conclusions that implicitly require the absolute number to make sense.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Rankings stay reliable only when every model gets the same kind of preparation",
+          "supported": true,
+          "evidence_quote": "If everyone optimizes, or “altitude trains,” the absolute numbers will be inflated, but you can restore the validity of the rankings.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "AI benchmarks are tests that score and rank models",
+          "supported": true,
+          "evidence_quote": "you use the test set only to compare and rank models",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Moritz Hardt is a computer scientist who says the scores can mislead",
+          "supported": true,
+          "evidence_quote": "Moritz Hardt, a computer scientist and a director at the Max Planck Institute for Intelligent Systems",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Rankings have held up well; a model that beats another on one test tends to beat it on others",
+          "supported": true,
+          "evidence_quote": "And this has been pretty consistent across the history of machine learning.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Rankings only work when models train on the same data",
+          "supported": true,
+          "evidence_quote": "Models need to train on the same training set.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Hardt's idea is to let everyone prepare, like athletes who all train at altitude",
+          "supported": true,
+          "evidence_quote": "The consensus in the end was, just let everyone do it.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Scores may be inflated but rankings can be restored",
+          "supported": true,
+          "evidence_quote": "the absolute numbers will be inflated, but you can restore the validity of the rankings.",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

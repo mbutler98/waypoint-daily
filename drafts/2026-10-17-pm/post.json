@@ -1,63 +1,152 @@
 {
   "id": "2026-10-17-pm",
   "slot": "pm",
-  "faculty": "Animals & Nature",
-  "topic": "Sahara wet-dry migration",
+  "faculty": "Space",
+  "topic": "Vogt–Russell theorem",
   "source": {
-    "url": "https://en.wikipedia.org/wiki/Sahara_pump_theory",
-    "title": "Sahara pump theory",
+    "url": "https://en.wikipedia.org/wiki/Vogt%E2%80%93Russell_theorem",
+    "title": "Vogt–Russell theorem",
     "publisher": "Wikipedia",
     "published": null,
     "kind": "evergreen"
   },
-  "key_claim": "The Sahara swings between wet grassland and dry desert, and each swing pushes plants and animals around and may split species apart.",
+  "key_claim": "The Vogt–Russell theorem says mass and composition set a star's structure, which holds as a good approximation for most stars but not universally.",
   "slides": [
     {
       "type": "hook",
-      "kicker": "Sahara",
-      "headline": "The Sahara keeps flipping between green and desert."
+      "kicker": "Stars",
+      "headline": "A star's whole structure, set by two things"
     },
     {
       "type": "insight",
       "n": 1,
-      "headline": "Sometimes the Sahara is green",
-      "body": "In long wet periods, the Sahara and Arabia turn into savanna grassland. Lakes grow, more rivers flow, and African plants and animals become common there.",
+      "headline": "Mass and ingredients decide the rest",
+      "body": "The Vogt–Russell idea says a steady star is shaped by two things: its total mass and what it is made of. That includes its radius and luminosity.",
       "figure": null
     },
     {
       "type": "insight",
       "n": 2,
-      "headline": "Then it dries, and life moves out",
-      "body": "Rivers shrink to dry wadis. Plants and animals retreat north, south or east, some along the Nile Valley, then on toward Asia.",
-      "figure": null
+      "headline": "The idea sat unpublished for years",
+      "body": "Vogt had the idea in 1926 but published in 1931. Russell, working alone, published the same idea in 1931.",
+      "figure": {
+        "type": "diagram",
+        "title": "Vogt's idea waited five years",
+        "size": [
+          540,
+          150
+        ],
+        "nodes": [
+          {
+            "id": "d0",
+            "at": [
+              80,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "grey"
+          },
+          {
+            "id": "t0",
+            "at": [
+              80,
+              90
+            ],
+            "shape": "text",
+            "label": "Vogt's idea",
+            "color": "white",
+            "sub": "1926"
+          },
+          {
+            "id": "d1",
+            "at": [
+              270,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "hot"
+          },
+          {
+            "id": "t1",
+            "at": [
+              270,
+              90
+            ],
+            "shape": "text",
+            "label": "Vogt's paper",
+            "color": "hot",
+            "sub": "1931"
+          },
+          {
+            "id": "d2",
+            "at": [
+              460,
+              40
+            ],
+            "shape": "circle",
+            "w": 18,
+            "label": "",
+            "color": "grey"
+          },
+          {
+            "id": "t2",
+            "at": [
+              460,
+              90
+            ],
+            "shape": "text",
+            "label": "Russell's paper",
+            "color": "white",
+            "sub": "1931"
+          }
+        ],
+        "edges": [
+          {
+            "from": "d0",
+            "to": "d1",
+            "color": "grey",
+            "arrow": false
+          },
+          {
+            "from": "d1",
+            "to": "d2",
+            "color": "grey",
+            "arrow": false
+          }
+        ]
+      }
     },
     {
       "type": "insight",
       "n": 3,
-      "headline": "Splitting groups may make new species",
-      "body": "Moving apart can separate some species into different climates. They must adapt, which may possibly lead to new species over time.",
+      "headline": "Then the models found exceptions",
+      "body": "Later studies found that near some limits, or with instabilities, the same mass and mix can give many solutions. So the idea is not universal.",
       "figure": null
     },
     {
       "type": "cta",
-      "headline": "The Sahara works like a pump.",
-      "body": "Wet and dry swings push life around, and may split species apart."
+      "headline": "Even a “theorem” can be a first guess.",
+      "body": "For most ordinary stars, mass and makeup give one stable answer."
     }
   ],
-  "caption": "The Sahara keeps flipping between green and desert.\n\nIn long wet periods, the Sahara and Arabia become savanna grassland, with larger lakes and more rivers. African plants and animals become common there.\n\nThe catch? The rains retreat. Lakes fall, rivers become dry wadis, and plants and animals move north, south or east, some along the Nile Valley toward Asia.\n\nThe payoff? That can split some species into different climates, forcing them to adapt. It may even give rise to new species. It's called the Sahara pump theory.\n\nSource: Wikipedia — Sahara pump theory\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "caption": "A star's whole structure, set by two things\n\nTwo things, a star's total mass and what it is made of, are said to set its whole structure when it is in steady balance. That is the Vogt–Russell idea. Heinrich Vogt formed it in 1926, but his first paper came in 1931. Russell developed it on his own.\n\nThe catch? Later studies found that near some limits, or with instabilities, the same mass and mix can give many solutions. So the idea is not universal.\n\nThe payoff? For most stars under normal conditions, like main-sequence stars, the models settle on one stable answer. That is why it still works as a first approximation. 🌟\n\nSource: Wikipedia — Vogt–Russell theorem\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
   "hashtags": [
-    "#Sahara",
-    "#GreenSahara",
-    "#Evolution",
-    "#ClimateHistory",
+    "#Astronomy",
+    "#StellarPhysics",
+    "#Stars",
+    "#HistoryOfScience",
     "#WaypointDaily"
   ],
   "alt_text": [
-    "Slide with the kicker Sahara and the headline: The Sahara keeps flipping between green and desert.",
-    "Slide titled Sometimes the Sahara is green, explaining that long wet periods turn the Sahara and Arabia into grassland with more lakes and rivers.",
-    "Slide titled Then it dries, and life moves out, explaining that rivers become dry wadis and plants and animals retreat north, south or east.",
-    "Slide titled Splitting groups may make new species, explaining that separated populations must adapt and may possibly become new species.",
-    "Closing slide: The Sahara works like a pump. Wet and dry swings push life around, and may split species apart."
+    "Slide 1: Stars. Headline: A star's whole structure, set by two things.",
+    "Slide 2: A star's structure is set by its total mass and chemical composition, including radius and luminosity.",
+    "Slide 3: Timeline: Vogt's idea in 1926, Vogt's paper in 1931, Russell's paper in 1931.",
+    "Slide 4: Later models found that the same mass and composition can sometimes give many solutions.",
+    "Slide 5: Even a theorem can be a first guess. For most ordinary stars, mass and makeup give one stable answer."
   ],
   "status": "draft",
   "approval_issue": null,

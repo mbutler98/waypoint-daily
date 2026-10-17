@@ -1,0 +1,286 @@
+{
+  "source_url": "https://www.anthropic.com/research/ecdsa-curve-origins",
+  "title": "Claude reveals ECDSA curve origins",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "checks",
+      "problems": [
+        "slides.2.insight.body: insight body has 32 words; the limit is 30"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [
+        "slide 1: \"ECDSA/crypto's mystery numbers (seeds) were just timestamps\" is not supported by SOURCE. Seeds were outputs of lrand48 seeded by a timestamp, not 'just timestamps'; also the binary-curve B-163 seed remains unexplained; reword to 'generated from timestamps' and avoid implying all were explained."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "ECDSA/crypto's mystery numbers (seeds) were just timestamps",
+          "supported": false,
+          "evidence_quote": "None of them were the results of any hash algorithm at all, but rather the output of the C library’s lrand48 random-number generator, seeded with a Unix timestamp!",
+          "problem": "Seeds were outputs of lrand48 seeded by a timestamp, not 'just timestamps'; also the binary-curve B-163 seed remains unexplained; reword to 'generated from timestamps' and avoid implying all were explained."
+        },
+        {
+          "where": "slide 2",
+          "claim": "The mystery was solved in under half an hour",
+          "supported": true,
+          "evidence_quote": "In under half an hour, Claude discovered the origins of the NIST P-192, P-224, P-256, P-384 and P-521 seeds.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The NSA gave out the seed numbers for ECDSA curves with no explanation",
+          "supported": true,
+          "evidence_quote": "they were provided by the NSA with no explanation or justification",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Claude traced the seeds to a random-number generator started from a Unix timestamp, not a hash",
+          "supported": true,
+          "evidence_quote": "None of them were the results of any hash algorithm at all, but rather the output of the C library’s lrand48 random-number generator, seeded with a Unix timestamp!",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "The famous joke story (hash of a funny phrase) was wrong",
+          "supported": true,
+          "evidence_quote": "Several Anthropic employees had unsuccessfully chased the seeds following the tip about it being a hash of a humorous phrase. That turned out to be wrong.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "A tip said the seeds came from hashing a funny phrase, and people chased it and failed",
+          "supported": true,
+          "evidence_quote": "Several Anthropic employees had unsuccessfully chased the seeds following the tip about it being a hash of a humorous phrase.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "The prime-curve starting points were dates between May 1997 and April 1998",
+          "supported": true,
+          "evidence_quote": "for the ten prime-curve seeds, every srand48 initialization was a Unix timestamp representing a date between May 1997 and April 1998.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "This is no new attack or weakness",
+          "supported": true,
+          "evidence_quote": "This is not a cryptographic break, new attack, or weakness in the ECDSA curves.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "A simple generator started from the clock leaves much less room for backdoors",
+          "supported": true,
+          "evidence_quote": "a common pseudorandom number generator initialized from the clock, which anyone can now reproduce. That leaves much less room for subversion",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Anyone can now reproduce it",
+          "supported": true,
+          "evidence_quote": "which anyone can now reproduce.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "The boring answer made the curves more trustworthy",
+          "supported": true,
+          "evidence_quote": "this makes us more confident the curves were chosen without any backdoors or intentional weaknesses.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "A simple clock-based generator leaves much less room for hidden tricks",
+          "supported": true,
+          "evidence_quote": "That leaves much less room for subversion",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "For years people wondered where the seeds behind ECDSA's standard curves came from; NSA supplied them with no explanation",
+          "supported": true,
+          "evidence_quote": "they were provided by the NSA with no explanation or justification",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The best story was a hashed joke phrase, and it was wrong",
+          "supported": true,
+          "evidence_quote": "The best story was that Jerry Solinas, longtime NSA employee, generated the seeds using a hash of a humorous passphrase:",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Claude found the seeds came from the C library's lrand48 generator started from a Unix timestamp",
+          "supported": true,
+          "evidence_quote": "the output of the C library’s lrand48 random-number generator, seeded with a Unix timestamp!",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "It took under half an hour",
+          "supported": true,
+          "evidence_quote": "In under half an hour, Claude discovered the origins",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "It's not an attack or a weakness",
+          "supported": true,
+          "evidence_quote": "This is not a cryptographic break, new attack, or weakness in the ECDSA curves.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The authors are more confident the curves are secure",
+          "supported": true,
+          "evidence_quote": "That leaves much less room for subversion and that we can be confident the parameters are secure.",
+          "problem": ""
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "The mystery seed numbers behind crypto curves came from timestamps",
+          "supported": true,
+          "evidence_quote": "“It’s just timestamps”: the decades-old mystery of the origins of one of the most popular cryptographic standards has been explained.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The seeds were worked out in under half an hour",
+          "supported": true,
+          "evidence_quote": "In under half an hour, Claude discovered the origins of the NIST P-192, P-224, P-256, P-384 and P-521 seeds.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The NSA provided the ECDSA curve seeds with no explanation",
+          "supported": true,
+          "evidence_quote": "they were provided by the NSA with no explanation or justification",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Claude traced several seeds to a random-number generator started from a Unix timestamp, not a hash",
+          "supported": true,
+          "evidence_quote": "None of them were the results of any hash algorithm at all, but rather the output of the C library’s lrand48 random-number generator, seeded with a Unix timestamp!",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "The famous joke-phrase story was wrong",
+          "supported": true,
+          "evidence_quote": "That turned out to be wrong.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "A tip said the seeds came from hashing a funny phrase",
+          "supported": true,
+          "evidence_quote": "following the tip about it being a hash of a humorous phrase",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "The ten prime-curve seeds trace to dates between May 1997 and April 1998",
+          "supported": true,
+          "evidence_quote": "for the ten prime-curve seeds, every srand48 initialization was a Unix timestamp representing a date between May 1997 and April 1998",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "This is not a new attack or weakness",
+          "supported": true,
+          "evidence_quote": "This is not a cryptographic break, new attack, or weakness in the ECDSA curves.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "A simple clock-started generator leaves much less room for backdoors",
+          "supported": true,
+          "evidence_quote": "That leaves much less room for subversion",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Anyone can reproduce the generation",
+          "supported": true,
+          "evidence_quote": "a common pseudorandom number generator initialized from the clock, which anyone can now reproduce",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "The boring answer makes the curves more trustworthy",
+          "supported": true,
+          "evidence_quote": "this makes us more confident the curves were chosen without any backdoors or intentional weaknesses",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "A simple clock-based generator leaves much less room for hidden tricks",
+          "supported": true,
+          "evidence_quote": "That leaves much less room for subversion",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "For years people wondered where the ECDSA curve seeds came from; NSA supplied them with no explanation",
+          "supported": true,
+          "evidence_quote": "The provenance of these seeds has been a long-standing question, as they were provided by the NSA with no explanation or justification.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The best story was a hashed joke phrase",
+          "supported": true,
+          "evidence_quote": "The best story was that Jerry Solinas, longtime NSA employee, generated the seeds using a hash of a humorous passphrase",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Claude found several curves' seeds came from lrand48 started from a Unix timestamp",
+          "supported": true,
+          "evidence_quote": "the output of the C library’s lrand48 random-number generator, seeded with a Unix timestamp!",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "It took under half an hour",
+          "supported": true,
+          "evidence_quote": "In under half an hour, Claude discovered the origins",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "B-163 is still unexplained",
+          "supported": true,
+          "evidence_quote": "The fifth binary seed, B-163, fits nothing Claude has tried and remains unexplained.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "It's not an attack or weakness; the authors are more confident the curves are secure",
+          "supported": true,
+          "evidence_quote": "This is not a cryptographic break, new attack, or weakness in the ECDSA curves. In fact, this makes us more confident the curves were chosen without any backdoors",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

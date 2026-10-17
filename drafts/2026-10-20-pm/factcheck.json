@@ -1,0 +1,122 @@
+{
+  "source_url": "https://en.wikipedia.org/wiki/Flight",
+  "title": "Flight",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "A thrown ball is flying.",
+          "supported": true,
+          "evidence_quote": "Some things generate little or no lift and move only or mostly under the action of momentum, gravity, air drag and in some cases thrust. This is termed ballistic flight. Examples include balls, arrows, bullets, fireworks etc.",
+          "problem": ""
+        },
+        {
+          "where": "slide 1",
+          "claim": "A balloon is flying.",
+          "supported": true,
+          "evidence_quote": "human inventions like aircraft (airplanes, helicopters, airships, balloons, etc.)",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Flight is moving through air or space without touching a planet's surface.",
+          "supported": true,
+          "evidence_quote": "Flight or flying is the motion of an object through an atmosphere or through the vacuum of space, in this case also called spaceflight, without contacting any planetary surface.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Flight can be achieved with lift, buoyancy, or ballistic movement.",
+          "supported": true,
+          "evidence_quote": "This can be achieved by generating aerodynamic lift associated with gliding or propulsive thrust, aerostatically using buoyancy, or by ballistic movement.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Some things make little or no lift and move on momentum, gravity and air drag.",
+          "supported": true,
+          "evidence_quote": "Some things generate little or no lift and move only or mostly under the action of momentum, gravity, air drag and in some cases thrust.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "That is called ballistic flight.",
+          "supported": true,
+          "evidence_quote": "This is termed ballistic flight.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Balls, arrows, bullets and fireworks are examples of ballistic flight.",
+          "supported": true,
+          "evidence_quote": "Examples include balls, arrows, bullets, fireworks etc.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Birds, bats and insects fly.",
+          "supported": true,
+          "evidence_quote": "animal aviators such as birds, bats and insects",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Gliding animals, certain seeds and spores fly.",
+          "supported": true,
+          "evidence_quote": "natural gliders/parachuters such as patagial animals, anemochorous seeds and ballistospores",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Balloons, aircraft and rockets fly.",
+          "supported": true,
+          "evidence_quote": "human inventions like aircraft (airplanes, helicopters, airships, balloons, etc.) and rockets",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "To fly is to travel without touching ground.",
+          "supported": true,
+          "evidence_quote": "without contacting any planetary surface.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Lift, buoyancy or ballistic movement can all achieve flight.",
+          "supported": true,
+          "evidence_quote": "This can be achieved by generating aerodynamic lift associated with gliding or propulsive thrust, aerostatically using buoyancy, or by ballistic movement.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A thrown ball counts as flying.",
+          "supported": true,
+          "evidence_quote": "Examples include balls, arrows, bullets, fireworks etc.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Balls, arrows, bullets and fireworks make little or no lift.",
+          "supported": true,
+          "evidence_quote": "Some things generate little or no lift and move only or mostly under the action of momentum, gravity, air drag and in some cases thrust.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The list of things that fly is much longer than wings alone.",
+          "supported": true,
+          "evidence_quote": "Many things can fly, from animal aviators such as birds, bats and insects, to natural gliders/parachuters",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

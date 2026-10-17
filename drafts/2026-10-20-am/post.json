@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-20-am",
+  "slot": "am",
+  "faculty": "AI & Computing",
+  "topic": "AI benchmarks",
+  "source": {
+    "url": "https://www.quantamagazine.org/he-wants-ai-benchmarking-to-be-a-science-not-a-dark-art-20261016",
+    "title": "He Wants AI Benchmarking To Be a Science, Not a Dark Art",
+    "publisher": "Quanta Magazine",
+    "published": "2026-10-16",
+    "kind": "news"
+  },
+  "key_claim": "AI benchmark scores are unreliable on their own, but model rankings have been stable, and that stability breaks when models prepare for tests unequally.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "AI benchmarks",
+      "headline": "AI test scores are shaky. The rankings aren't."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Tweak the test, and the score changes",
+      "body": "Change a test set only slightly and you get completely different accuracy numbers. Say a model gets 90% on one dataset and 73% on another. Which is it?",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Yet the rankings hold up",
+      "body": "Compare models side by side and the order tends to stay stable across datasets. If one model gets 90% and another 80%, the 90% one still does better elsewhere.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Now models may study for the test",
+      "body": "Rankings only hold if models train on the same data. We don't know what LLMs trained on, and builders can tailor data to boost benchmark results.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "Trust who ranks higher, not the score.",
+      "body": "Rankings stay reliable only when every model gets the same kind of preparation."
+    }
+  ],
+  "caption": "AI test scores are shaky. The rankings aren't.\n\nAI benchmarks are tests that score and rank models. But computer scientist Moritz Hardt says the scores themselves can mislead. Change a test set only slightly and you get completely different accuracy numbers. Say, 90% on one dataset and 73% on another.\n\nThe catch? Rankings have held up well. A model that beats another on one test tends to beat it on other datasets too. That only works when models train on the same data. With today's LLMs, we don't know what they were trained on, and builders can shape data to boost benchmark results.\n\nThe payoff? Hardt's idea is to let everyone prepare, like athletes who all train at altitude. The scores may be inflated, but the rankings can be restored.\n\nSource: Quanta Magazine — He Wants AI Benchmarking To Be a Science, Not a Dark Art\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#AIBenchmarks",
+    "#MachineLearning",
+    "#LLM",
+    "#MoritzHardt",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Hook slide with the kicker AI benchmarks and the headline: AI test scores are shaky. The rankings aren't.",
+    "Slide saying that changing a test set only slightly gives completely different accuracy numbers, for example 90% on one dataset and 73% on another.",
+    "Slide saying model rankings tend to stay stable across different datasets, so a 90% model still does better than an 80% one.",
+    "Slide explaining that rankings break when models train on different data, since builders can tailor data to boost benchmark results.",
+    "Takeaway slide: Trust who ranks higher, not the score. Rankings stay reliable only when every model gets the same kind of preparation."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

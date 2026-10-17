@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-20-pm",
+  "slot": "pm",
+  "faculty": "Flight",
+  "topic": "Types of flight",
+  "source": {
+    "url": "https://en.wikipedia.org/wiki/Flight",
+    "title": "Flight",
+    "publisher": "Wikipedia",
+    "published": null,
+    "kind": "evergreen"
+  },
+  "key_claim": "Flight just means moving through air or space without touching the ground, so balls, balloons, seeds and rockets all count.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Flight",
+      "headline": "A thrown ball is flying. So is a balloon."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Flying means not touching the ground",
+      "body": "Flight is moving through air or space without touching a planet's surface. Things can do it with lift, with buoyancy, or by ballistic movement.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Balls and arrows count too",
+      "body": "Some things make little or no lift. They move on momentum, gravity and air drag. That is called ballistic flight. Balls, arrows, bullets and fireworks are examples.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Far more things fly than you'd guess",
+      "body": "Birds, bats and insects fly. So do gliding animals, certain seeds and spores, balloons, aircraft and rockets.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "To fly is to travel without touching ground.",
+      "body": "Lift, buoyancy or ballistic movement can all do it."
+    }
+  ],
+  "caption": "A thrown ball is flying. So is a balloon.\n\nFlight is simply moving through air or space without touching a planet's surface. There is more than one way to do it: lift, buoyancy, or ballistic movement.\n\nThe catch? A thrown ball counts. Balls, arrows, bullets and fireworks make little or no lift. They move on momentum, gravity and air drag, and that is called ballistic flight.\n\nThe payoff? Birds, bats, insects, gliding animals, certain seeds and spores, balloons, aircraft and rockets all fly. The list is much longer than wings alone. ✈️\n\nSource: Wikipedia — Flight\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Flight",
+    "#Aerospace",
+    "#Physics",
+    "#HowItWorks",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Title slide with the kicker Flight and the headline: A thrown ball is flying. So is a balloon.",
+    "Slide titled Flying means not touching the ground, explaining that lift, buoyancy or ballistic movement can all achieve flight.",
+    "Slide titled Balls and arrows count too, explaining ballistic flight with balls, arrows, bullets and fireworks as examples.",
+    "Slide titled Far more things fly than you'd guess, listing animals, seeds, spores, balloons, aircraft and rockets.",
+    "Closing slide: To fly is to travel without touching ground. Lift, buoyancy or ballistic movement can all do it."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

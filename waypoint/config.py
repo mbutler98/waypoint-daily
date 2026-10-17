@@ -61,6 +61,7 @@ class Limits(_Model):
     max_writer_retries: int = Field(ge=0)
     max_draft_candidates: int = Field(ge=1)
     min_surprise: int = Field(ge=1, le=5)
+    skip_failed_days: int = Field(ge=0)
 
 
 class Gemini(_Model):

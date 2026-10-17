@@ -1,0 +1,108 @@
+{
+  "source_url": "https://en.wikipedia.org/wiki/Serendipity",
+  "title": "Serendipity",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 2,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Serendipity needs more than luck (human recognition/action matters)",
+          "supported": true,
+          "evidence_quote": "scientific discussions emphasize the crucial role of human agency—recognizing, interpreting, and acting upon unexpected opportunities.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "In 1754 Horace Walpole read a Persian fairy tale about three princes",
+          "supported": true,
+          "evidence_quote": "coined by Horace Walpole in 1754, after he read a Persian fairy tale called The Three Princes of Serendip",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The princes constantly made lucky discoveries",
+          "supported": true,
+          "evidence_quote": "whose heroes constantly made lucky discoveries.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Walpole coined the word 'serendipity' after the tale",
+          "supported": true,
+          "evidence_quote": "The term was coined by Horace Walpole in 1754, after he read a Persian fairy tale",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Walpole said the princes found things they weren't looking for, by accidents and sagacity",
+          "supported": true,
+          "evidence_quote": "always making discoveries, by accidents and sagacity, of things which they were not in quest of.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Luck was only part of the story",
+          "supported": true,
+          "evidence_quote": "by accidents and sagacity",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "In 1839 Charles Goodyear accidentally dropped rubber mixed with sulfur on a hot frying pan",
+          "supported": true,
+          "evidence_quote": "Vulcanization was discovered by Charles Goodyear in 1839 when he accidentally dropped rubber mixed with sulfur on a hot frying pan.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "He noticed the rubber was stronger and heat-resistant",
+          "supported": true,
+          "evidence_quote": "He noticed that the resulting rubber was stronger and heat-resistant.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Luck only counts if you notice",
+          "supported": true,
+          "evidence_quote": "recognizing, interpreting, and acting upon unexpected opportunities",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Scientists stress recognizing, interpreting and acting on unexpected chances",
+          "supported": true,
+          "evidence_quote": "scientific discussions emphasize the crucial role of human agency—recognizing, interpreting, and acting upon unexpected opportunities.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Walpole read a Persian fairy tale in 1754 about three princes who made lucky discoveries and used it to coin 'serendipity'",
+          "supported": true,
+          "evidence_quote": "coined by Horace Walpole in 1754, after he read a Persian fairy tale called The Three Princes of Serendip, whose heroes constantly made lucky discoveries.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Goodyear dropped rubber mixed with sulfur on a hot frying pan in 1839 and noticed it was stronger and heat-resistant",
+          "supported": true,
+          "evidence_quote": "Charles Goodyear in 1839 when he accidentally dropped rubber mixed with sulfur on a hot frying pan. He noticed that the resulting rubber was stronger and heat-resistant.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Scientists stress that recognizing and acting on a chance is what counts",
+          "supported": true,
+          "evidence_quote": "scientific discussions emphasize the crucial role of human agency—recognizing, interpreting, and acting upon unexpected opportunities.",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

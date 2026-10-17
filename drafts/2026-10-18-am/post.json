@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-18-am",
+  "slot": "am",
+  "faculty": "Mind & Behaviour",
+  "topic": "Prenatal depression therapy",
+  "source": {
+    "url": "https://theconversation.com/treating-depression-during-pregnancy-may-benefit-babys-brain-development-new-research-291260",
+    "title": "Treating depression during pregnancy may benefit baby’s brain development – new research",
+    "publisher": "The Conversation",
+    "published": "2026-10-16",
+    "kind": "news"
+  },
+  "key_claim": "A short course of talk therapy for depressed pregnant women was linked to a smaller hippocampus in their babies, which was linked to calmer reactions at six months.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Pregnancy",
+      "headline": "Therapy for mom may shape her baby's brain"
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Eight sessions of talk therapy",
+      "body": "Pregnant women with depression got MOMCare: eight 50-minute sessions on people skills, less conflict and more social support. Babies' brains were scanned within weeks of birth.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "The catch: a smaller brain area",
+      "body": "The hippocampus, which helps with learning, memory and emotions, was 5% smaller in babies whose mothers got MOMCare. Smaller sounds bad.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Smaller may mean calmer",
+      "body": "Six months on, babies with a smaller hippocampus at birth tended to react less negatively to unfamiliar things. In infancy, faster brain growth may not always be better.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "Helping a mother may help her baby too.",
+      "body": "The authors say it helps mother and baby. Long-term effects are still unknown."
+    }
+  ],
+  "caption": "Therapy for mom may shape her baby's brain\n\nA new study tested MOMCare, a short course of talk therapy, on pregnant women with depression. It was eight 50-minute sessions. The babies' brains were scanned within weeks of birth.\n\nThe catch? The hippocampus, a brain area tied to learning, memory and emotions, was 5% smaller in babies whose mothers got MOMCare. In infancy, faster growth may not always be better.\n\nThe payoff? Six months later, babies with a smaller hippocampus at birth tended to respond less negatively to unfamiliar things. The authors plan to keep following the children. 🧠\n\nSource: The Conversation — Treating depression during pregnancy may benefit baby’s brain development – new research\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#PrenatalHealth",
+    "#Depression",
+    "#BrainDevelopment",
+    "#Pregnancy",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Title slide with the kicker Pregnancy and the hook: Therapy for mom may shape her baby's brain.",
+    "Slide describing MOMCare, eight 50-minute talk therapy sessions for pregnant women with depression, followed by baby brain scans.",
+    "Slide saying the hippocampus, a brain area for learning and memory, was 5% smaller in babies whose mothers got MOMCare.",
+    "Slide saying babies with a smaller hippocampus at birth tended to react less negatively to unfamiliar things six months later.",
+    "Closing slide: Helping a mother may help her baby too."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

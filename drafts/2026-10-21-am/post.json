@@ -1,0 +1,132 @@
+{
+  "id": "2026-10-21-am",
+  "slot": "am",
+  "faculty": "Space",
+  "topic": "Plants in spaceflight",
+  "source": {
+    "url": "https://phys.org/news/2026-10-shift-gene-minutes-spaceflight-reveals.html",
+    "title": "Plants shift gene activity within minutes of entering spaceflight, experiment reveals",
+    "publisher": "Phys.org",
+    "published": "2026-10-16",
+    "kind": "news"
+  },
+  "key_claim": "Arabidopsis plants changed their gene activity within minutes of entering spaceflight, and their responses kept changing through each phase of a short suborbital flight.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Space Plants",
+      "headline": "Plants react to space within minutes"
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "A scientist flew with the plants",
+      "body": "Rob Ferl carried dozens of Arabidopsis plants in special tubes and used them at four points in the flight.",
+      "figure": {
+        "type": "diagram",
+        "title": "Four moments, four samples",
+        "size": [
+          600,
+          130
+        ],
+        "nodes": [
+          {
+            "id": "s0",
+            "at": [
+              80,
+              65
+            ],
+            "label": "Before",
+            "w": 113,
+            "color": "blue"
+          },
+          {
+            "id": "s1",
+            "at": [
+              227,
+              65
+            ],
+            "label": "Space",
+            "w": 113,
+            "color": "hot"
+          },
+          {
+            "id": "s2",
+            "at": [
+              373,
+              65
+            ],
+            "label": "Descent",
+            "w": 113,
+            "color": "blue"
+          },
+          {
+            "id": "s3",
+            "at": [
+              520,
+              65
+            ],
+            "label": "Landing",
+            "w": 113,
+            "color": "blue"
+          }
+        ],
+        "edges": [
+          {
+            "from": "s0",
+            "to": "s1",
+            "color": "grey"
+          },
+          {
+            "from": "s1",
+            "to": "s2",
+            "color": "grey"
+          },
+          {
+            "from": "s2",
+            "to": "s3",
+            "color": "grey"
+          }
+        ]
+      }
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Over 1,200 genes changed activity",
+      "body": "Researchers found more than 1,200 genes whose activity changed during the flight. Leaves and roots responded differently, and so did different phases of the mission.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Adapting to space isn't one step",
+      "body": "Many of the genes help plants handle stress. The results suggest adjusting to space is a gradual process, with different responses during launch, microgravity, descent and return.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "Adapting to space starts almost instantly.",
+      "body": "Plants kept changing their responses at each stage of the flight."
+    }
+  ],
+  "caption": "Plants react to space within minutes\n\nA University of Florida team sent Arabidopsis plants on a short commercial suborbital flight. Researcher Rob Ferl rode along and preserved samples at four points: before launch, in microgravity, on descent and at landing.\n\nThe catch? Adapting to space is not one adjustment made after arriving. More than 1,200 genes changed activity, and leaves and roots responded differently across phases.\n\nThe payoff? The plants' responses kept changing as the flight went on. Preserving samples along the way let scientists see the transition itself, not just the before and after. 🌱\n\nSource: Phys.org — Plants shift gene activity within minutes of entering spaceflight, experiment reveals\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Arabidopsis",
+    "#SpaceBiology",
+    "#Microgravity",
+    "#NewShepard",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Slide with the hook: plants react to space within minutes, under the topic Space Plants.",
+    "Steps diagram of four sampling moments: before launch, space, descent and landing, with space highlighted.",
+    "Slide saying more than 1,200 genes changed activity during the flight, differing between leaves and roots.",
+    "Slide explaining that adapting to space is a gradual process with different responses at each phase.",
+    "Closing slide: adapting to space starts almost instantly, and plants kept changing at each stage."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

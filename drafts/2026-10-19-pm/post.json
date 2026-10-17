@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-19-pm",
+  "slot": "pm",
+  "faculty": "Trades & Home",
+  "topic": "Ercol furniture company",
+  "source": {
+    "url": "https://en.wikipedia.org/wiki/Ercol",
+    "title": "Ercol",
+    "publisher": "Wikipedia",
+    "published": null,
+    "kind": "evergreen"
+  },
+  "key_claim": "Ercol went from making 36 million wartime tent pegs from scrap wood to mass-producing Windsor chairs, one every 20 seconds.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Ercol",
+      "headline": "A furniture maker built 36 million tent pegs"
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Scraps of wood became tent pegs",
+      "body": "When the Second World War began, Ercol's factory switched to war work. It first made tent pegs from wood too small for anything else.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Elm warps, so Ercol fixed it",
+      "body": "In 1944, Ercol was hired to make 100,000 low-cost Windsor chairs. Elm tended to warp, so Ercolani developed a new way to dry it.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "One chair every 20 seconds",
+      "body": "The new method let a chair be built from 14 pre-formed parts. With machines, a chair could be made every 20 seconds.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "From tent pegs to chairs, fast.",
+      "body": "Post-war Britain wanted simpler, smaller furniture, and Ercol's mass-produced pieces found a good market."
+    }
+  ],
+  "caption": "A furniture maker built 36 million tent pegs\n\nAt the start of the Second World War, Ercol's factory switched to war work. It made tent pegs from wood too small for other uses, and over the war it produced 36 million of them.\n\nThe catch? In 1944, the government's Board of Trade hired Ercol to make 100,000 low-cost Windsor chairs using English elm, a wood that was not generally used for furniture because it tended to warp. Ercolani developed a new drying process to fix that.\n\nThe payoff? A chair could be built from 14 pre-formed parts, and one could be made every 20 seconds. Mass-produced Ercol furniture then found a good market in post-war Britain. 🪑\n\nSource: Wikipedia — Ercol\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Ercol",
+    "#FurnitureDesign",
+    "#WindsorChair",
+    "#BritishDesign",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Slide 1: Kicker Ercol and the headline: A furniture maker built 36 million tent pegs.",
+    "Slide 2: Text explaining that Ercol's factory made tent pegs from small scraps of wood at the start of the Second World War.",
+    "Slide 3: Text explaining that elm tended to warp, so Ercolani developed a new drying process for a 1944 order of 100,000 Windsor chairs.",
+    "Slide 4: Text explaining that a chair was built from 14 pre-formed parts and could be made every 20 seconds.",
+    "Slide 5: Takeaway: From tent pegs to chairs, fast, with a line about post-war demand for simpler furniture."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

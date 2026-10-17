@@ -1,31 +1,100 @@
-The Sahara pump theory is a hypothesis that explains how flora and fauna migrated between Eurasia and Africa via a land bridge in the Levant region (the Levantine corridor). It posits that extended periods of abundant rainfall lasting many thousands of years (pluvial periods) in Africa are associated with a "wet-green Sahara" phase, during which larger lakes and more rivers existed (see North African climate cycles). This caused changes in the flora and fauna found in the area. Migration along the river corridor was halted when, during a desert phase 1.8–0.8 million years ago (mya), the Nile ceased to flow completely and possibly flowed only temporarily in other periods due to the geologic uplift (Nubian Swell) of the Nile River region.
+Vogt–Russell theorem is a hypothesis in Stellar astrophysics stating that the structure of a star in hydrostatic and thermal equilibrium is determined solely by its total mass and chemical composition. The idea dates back to 1926 when Heinrich Vogt (astronomer) formulated the theorem with internal communications and seminars. Its first publication only appeared in 1931. Independently, Henry Norris Russell developed the same theorem in the early 1930s.
+As numerical modelling techniques improved, researchers discovered that the relationship is not universal and that the equations of stellar structure can yield multiple solutions for the same set of global parameters. Thus, the “theorem” is treated today as a local approximation, valid mainly for main-sequence stars and under physical conditions without extreme effects.
 
-Mechanism.
-During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland and African flora and fauna become common. Following inter-pluvial arid periods, the Sahara area then reverts to desert conditions, usually as a result of the retreat of the West African Monsoon southwards. Evaporation exceeds precipitation, the level of water in lakes like Lake Chad falls, and rivers become dry wadis. As a result, previously widespread flora and fauna retreat northward to the Atlas Mountains, southward into West Africa, or eastward into the Nile Valley and thence either southeast to the Ethiopian Highlands and Kenya or northeast across the Sinai into Asia. This separates populations of some of the species in areas with different climates, forcing them to adapt, possibly giving rise to allopatric speciation.
+History.
+The original formulation of the principle attributed to Heinrich Vogt (astronomer) dates from 1926, but there is no publication from that year. The first formal exposition appears in his 1931 article in Astronomische Nachrichten, in which he discusses how the constitution of a star in hydrostatic and thermal equilibrium depends essentially on total mass and chemical composition.
+Independently, Henry Norris Russell published in 1931 two technical articles in the Monthly Notices of the Royal Astronomical Society, analyzing how the internal Stellar structure and global parameters such as radius and luminosity are determined by these same two fundamental parameters, total mass and chemical composition.
+Russell presented more detailed versions of these ideas in review articles on the Journal of the Royal Astronomical Society of Canada in 1933. These works consolidated the notion later called the “Vogt-Russell theorem,” despite not providing a mathematical proof of uniqueness.
 
-Plio-Pleistocene.
-The Plio-Pleistocene migrations to Africa included the Caprinae in two waves at 3.2 Ma and 2.7–2.5 Ma; Nyctereutes at 2.5 Ma, and Equus at 2.3 Ma. Hippotragus migrated at 2.6 Ma from Africa to the Siwaliks of the Himalayas. Asian bovids moved to Europe and to and from Africa. The primate Theropithecus experienced contraction and its fossils are found only in Europe and Asia, while Homo and Macaca settled wide ranges.
+Formulation.
+The theorem states:
+The internal structure of a star in hydrostatic and thermal equilibrium, including profiles of pressure, temperature, density, and luminosity, as well as its observable global parameters, radius and luminosity, would be uniquely determined by the total mass 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ and the initial chemical composition 
+  
+    
+      
+        
+          X
+          
+            i
+          
+        
+      
+    
+    {\displaystyle X_{i}}
+  
+.
+This formulation use the four fundamental equations of Stellar structure: hydrostatic equilibrium, mass conservation, energy transport, and energy conservation to construct the main proposition. If one assumes, sphericity, absence of significant rotation, absence of strong magnetic fields, and thermal equilibrium, the system is mathematically well-conditioned and, in principle, admits a single continuous solution that satisfies the boundary conditions at the center and at the surface.
 
-185,000–20,000 years ago.
-Between about 133 and 122 thousand years ago (kya), the southern parts of the Saharan-Arabian Desert experienced the start of the Abbassia Pluvial, a wet period with increased monsoonal precipitation, around 100-200 mm/year. This allowed Eurasian biota to travel to Africa and vice versa. The growth of speleothems (which requires rainwater) was detected in Hol-Zakh, Ashalim, Even-Sid, Ma'ale-ha-Meyshar, Ktora Cracks, Nagev Tzavoa Cave. In Qafzeh and Es Skhul caves, where at that time precipitation was 600–1000 mm/year, the remains of Qafzeh-Skhul type anatomically modern humans are dated from this period, but human occupation seems to end in the later arid period.
-The Red Sea coastal route was extremely arid before 140 and after 115 kya. Slightly wetter conditions appear at 90–87 kya, but it still was just one tenth the rainfall around 125 kya. Speleothems are detected only in Even-Sid-2.
-In the southern Negev Desert speleothems did not grow between 185–140 kya (MIS 6), 110–90 (MIS 5.4–5.2), nor after 85 kya nor during most of the interglacial period (MIS 5.1), the glacial period and Holocene. This suggests that the southern Negev was arid to hyper-arid in these periods.
-The coastal route around the western Mediterranean may have been open at times during the last glacial; speleothems grew in Hol-Zakh and in Nagev Tzavoa Caves. Comparison of speleothem formation with calcite horizons suggests that the wet periods were limited to only tens or hundreds of years.
-From 60–30 kya there were extremely dry conditions in many parts of Africa.
+Modern interpretation.
+Numerical studies developed from the second half of the twentieth century onward showed that, under some conditions like near structural limits such as the Schönberg-Chandrasekhar limit, or in cases involving instabilities, multiple mathematical solutions may exist for the same values of 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ and 
+  
+    
+      
+        
+          X
+          
+            i
+          
+        
+      
+    
+    {\displaystyle X_{i}}
+  
+. These solutions may include stable and unstable states, indicating that the originally postulated uniqueness is not universal.
+For most stars under normal conditions like nondegenerate main-sequence stars, numerical solutions do indeed converge to a single stable solution. This explains:
 
-Last Glacial Maximum.
-An example of the Saharan pump has occurred after the Last Glacial Maximum (LGM). During the Last Glacial Maximum the Sahara desert was more extensive than it is now with the extent of the tropical forests being greatly reduced. During this period, the lower temperatures reduced the strength of the Hadley cell whereby rising tropical air of the Intertropical Convergence Zone (ITCZ) brings rain to the tropics, while dry descending air, at about 20 degrees north, flows back to the equator and brings desert conditions to this region. This phase is associated with high rates of wind-blown mineral dust, found in marine cores that come from the north tropical Atlantic.
+the narrow band occupied by stars with the same mass and composition in the Hertzsprung–Russell diagram;
+the good agreement with the Mass–luminosity relation;
+the good agreement of Stellar evolution models that use only 
+  
+    
+      
+        M
+      
+    
+    {\displaystyle M}
+  
+ and 
+  
+    
+      
+        
+          X
+          
+            i
+          
+        
+      
+    
+    {\displaystyle X_{i}}
+  
+ as initial parameters.
+Thus, although the theorem is not strictly valid as a general law, it remains fundamental as a practical first approximation in stellar astrophysics.
 
-African humid period.
-Around 12,500 BC, the amount of dust in the cores in the Bølling–Allerød phase suddenly plummets and shows a period of much wetter conditions in the Sahara, indicating a Dansgaard–Oeschger (DO) event (a sudden warming followed by a slower cooling of the climate). The moister Saharan conditions had begun about 12,500 BC, with the extension of the ITCZ northward in the northern hemisphere summer, bringing moist wet conditions and a savanna climate to the Sahara, which (apart from a short dry spell associated with the Younger Dryas) peaked during the Holocene thermal maximum climatic phase at 4000 BC when mid-latitude temperatures seem to have been between 2 and 3 degrees warmer than in the recent past.  Analysis of Nile River deposited sediments in the delta also shows this period had a higher proportion of sediments coming from the Blue Nile, suggesting higher rainfall also in the Ethiopian Highlands. This was caused principally by a stronger monsoonal circulation throughout the sub-tropical regions, affecting India, Arabia and the Sahara. Lake Victoria only recently became the source of the White Nile and dried out almost completely around 15 kya.
-The sudden subsequent movement of the ITCZ southwards with a Heinrich event (a sudden cooling followed by a slower warming), linked to changes with the El Niño–Southern Oscillation cycle, led to a rapid drying out of the Saharan and Arabian regions, which quickly became desert. This is linked to a marked decline in the scale of the Nile floods between 2700 and 2100 BC. One theory proposed that humans accelerated the drying out period from 6,000–2,500 BC by pastoralists overgrazing available grassland.
+Limitations.
+The theorem fails when:
 
-Human migration.
-The Saharan pump has been used to date a number of waves of human migration from Africa, namely:
-
-Lower Paleolithic: Homo erectus (ssp. ergaster) into Southeast and East Asia, possibly twice, once with an Oldowan technology, which travelled as far as China and India to create the Chopper tradition, the second with Acheulian hand axes, only as far as the Indian Subcontinent.
-Middle Paleolithic: Homo heidelbergensis into the Middle East and Western Europe.
-Upper Paleolithic: Homo sapiens (possible early "Out of Africa" wave, receded before 80,000 years ago and eventually replaced by the "coastal migration" wave after 70,000 years ago)
-Epipaleolithic: Afroasiatic migration into the Levant associated with the aridity of the 8.2 kiloyear event
-Neolithic: 5.9 kiloyear event: sometimes associated with certain population movements of the Neolithic period
-Libu and Meshwesh migrations attacking Egypt at the end of the New Kingdom that ushered in the Bronze Age Collapse and saw chariots appear in the Sahara.
+the star is near structural limits (e.g., the Schönberg-Chandrasekhar limit);
+there is significant rapid rotation;
+strong magnetic fields influence energy transport;
+strong electron degeneracy is present;
+the star is not in thermal equilibrium.
+In these regimes, multiple solutions arise, invalidating uniqueness.

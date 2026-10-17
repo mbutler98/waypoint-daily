@@ -149,6 +149,7 @@ def _print_slot(res) -> None:
 
 
 def _draft(args: argparse.Namespace) -> int:
+    from waypoint.dedupe import url_key
     from waypoint.draft import (
         DRAFTS_DIR,
         SlotResult,
@@ -156,12 +157,20 @@ def _draft(args: argparse.Namespace) -> int:
         draft_slot,
         load_existing,
         pending_drafts,
+        recently_skipped,
+        skipped_entries,
     )
     from waypoint.gather.fetch import Fetcher
     from waypoint.gather.pipeline import Gatherer
     from waypoint.gather.sources import load_feeds
     from waypoint.select import rank_slot
-    from waypoint.state import CACHE_DIR, EMBEDDINGS_PATH, load_posted
+    from waypoint.state import (
+        CACHE_DIR,
+        EMBEDDINGS_PATH,
+        append_skipped,
+        load_posted,
+        load_skipped,
+    )
     from waypoint.write.gemini import GeminiError
 
     config = load_config(args.config or DEFAULT_CONFIG_PATH)
@@ -182,21 +191,32 @@ def _draft(args: argparse.Namespace) -> int:
         existing = {slot: None if args.force else load_existing(drafts_dir / f"{date}-{slot}")
                     for slot in ("am", "pm")}
         todo = [slot for slot, post in existing.items() if post is None]
+        # the day's kept drafts are planned before either slot is ranked (a kept PM must
+        # block its faculty for a redone AM, not only the other way round)
+        planned += [candidate_from_post(p) for p in existing.values() if p is not None]
         for slot in ("am", "pm"):
             post_id = f"{date.isoformat()}-{slot}"
             if existing[slot] is not None:
                 results.append(SlotResult(slot, post_id, existing[slot], None,
                                           drafts_dir / post_id, skipped=True))
-                planned.append(candidate_from_post(existing[slot]))
                 continue
             if cands is None:
-                cands = gatherer.process(gatherer.collect_all())
+                skip = recently_skipped(load_skipped(), today, config.limits.skip_failed_days)
+                # later days' pending drafts (when redoing a past day) are off-limits too
+                later = pending_drafts(drafts_dir, {p.id for p in posted}, "",
+                                       after=f"{date.isoformat()}-zz")
+                skip |= {url_key(c.url) for c in later}
+                later_topics = {c.topic.lower() for c in later if c.topic}
+                cands = [c for c in gatherer.process(gatherer.collect_all())
+                         if url_key(c.url) not in skip
+                         and (c.topic or "").lower() not in later_topics]
             ranked = rank_slot(slot, cands, posted, config, today, planned, gatherer.fallback)
             # each slot left gets an equal share of the writer model's remaining budget
             share = gemini.calls_left(config.gemini.model) // (len(todo) - todo.index(slot))
             with gemini.capped(config.gemini.model, share):
                 res = draft_slot(slot, post_id, ranked, config, gemini, drafts_dir)
             results.append(res)
+            append_skipped(skipped_entries(res, today.isoformat()))
             if res.candidate is not None:
                 planned.append(res.candidate)
     except GeminiError as e:

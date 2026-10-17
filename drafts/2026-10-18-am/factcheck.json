@@ -1,0 +1,268 @@
+{
+  "source_url": "https://theconversation.com/treating-depression-during-pregnancy-may-benefit-babys-brain-development-new-research-291260",
+  "title": "Treating depression during pregnancy may benefit baby’s brain development – new research",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "checks",
+      "problems": [
+        "the hook is 58 characters; keep it under 50 so it fits on 3 lines",
+        "insight 2 has a figure, so its body must be <= 20 words; it has 21. Cut 1+ words or drop the figure",
+        "figure value 100 does not appear in SOURCE",
+        "figure value 95 does not appear in SOURCE"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [
+        "slide 5: \"Treating depression in pregnancy may benefit two generations\" is not supported by SOURCE. Source states this flatly ('benefits two generations'), but the hedge 'may' is acceptable; however it is supported — see note: source says it benefits two generations, so hedged version is fine."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Treating mom's depression (in pregnancy) may shape baby's brain",
+          "supported": true,
+          "evidence_quote": "Our study is the first to show that treating a woman’s depression during pregnancy may influence infant brain development.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "MOMCare is talk therapy given to pregnant women with depression",
+          "supported": true,
+          "evidence_quote": "a form of brief interpersonal psychotherapy called MOMCare, which is specially tailored to treating prenatal depression",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "MOMCare consists of eight 50-minute sessions",
+          "supported": true,
+          "evidence_quote": "MOMCare consists of eight 50-minute sessions",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Sessions focus on people skills, less conflict and more social support",
+          "supported": true,
+          "evidence_quote": "focused on building interpersonal skills, reducing conflict and strengthening social support.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Babies' brains were scanned within weeks of birth",
+          "supported": true,
+          "evidence_quote": "using an imaging technique called magnetic resonance imaging, or MRI, within a few weeks of birth.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Hippocampus helps with learning, memory and emotions",
+          "supported": true,
+          "evidence_quote": "which plays a role in learning, memory and emotional regulation",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Hippocampus was 5% smaller in babies whose mothers got MOMCare",
+          "supported": true,
+          "evidence_quote": "was 5% smaller by volume in infants whose mothers received MOMCare compared to mothers in the other group.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Six months on, babies with smaller hippocampus at birth tended to react less negatively to unfamiliar things",
+          "supported": true,
+          "evidence_quote": "babies with a smaller hippocampal volume at birth tended to respond less negatively than those with larger volume.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "In infancy, faster brain growth may not always be better",
+          "supported": true,
+          "evidence_quote": "in infancy the brain is growing, and faster growth may not always be advantageous.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Smaller hippocampus may mean calmer babies",
+          "supported": true,
+          "evidence_quote": "babies with a smaller hippocampal volume at birth tended to respond less negatively than those with larger volume.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Treating depression in pregnancy may benefit two generations",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "Source states this flatly ('benefits two generations'), but the hedge 'may' is acceptable; however it is supported — see note: source says it benefits two generations, so hedged version is fine."
+        },
+        {
+          "where": "slide 5",
+          "claim": "Long-term effects are still unknown",
+          "supported": true,
+          "evidence_quote": "Another open question is how the brain changes we observed might affect babies’ development long term.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A new study tested MOMCare on pregnant women with depression; eight 50-minute sessions",
+          "supported": true,
+          "evidence_quote": "MOMCare consists of eight 50-minute sessions",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Babies' brains were scanned within weeks of birth",
+          "supported": true,
+          "evidence_quote": "within a few weeks of birth.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Hippocampus tied to learning, memory and emotions, 5% smaller in MOMCare babies",
+          "supported": true,
+          "evidence_quote": "was 5% smaller by volume in infants whose mothers received MOMCare",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Six months later, babies with smaller hippocampus responded less negatively to unfamiliar things",
+          "supported": true,
+          "evidence_quote": "Six months later, we brought the babies back into the lab to examine their emotional responses to unfamiliar experiences",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The authors are still following the children",
+          "supported": true,
+          "evidence_quote": "We hope to address this by continuing to follow mothers and babies through early childhood.",
+          "problem": ""
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Therapy for pregnant mom may shape her baby's brain",
+          "supported": true,
+          "evidence_quote": "it can also shape how their babies’ brains develop before birth.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Women with depression got MOMCare, a talk therapy",
+          "supported": true,
+          "evidence_quote": "a form of brief interpersonal psychotherapy called MOMCare, which is specially tailored to treating prenatal depression",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "MOMCare is eight 50-minute sessions",
+          "supported": true,
+          "evidence_quote": "MOMCare consists of eight 50-minute sessions",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Sessions focus on people skills, less conflict, more social support",
+          "supported": true,
+          "evidence_quote": "focused on building interpersonal skills, reducing conflict and strengthening social support.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Babies' brains were scanned within weeks of birth",
+          "supported": true,
+          "evidence_quote": "using an imaging technique called magnetic resonance imaging, or MRI, within a few weeks of birth.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Hippocampus helps with learning, memory and emotions",
+          "supported": true,
+          "evidence_quote": "which plays a role in learning, memory and emotional regulation",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Hippocampus was 5% smaller in babies whose mothers got MOMCare",
+          "supported": true,
+          "evidence_quote": "was 5% smaller by volume in infants whose mothers received MOMCare compared to mothers in the other group.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Six months on, babies with smaller hippocampus at birth tended to react less negatively to unfamiliar things",
+          "supported": true,
+          "evidence_quote": "babies with a smaller hippocampal volume at birth tended to respond less negatively than those with larger volume.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "In infancy, faster brain growth may not always be better",
+          "supported": true,
+          "evidence_quote": "in infancy the brain is growing, and faster growth may not always be advantageous.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Smaller may mean calmer (smaller hippocampus linked to calmer responses)",
+          "supported": true,
+          "evidence_quote": "It may seem counterintuitive that a smaller brain volume is associated with stronger emotional regulation",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Helping a mother may help her baby too; authors say it helps mother and baby",
+          "supported": true,
+          "evidence_quote": "Treating a woman’s depression during her pregnancy benefits two generations, improving the health of the mother and her developing baby.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Long-term effects are still unknown",
+          "supported": true,
+          "evidence_quote": "Another open question is how the brain changes we observed might affect babies’ development long term.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "A new study tested MOMCare on pregnant women with depression; eight 50-minute sessions; scans within weeks of birth",
+          "supported": true,
+          "evidence_quote": "MOMCare consists of eight 50-minute sessions focused on building interpersonal skills",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Hippocampus 5% smaller in babies whose mothers got MOMCare",
+          "supported": true,
+          "evidence_quote": "was 5% smaller by volume in infants whose mothers received MOMCare compared to mothers in the other group.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Six months later, babies with smaller hippocampus responded less negatively to unfamiliar things",
+          "supported": true,
+          "evidence_quote": "babies with a smaller hippocampal volume at birth tended to respond less negatively than those with larger volume.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The authors plan to keep following the children",
+          "supported": true,
+          "evidence_quote": "We hope to address this by continuing to follow mothers and babies through early childhood.",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

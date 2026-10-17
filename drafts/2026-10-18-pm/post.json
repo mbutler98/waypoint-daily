@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-18-pm",
+  "slot": "pm",
+  "faculty": "History",
+  "topic": "Origin of serendipity",
+  "source": {
+    "url": "https://en.wikipedia.org/wiki/Serendipity",
+    "title": "Serendipity",
+    "publisher": "Wikipedia",
+    "published": null,
+    "kind": "evergreen"
+  },
+  "key_claim": "Horace Walpole coined serendipity in 1754 from a Persian fairy tale, and the word means lucky discovery that also depends on noticing and acting on it.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Word Origins",
+      "headline": "Serendipity needs more than luck"
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "A word born from a fairy tale",
+      "body": "In 1754, Horace Walpole read a Persian fairy tale about three princes who constantly made lucky discoveries. He then coined the word \"serendipity.\"",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "The princes weren't just lucky",
+      "body": "Walpole said the princes found things they weren't looking for, by accidents and sagacity. Luck was only part of the story.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Luck only counts if you notice",
+      "body": "In 1839, Charles Goodyear accidentally dropped rubber mixed with sulfur on a hot frying pan. He noticed the rubber came out stronger and heat-resistant.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "Luck helps. Noticing it matters.",
+      "body": "Scientists stress recognizing, interpreting and acting on unexpected chances."
+    }
+  ],
+  "caption": "Serendipity needs more than luck\n\nIn 1754, Horace Walpole read a Persian fairy tale about three princes who constantly made lucky discoveries. He used it to coin the word \"serendipity.\"\n\nThe catch? Walpole said the princes found things they weren't looking for by accidents and sagacity. Luck was only part of it.\n\nThe payoff? Charles Goodyear dropped rubber mixed with sulfur on a hot frying pan in 1839. He noticed the rubber came out stronger and heat-resistant. Scientists stress that recognizing and acting on a chance is what counts. 🍀\n\nSource: Wikipedia — Serendipity\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Serendipity",
+    "#WordOrigins",
+    "#HoraceWalpole",
+    "#Etymology",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Title slide with the topic Word Origins and the headline: Serendipity needs more than luck.",
+    "Slide titled A word born from a fairy tale: Horace Walpole reads a Persian tale about three lucky princes in 1754 and coins serendipity.",
+    "Slide titled The princes weren't just lucky: Walpole says they found things by accidents and sagacity.",
+    "Slide titled Luck only counts if you notice: Charles Goodyear drops rubber and sulfur on a hot pan in 1839 and notices stronger rubber.",
+    "Closing slide: Luck helps. Noticing it matters. Scientists stress recognizing and acting on unexpected chances."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}
