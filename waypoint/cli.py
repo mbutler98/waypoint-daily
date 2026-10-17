@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import logging
+import os
 import sys
 from pathlib import Path
 
@@ -73,18 +74,15 @@ def _gather(args: argparse.Namespace) -> int:
     from waypoint.gather.fetch import Fetcher
     from waypoint.gather.pipeline import Gatherer, write_result
     from waypoint.gather.sources import load_feeds
-    from waypoint.state import CACHE_DIR, EMBEDDINGS_PATH, load_dotenv, load_posted
-    from waypoint.write.gemini import GeminiClient, GeminiError
+    from waypoint.state import CACHE_DIR, EMBEDDINGS_PATH, load_posted
+    from waypoint.write.gemini import GeminiError
 
     config = load_config(args.config or DEFAULT_CONFIG_PATH)
     today = _parse_date(args.date, config.tz)
     gemini = None
     if not args.no_llm:
-        load_dotenv()
-        try:
-            gemini = GeminiClient(config.gemini, config.limits.max_gemini_calls_per_run)
-        except GeminiError as e:
-            print(f"gather failed: {e}", file=sys.stderr)
+        gemini = _gemini_or_exit(config, "gather", args.llm)
+        if gemini is None:
             return GATHER_FAILED_EXIT
     fetcher = Fetcher(config.gather, CACHE_DIR / "http")
     try:
@@ -109,12 +107,30 @@ def _gather(args: argparse.Namespace) -> int:
     return 0 if all(res.slots.values()) else GATHER_FAILED_EXIT
 
 
-def _gemini_or_exit(config, what: str):
+def _gemini_or_exit(config, what: str, llm: str = "gemini"):
+    """The LLM client. `llm="claude"` is the local stopgap (waypoint.write.claude_cli): text
+    goes through `claude -p`, embeddings still use Gemini, and model budgets are lifted."""
     from waypoint.state import load_dotenv
     from waypoint.write.gemini import GeminiClient, GeminiError
 
     load_dotenv()
     try:
+        if llm == "claude":
+            from waypoint.write.claude_cli import ClaudeCLIError, ClaudeCodeModels
+
+            embed = None
+            if os.environ.get("GEMINI_API_KEY"):
+                from google import genai
+
+                embed = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+            try:
+                client = ClaudeCodeModels(config.gemini.model, embed)
+            except ClaudeCLIError as e:
+                raise GeminiError(str(e)) from e
+            config.gemini.model_budgets = {}  # the Gemini caps don't apply to Claude
+            print(f"{what}: using the Claude Code CLI as the LLM (stopgap)", file=sys.stderr)
+            return GeminiClient(config.gemini, config.limits.max_gemini_calls_per_run,
+                                client=client)
         return GeminiClient(config.gemini, config.limits.max_gemini_calls_per_run)
     except GeminiError as e:
         print(f"{what} failed: {e}", file=sys.stderr)
@@ -139,6 +155,7 @@ def _draft(args: argparse.Namespace) -> int:
         candidate_from_post,
         draft_slot,
         load_existing,
+        pending_drafts,
     )
     from waypoint.gather.fetch import Fetcher
     from waypoint.gather.pipeline import Gatherer
@@ -150,7 +167,7 @@ def _draft(args: argparse.Namespace) -> int:
     config = load_config(args.config or DEFAULT_CONFIG_PATH)
     date = _parse_date(args.date, config.tz)
     today = dt.datetime.now(config.tz).date()
-    gemini = _gemini_or_exit(config, "draft")
+    gemini = _gemini_or_exit(config, "draft", args.llm)
     if gemini is None:
         return DRAFT_FAILED_EXIT
     drafts_dir = Path(args.out) if args.out else DRAFTS_DIR
@@ -161,7 +178,7 @@ def _draft(args: argparse.Namespace) -> int:
         gatherer = Gatherer(config, posted, load_feeds(), fetcher, gemini, today,
                             cache_dir=CACHE_DIR, embeddings_path=EMBEDDINGS_PATH)
         cands: list | None = None
-        planned = []
+        planned = pending_drafts(drafts_dir, {p.id for p in posted}, date.isoformat())
         existing = {slot: None if args.force else load_existing(drafts_dir / f"{date}-{slot}")
                     for slot in ("am", "pm")}
         todo = [slot for slot, post in existing.items() if post is None]
@@ -204,7 +221,7 @@ def _write(args: argparse.Namespace) -> int:
     cdir = Path(args.candidate_dir)
     c = Candidate.model_validate_json((cdir / "candidate.json").read_text(encoding="utf-8"))
     c.text = (cdir / "source.txt").read_text(encoding="utf-8")
-    gemini = _gemini_or_exit(config, "write")
+    gemini = _gemini_or_exit(config, "write", args.llm)
     if gemini is None:
         return DRAFT_FAILED_EXIT
     post_id = args.id or f"{dt.datetime.now(config.tz).date().isoformat()}-{args.slot}"
@@ -223,6 +240,9 @@ def build_parser() -> argparse.ArgumentParser:
         description="Waypoint Daily: educational Instagram carousels, twice a day.",
     )
     parser.add_argument("--config", default=None, help="path to config.yaml")
+    parser.add_argument("--llm", choices=["gemini", "claude"],
+                        default=os.environ.get("WAYPOINT_LLM", "gemini"),
+                        help="LLM backend; 'claude' is a local stopgap via the claude CLI")
     sub = parser.add_subparsers(dest="command", required=True, metavar="<command>")
 
     p = sub.add_parser("gather", help="fetch, dedupe and rank source candidates (Phase 3)")

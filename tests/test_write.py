@@ -305,3 +305,50 @@ def test_slot_cap_stops_before_a_candidate_it_cannot_finish(cfg, tmp_path):
                          tmp_path / "d", tmp_path / "s", fake_render())
     assert res.post is None and len(models.prompts) == 3  # 1 call left: second not started
     assert res.reports[1].reason.startswith("not tried: only 1")
+
+
+def test_factcheck_sees_writer_caption_only(cfg):
+    from waypoint.write.factcheck import render_draft
+
+    post = assemble(draft(), cand(), "2026-10-17-am", "am", cfg, SOURCE).post
+    text = render_draft(post)
+    assert "The catch? Moving" in text
+    assert "Source:" not in text and cfg.brand.caption_cta[0] not in text
+
+
+def test_alt_hook_saves_a_rewrite_when_the_hook_overflows(cfg, tmp_path):
+    long_hook = dict(GOOD, hook="Bees can count landmarks. They do it on the wing.",
+                     alt_hooks=["Bees can count.", "Tiny brains count."])
+    calls = {"n": 0}
+
+    def render(post, out_dir, cfg):
+        calls["n"] += 1
+        if post.slides[0].headline == long_hook["hook"]:
+            raise SlideOverflowError(1, "hook takes 4 lines (max 3)")
+        return fake_render()(post, out_dir, cfg)
+
+    gemini, models = fake_gemini(cfg, scripted([long_hook], [supported()]))
+    res = draft_slot("am", "2026-10-17-am", [cand()], cfg, gemini, tmp_path / "d",
+                     tmp_path / "s", render)
+    assert res.post is not None and res.post.slides[0].headline == "Bees can count."
+    assert res.post.caption.startswith("Bees can count.")
+    assert res.gemini_calls == 2 and calls["n"] == 2  # one write, one check, two renders
+    assert res.reports[0].attempts[0]["hook_used"] == "Bees can count."
+
+
+def test_escaped_newlines_in_caption_become_paragraphs(cfg):
+    d = draft(caption_body="Bees count landmarks.\\n\\nThe catch? Gaps change.")
+    post = assemble(d, cand(), "2026-10-17-am", "am", cfg, SOURCE).post
+    assert "\\n" not in post.caption and "landmarks.\n\nThe catch?" in post.caption
+
+
+def test_pending_drafts_count_as_planned(cfg, tmp_path):
+    from waypoint.draft import pending_drafts
+
+    post = assemble(draft(), cand(), "2026-10-17-am", "am", cfg, SOURCE).post
+    for pid in ("2026-10-17-am", "2026-10-18-am", "2026-10-16-pm"):
+        (tmp_path / pid).mkdir()
+        (tmp_path / pid / "post.json").write_text(
+            post.model_copy(update={"id": pid}).model_dump_json(), encoding="utf-8")
+    got = pending_drafts(tmp_path, {"2026-10-16-pm"}, "2026-10-18")
+    assert [c.url for c in got] == [post.source.url]  # only 10-17: 10-16 posted, 10-18 is today

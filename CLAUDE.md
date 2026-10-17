@@ -24,7 +24,7 @@ uv run ruff check                  # lint (CI runs both)
 - No live network in tests: recorded fixtures + the fake Gemini in `tests/helpers.py` (`import helpers`).
 - `state/posted.json` is append-only. Never rewrite history. If any step fails, post nothing for that slot and record why. No partial carousels.
 - Model names, API versions, limits: config.yaml, not code. Prompts: `waypoint/write/prompts/`
-  (tune with `waypoint write .cache/gather/<date>/candidates/<slug>`).
+  (tune with `waypoint write …/<slug>`; `--llm claude` is a local-only stopgap, CI stays on Gemini).
 - Slide look lives in `waypoint/render/templates/` (tokens.css, slide.css). Never edit the vendored
   `visuals.js`; re-skin with CSS. A look change must update the golden image on purpose:
   `WAYPOINT_UPDATE_GOLDEN=1 uv run pytest tests/test_render.py`, then inspect it.

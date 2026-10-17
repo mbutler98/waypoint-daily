@@ -26,7 +26,14 @@ from waypoint.render.render import RenderError, RenderResult, SlideOverflowError
 from waypoint.state import CACHE_DIR
 from waypoint.write.factcheck import factcheck
 from waypoint.write.gemini import GeminiBudgetExceeded, GeminiClient, GeminiError
-from waypoint.write.writer import assemble, source_for_llm, write
+from waypoint.write.writer import (
+    HOOK_FIT_CHARS,
+    HOOK_PROBLEM,
+    WriterDraft,
+    assemble,
+    source_for_llm,
+    write,
+)
 
 log = logging.getLogger(__name__)
 
@@ -76,6 +83,41 @@ def default_renderer(post: Post, out_dir: Path, cfg: Config) -> RenderResult:
     return render_post(post, out_dir, cfg)
 
 
+def check_and_render(draft: WriterDraft, c: Candidate, post_id: str, slot: Slot, cfg: Config,
+                     source: str, stage: Path, render: Renderer
+                     ) -> tuple[Post | None, WriterDraft, str, list[str]]:
+    """Assemble, check and render `draft` into `stage`. When the hook is the only problem
+    (too long, or it overflows its 3 lines), try the writer's alternative hooks first, so a
+    hook alone never costs a rewrite. Returns (post, draft used, failed stage, problems)."""
+    variants = [draft, *(draft.model_copy(update={"hook": h.strip()})
+                         for h in draft.alt_hooks if h.strip() and h.strip() != draft.hook)]
+    for i, d in enumerate(variants):
+        more = i < len(variants) - 1
+        asm = assemble(d, c, post_id, slot, cfg, source)
+        if asm.post is None:
+            if more and all(p.startswith(HOOK_PROBLEM) for p in asm.problems):
+                continue
+            return None, d, "checks", asm.problems
+        if stage.exists():
+            shutil.rmtree(stage)
+        stage.mkdir(parents=True)
+        try:
+            render(asm.post, stage, cfg)
+        except SlideOverflowError as e:
+            if e.slide_index == 1 and more:
+                continue
+            hint = (f" The hook is {len(d.hook)} characters and none of the alternatives "
+                    f"fit either; write hooks under {HOOK_FIT_CHARS - 10} characters."
+                    if e.slide_index == 1 else "")
+            return None, d, "render", [f"slide {e.slide_index} does not fit on the slide "
+                                       f"({e.detail}); shorten that slide's text.{hint}"]
+        except RenderError as e:
+            return None, d, "render", [f"a slide could not be rendered ({e}); "
+                                       "simplify or drop the figure"]
+        return asm.post, d, "", []
+    raise AssertionError("unreachable: the last variant always returns")
+
+
 def draft_candidate(c: Candidate, post_id: str, slot: Slot, cfg: Config, gemini: GeminiClient,
                     stage: Path, render: Renderer = default_renderer
                     ) -> tuple[Post | None, CandidateReport]:
@@ -97,25 +139,13 @@ def draft_candidate(c: Candidate, post_id: str, slot: Slot, cfg: Config, gemini:
             step: dict[str, Any] = {"attempt": attempt}
             report.attempts.append(step)
             draft = write(gemini, c, source, feedback, previous)
-            previous = draft
-            asm = assemble(draft, c, post_id, slot, cfg, source)
-            if asm.post is None:
-                note(step, "checks", asm.problems)
+            post, previous, stage_name, problems = check_and_render(
+                draft, c, post_id, slot, cfg, source, stage, render)
+            if post is None:
+                note(step, stage_name, problems)
                 continue
-            post = asm.post
-            if stage.exists():
-                shutil.rmtree(stage)
-            stage.mkdir(parents=True)
-            try:
-                render(post, stage, cfg)
-            except SlideOverflowError as e:
-                note(step, "render", [f"slide {e.slide_index} does not fit on the slide "
-                                      f"({e.detail}); shorten that slide's text"])
-                continue
-            except RenderError as e:
-                note(step, "render", [f"a slide could not be rendered ({e}); "
-                                      "simplify or drop the figure"])
-                continue
+            if previous.hook != draft.hook:
+                step["hook_used"] = previous.hook
             fc = factcheck(gemini, post, source)
             checks += 1
             note(step, "factcheck", fc.failures, passed=fc.passed,
@@ -209,6 +239,20 @@ def candidate_from_post(post: Post) -> Candidate:
                      publisher=post.source.publisher, published=post.source.published,
                      kind=post.source.kind, feed="draft", faculty=post.faculty, topic=post.topic,
                      key_claim=post.key_claim)
+
+
+def pending_drafts(drafts_dir: Path, posted_ids: set[str], before: str) -> list[Candidate]:
+    """Drafts for earlier dates that aren't in posted.json yet (awaiting approval or
+    publishing), oldest first, as planned picks: their articles, topics and faculties
+    count for rotation, so a later day's draft can't pick the same thing again."""
+    out = []
+    for path in sorted(drafts_dir.glob("*/post.json")):
+        post_id = path.parent.name
+        if post_id < before and post_id not in posted_ids:
+            post = load_existing(path.parent)
+            if post is not None and post.status in ("draft", "approved"):
+                out.append(candidate_from_post(post))
+    return out
 
 
 def load_existing(out_dir: Path) -> Post | None:

@@ -61,6 +61,12 @@ def _figure_text(fig) -> str:
     return f"\n  figure: {keep}"
 
 
+def writer_caption(caption: str) -> str:
+    """The caption without the source credit and brand lines that assembly appends: those
+    aren't claims from SOURCE, and the checker can't verify a credit from the text alone."""
+    return caption.split("\n\nSource: ", 1)[0]
+
+
 def render_draft(post: Post) -> str:
     lines = []
     for i, s in enumerate(post.slides, 1):
@@ -70,7 +76,7 @@ def render_draft(post: Post) -> str:
             lines.append(f"slide {i}: {s.headline}. {s.body}{_figure_text(s.figure)}")
         elif isinstance(s, CtaSlide):
             lines.append(f"slide {i} (takeaway): {s.headline} {s.body}")
-    return "\n".join(lines) + f"\n\ncaption:\n{post.caption}"
+    return "\n".join(lines) + f"\n\ncaption:\n{writer_caption(post.caption)}"
 
 
 def _words(text: str) -> list[str]:

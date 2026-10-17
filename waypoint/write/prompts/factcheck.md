@@ -19,4 +19,6 @@ For each claim return:
 - problem: if unsupported, what is wrong and how to fix it, in one sentence. Otherwise empty.
 
 Be strict about accuracy, not about wording: simple paraphrase and rounding ("about 20%" for
-19.7%) are fine.
+19.7%) are fine. If a claim is accurate and you would only call its wording "loose", "minor"
+or "acceptable", mark it supported. Mark false only what a careful reader of SOURCE would
+call wrong, overstated or not in SOURCE.

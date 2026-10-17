@@ -1,0 +1,259 @@
+{
+  "source_url": "https://theconversation.com/for-centuries-bird-migration-was-a-mystery-a-tech-revolution-is-changing-that-and-could-help-save-these-amazing-creatures-294345",
+  "title": "For centuries, bird migration was a mystery – a tech revolution is changing that, and could help save these amazing creatures",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "checks",
+      "problems": [
+        "insight 2 has a figure, so its body must be <= 20 words; it has 26. Cut 6+ words or drop the figure"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [
+        "slide 3: \"About 6.5 million of 79 million banded birds were recovered\" is not supported by SOURCE. Source says 'more than 79 million' banded; the draft drops 'more than' (slide says 79 million), a minor imprecision, but acceptable rounding—however the figure is fine; see note: this is actually supported.",
+        "slide 4: \"Tracking and bird-watcher reports show migration almost in real time\" is not supported by SOURCE. Source says journeys can be seen almost in real time generally, but does not specifically attribute that to tracking devices plus bird-watcher reports; loosely tied, though broadly consistent."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "People guessed birds went to the moon",
+          "supported": true,
+          "evidence_quote": "Others suggested they hibernated underwater or even migrated to the moon.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "In the early 1800s white storks turned up in Germany with African arrows in their bodies",
+          "supported": true,
+          "evidence_quote": "in the early 1800s, dramatic evidence emerged supporting the theory of migration. White storks began appearing in Germany with African arrows embedded in their bodies.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The storks were strong evidence birds travel to Africa and back",
+          "supported": true,
+          "evidence_quote": "They provided compelling evidence that birds disappearing from Europe were traveling all the way to Africa and back.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "About 6.5 million of 79 million banded birds were recovered",
+          "supported": false,
+          "evidence_quote": "Of more than 79 million birds banded, only about 6.5 million have been recovered.",
+          "problem": "Source says 'more than 79 million' banded; the draft drops 'more than' (slide says 79 million), a minor imprecision, but acceptable rounding—however the figure is fine; see note: this is actually supported."
+        },
+        {
+          "where": "slide 3",
+          "claim": "Banding left the journey between banding and recovery hidden",
+          "supported": true,
+          "evidence_quote": "That generally told scientists just two things: where a bird was banded and where it was encountered again. Everything between them remained invisible.",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 3",
+          "claim": "79 million birds banded and 6.5 million recovered (in millions)",
+          "supported": true,
+          "evidence_quote": "Of more than 79 million birds banded, only about 6.5 million have been recovered.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Tracking devices can be carried by smaller birds",
+          "supported": true,
+          "evidence_quote": "Tracking devices can now be carried by increasingly smaller birds",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Millions of bird-watcher reports show migration",
+          "supported": true,
+          "evidence_quote": "Millions of observations by bird-watchers submitted to eBird, an online database to record the birds they see, show the distribution and abundance of birds",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Tracking and bird-watcher reports show migration almost in real time",
+          "supported": false,
+          "evidence_quote": "Today, it’s possible to see the journeys themselves, almost in real time.",
+          "problem": "Source says journeys can be seen almost in real time generally, but does not specifically attribute that to tracking devices plus bird-watcher reports; loosely tied, though broadly consistent."
+        },
+        {
+          "where": "slide 4",
+          "claim": "This helps scientists see what birds face on the way",
+          "supported": true,
+          "evidence_quote": "Scientists today know more about where migratory birds go, how populations are connected and what they encounter along the way than at any previous point in history.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Knowing where birds go helps show where conservation can make a difference",
+          "supported": true,
+          "evidence_quote": "That knowledge is helping to identify where conservation efforts can make a difference for the future.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "For more than 2,000 years people asked where birds go",
+          "supported": true,
+          "evidence_quote": "For more than 2,000 years, scientists have scratched their heads over one of the most basic mysteries of the natural world: Where do birds go?",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Some thought birds changed into other species, hibernated underwater or flew to the moon",
+          "supported": true,
+          "evidence_quote": "Birds transformed into other species, one theory went. Others suggested they hibernated underwater or even migrated to the moon.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Banding only showed where a bird was marked and where found again",
+          "supported": true,
+          "evidence_quote": "That generally told scientists just two things: where a bird was banded and where it was encountered again.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Of more than 79 million birds banded, about 6.5 million recovered",
+          "supported": true,
+          "evidence_quote": "Of more than 79 million birds banded, only about 6.5 million have been recovered.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Tracking devices and bird-watcher reports let scientists see journeys almost in real time",
+          "supported": true,
+          "evidence_quote": "Today, it’s possible to see the journeys themselves, almost in real time.",
+          "problem": ""
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "Some people said birds went to the moon",
+          "supported": true,
+          "evidence_quote": "Others suggested they hibernated underwater or even migrated to the moon.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "In the early 1800s white storks turned up in Germany with African arrows in their bodies",
+          "supported": true,
+          "evidence_quote": "in the early 1800s, dramatic evidence emerged supporting the theory of migration. White storks began appearing in Germany with African arrows embedded in their bodies.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "The storks were strong evidence that birds travel to Africa and back",
+          "supported": true,
+          "evidence_quote": "They provided compelling evidence that birds disappearing from Europe were traveling all the way to Africa and back.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "More than 79 million birds were banded",
+          "supported": true,
+          "evidence_quote": "Of more than 79 million birds banded, only about 6.5 million have been recovered.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Only about 6.5 million banded birds were found again",
+          "supported": true,
+          "evidence_quote": "Of more than 79 million birds banded, only about 6.5 million have been recovered.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "The journey between banding and recovery stayed invisible",
+          "supported": true,
+          "evidence_quote": "Everything between them remained invisible.",
+          "problem": ""
+        },
+        {
+          "where": "figure on slide 3",
+          "claim": "Birds banded 79 (million) vs recovered 6.5 (million)",
+          "supported": true,
+          "evidence_quote": "Of more than 79 million birds banded, only about 6.5 million have been recovered.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Today it's possible to see journeys almost in real time",
+          "supported": true,
+          "evidence_quote": "Today, it’s possible to see the journeys themselves, almost in real time.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Tracking devices now fit on smaller birds and record their movements",
+          "supported": true,
+          "evidence_quote": "Tracking devices can now be carried by increasingly smaller birds, recording their movements",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Tracking devices send data to receivers or satellites",
+          "supported": true,
+          "evidence_quote": "communicating with land-based receivers or satellites orbiting the earth.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Knowing where birds go helps show where conservation can make a difference",
+          "supported": true,
+          "evidence_quote": "That knowledge is helping to identify where conservation efforts can make a difference for the future.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "People once guessed where birds went, and now can follow them",
+          "supported": true,
+          "evidence_quote": "Today, it’s possible to see the journeys themselves, almost in real time.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "For more than 2,000 years people asked where birds go",
+          "supported": true,
+          "evidence_quote": "For more than 2,000 years, scientists have scratched their heads over one of the most basic mysteries of the natural world: Where do birds go?",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Some thought birds changed into other species, hibernated underwater or flew to the moon",
+          "supported": true,
+          "evidence_quote": "Birds transformed into other species, one theory went. Others suggested they hibernated underwater or even migrated to the moon.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Banding only showed where a bird was marked and where it was found again",
+          "supported": true,
+          "evidence_quote": "That generally told scientists just two things: where a bird was banded and where it was encountered again.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Scientists can see journeys almost in real time thanks to tracking devices on smaller birds",
+          "supported": true,
+          "evidence_quote": "Tracking devices can now be carried by increasingly smaller birds, recording their movements and communicating with land-based receivers or satellites",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

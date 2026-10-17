@@ -1,0 +1,83 @@
+{
+  "id": "2026-10-17-am",
+  "slot": "am",
+  "faculty": "Animals & Nature",
+  "topic": "Bird migration tracking",
+  "source": {
+    "url": "https://theconversation.com/for-centuries-bird-migration-was-a-mystery-a-tech-revolution-is-changing-that-and-could-help-save-these-amazing-creatures-294345",
+    "title": "For centuries, bird migration was a mystery – a tech revolution is changing that, and could help save these amazing creatures",
+    "publisher": "The Conversation",
+    "published": "2026-10-16",
+    "kind": "news"
+  },
+  "key_claim": "Bird migration was a mystery for centuries, from moon theories to arrow storks to banding, and modern tracking now lets scientists see journeys almost in real time.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Bird Migration",
+      "headline": "Where do birds go? Some said the moon."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Storks arrived with African arrows",
+      "body": "In the early 1800s, white storks turned up in Germany with African arrows in their bodies. They were strong evidence that birds travel to Africa and back.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Banding left the middle invisible",
+      "body": "Of more than 79 million banded birds, only about 6.5 million were found again. The journey between stayed invisible.",
+      "figure": {
+        "type": "chart",
+        "kind": "column",
+        "title": "Few banded birds were recovered",
+        "suffix": " million",
+        "data": [
+          [
+            "Birds banded",
+            79.0
+          ],
+          [
+            "Recovered",
+            6.5
+          ]
+        ],
+        "highlight": 1,
+        "source": "The Conversation"
+      }
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Now we can watch the journey",
+      "body": "Today it's possible to see journeys almost in real time. Tracking devices now fit on smaller birds and record their movements, sending them to receivers or satellites.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "We once guessed. Now we can follow.",
+      "body": "Knowing where birds go helps show where conservation can make a difference."
+    }
+  ],
+  "caption": "Where do birds go? Some said the moon.\n\nFor more than 2,000 years, people asked where birds go. Some thought they changed into other species, hibernated underwater or flew to the moon. Then white storks arrived in Germany with African arrows in their bodies.\n\nThe catch? Bird banding only showed where a bird was marked and where it was found again. Of more than 79 million birds banded, about 6.5 million have been recovered. Everything between stayed invisible.\n\nThe payoff? Tracking devices now fit on smaller birds, and scientists can see journeys almost in real time. That knowledge helps show where conservation can make a difference. 🐦\n\nSource: The Conversation — For centuries, bird migration was a mystery – a tech revolution is changing that, and could help save these amazing creatures\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#BirdMigration",
+    "#Ornithology",
+    "#Storks",
+    "#Conservation",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Slide with the topic Bird Migration and the headline: Where do birds go? Some said the moon.",
+    "Slide titled Storks arrived with African arrows, explaining that white storks in early 1800s Germany carried African arrows, evidence of migration to Africa.",
+    "Column chart: of more than 79 million birds banded, only 6.5 million were recovered, with the recovered bar highlighted.",
+    "Slide titled Now we can watch the journey, about tracking devices on smaller birds that let scientists see journeys almost in real time.",
+    "Closing slide: We once guessed. Now we can follow. Knowing where birds go helps show where conservation can make a difference."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

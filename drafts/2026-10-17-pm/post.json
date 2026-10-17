@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-17-pm",
+  "slot": "pm",
+  "faculty": "Animals & Nature",
+  "topic": "Sahara wet-dry migration",
+  "source": {
+    "url": "https://en.wikipedia.org/wiki/Sahara_pump_theory",
+    "title": "Sahara pump theory",
+    "publisher": "Wikipedia",
+    "published": null,
+    "kind": "evergreen"
+  },
+  "key_claim": "The Sahara swings between wet grassland and dry desert, and each swing pushes plants and animals around and may split species apart.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Sahara",
+      "headline": "The Sahara keeps flipping between green and desert."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Sometimes the Sahara is green",
+      "body": "In long wet periods, the Sahara and Arabia turn into savanna grassland. Lakes grow, more rivers flow, and African plants and animals become common there.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "Then it dries, and life moves out",
+      "body": "Rivers shrink to dry wadis. Plants and animals retreat north, south or east, some along the Nile Valley, then on toward Asia.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Splitting groups may make new species",
+      "body": "Moving apart can separate some species into different climates. They must adapt, which may possibly lead to new species over time.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "The Sahara works like a pump.",
+      "body": "Wet and dry swings push life around, and may split species apart."
+    }
+  ],
+  "caption": "The Sahara keeps flipping between green and desert.\n\nIn long wet periods, the Sahara and Arabia become savanna grassland, with larger lakes and more rivers. African plants and animals become common there.\n\nThe catch? The rains retreat. Lakes fall, rivers become dry wadis, and plants and animals move north, south or east, some along the Nile Valley toward Asia.\n\nThe payoff? That can split some species into different climates, forcing them to adapt. It may even give rise to new species. It's called the Sahara pump theory.\n\nSource: Wikipedia — Sahara pump theory\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#Sahara",
+    "#GreenSahara",
+    "#Evolution",
+    "#ClimateHistory",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Slide with the kicker Sahara and the headline: The Sahara keeps flipping between green and desert.",
+    "Slide titled Sometimes the Sahara is green, explaining that long wet periods turn the Sahara and Arabia into grassland with more lakes and rivers.",
+    "Slide titled Then it dries, and life moves out, explaining that rivers become dry wadis and plants and animals retreat north, south or east.",
+    "Slide titled Splitting groups may make new species, explaining that separated populations must adapt and may possibly become new species.",
+    "Closing slide: The Sahara works like a pump. Wet and dry swings push life around, and may split species apart."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

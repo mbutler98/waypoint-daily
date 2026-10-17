@@ -1,0 +1,122 @@
+{
+  "source_url": "https://en.wikipedia.org/wiki/Sahara_pump_theory",
+  "title": "Sahara pump theory",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 3,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "render",
+      "problems": [
+        "slide 1 does not fit on the slide (hook takes 4 lines (max 3)); shorten that slide's text. The hook is 55 characters; keep it under 50."
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 1",
+          "claim": "The Sahara keeps flipping between green and desert.",
+          "supported": true,
+          "evidence_quote": "During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland and African flora and fauna become common. Following inter-pluvial arid periods, the Sahara area then reverts to desert conditions",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "In long wet periods, the Sahara and Arabia turn into savanna grassland.",
+          "supported": true,
+          "evidence_quote": "During periods of a wet or Green Sahara, the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Lakes grow and more rivers flow during wet periods.",
+          "supported": true,
+          "evidence_quote": "during which larger lakes and more rivers existed",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "African plants and animals become common in the Sahara and Arabia during wet periods.",
+          "supported": true,
+          "evidence_quote": "the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Rivers shrink to dry wadis when the Sahara dries.",
+          "supported": true,
+          "evidence_quote": "Evaporation exceeds precipitation, the level of water in lakes like Lake Chad falls, and rivers become dry wadis.",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "Plants and animals retreat north, south or east, some along the Nile Valley, then on toward Asia.",
+          "supported": true,
+          "evidence_quote": "retreat northward to the Atlas Mountains, southward into West Africa, or eastward into the Nile Valley and thence either southeast to the Ethiopian Highlands and Kenya or northeast across the Sinai into Asia.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Moving apart can separate some species into different climates, forcing them to adapt.",
+          "supported": true,
+          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Adaptation may possibly lead to new species over time.",
+          "supported": true,
+          "evidence_quote": "forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "The Sahara works like a pump, with wet and dry swings pushing life around.",
+          "supported": true,
+          "evidence_quote": "It posits that extended periods of abundant rainfall lasting many thousands of years (pluvial periods) in Africa are associated with a \"wet-green Sahara\" phase",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Wet and dry swings may split species apart.",
+          "supported": true,
+          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "In long wet periods, the Sahara and Arabia become savanna grassland, with larger lakes and more rivers.",
+          "supported": true,
+          "evidence_quote": "the Sahara and Arabia become a savanna grassland and African flora and fauna become common.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Lakes fall, rivers become dry wadis, and plants and animals move north, south or east, some along the Nile Valley toward Asia.",
+          "supported": true,
+          "evidence_quote": "the level of water in lakes like Lake Chad falls, and rivers become dry wadis.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Separation can split some species into different climates, forcing them to adapt, and may give rise to new species.",
+          "supported": true,
+          "evidence_quote": "This separates populations of some of the species in areas with different climates, forcing them to adapt, possibly giving rise to allopatric speciation.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "This is called the Sahara pump theory.",
+          "supported": true,
+          "evidence_quote": "The Sahara pump theory is a hypothesis that explains how flora and fauna migrated",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

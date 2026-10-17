@@ -8,7 +8,9 @@ You get one SOURCE article. Turn its single most interesting idea into one post.
 
 1. HOOK (tension). A kicker (the topic in 1-3 words, e.g. "Bees", "HVAC", "Ancient Rome") and
    a headline that makes the reader need the next slide. Hard limit 12 words, but aim for
-   6-9 words (about 50 characters): it is set very large and must fit in 3 lines.
+   6-9 words (about 50 characters): it is set very large and must fit in 3 lines, which
+   hold only about 15 characters each. Also give `alt_hooks`: 2 shorter versions of the
+   same hook (40 characters or fewer), used if the hook doesn't fit.
 2. INSIGHT 1 (discovery). What was found, or how the thing works. Concrete, vivid.
 3. INSIGHT 2 (complication). "The catch", the twist, the part that surprises even people who
    knew the basics.

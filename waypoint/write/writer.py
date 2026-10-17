@@ -39,6 +39,9 @@ KICKER_MAX_WORDS = 3
 SOURCE_MAX_CHARS = 40_000  # what the writer and fact-check see (and are checked against)
 CAPTION_BODY_MAX_CHARS = 800
 WRITER_TEMPERATURE = 0.4
+HOOK_FIT_CHARS = 50  # what 3 hook lines hold, roughly (approved samples: 43-54 characters)
+HOOK_MAX_CHARS = 56  # longer than this never fits, so don't spend a render finding out
+HOOK_PROBLEM = "the hook is"  # how a hook-only problem starts (see draft.check_and_render)
 
 
 class InsightDraft(BaseModel):
@@ -52,7 +55,11 @@ class WriterDraft(BaseModel):
         description="exactly 5: for slides 1-5 in order, the SOURCE sentence(s) the slide "
                     "relies on, copied word for word")
     kicker: str = Field(description="topic in 1-3 words")
-    hook: str = Field(description="<= 12 words, tension-led")
+    hook: str = Field(description="<= 12 words and <= 50 characters, tension-led")
+    alt_hooks: list[str] = Field(
+        default_factory=list,
+        description="2 shorter versions of the same hook (<= 40 characters each), used if "
+                    "the hook doesn't fit on 3 lines")
     insights: list[InsightDraft] = Field(description="exactly 3: discovery, complication, payoff")
     takeaway: str = Field(description="<= 8 words, memorable, standalone")
     takeaway_support: str = Field(description="<= 14 words")
@@ -127,8 +134,13 @@ def hashtags(draft: WriterDraft) -> list[str]:
     return own[:MAX_HASHTAGS - 1] + [BRAND_HASHTAG]
 
 
+def caption_body(draft: WriterDraft) -> str:
+    """The writer's paragraphs; some models return an escaped "\\n" instead of newlines."""
+    return draft.caption_body.replace("\\n", "\n").strip()
+
+
 def caption(draft: WriterDraft, c: Candidate, cfg: Config) -> str:
-    parts = [draft.hook.strip(), draft.caption_body.strip(),
+    parts = [draft.hook.strip(), caption_body(draft),
              f"Source: {c.publisher} — {c.title}", *cfg.brand.caption_cta]
     return "\n\n".join(p for p in parts if p)
 
@@ -157,6 +169,9 @@ def assemble(draft: WriterDraft, c: Candidate, post_id: str, slot: Slot, cfg: Co
     problems: list[str] = []
     if len(draft.insights) != 3:
         return Assembled(None, [f"write exactly 3 insights, not {len(draft.insights)}"])
+    if len(draft.hook) > HOOK_MAX_CHARS:
+        problems.append(f"{HOOK_PROBLEM} {len(draft.hook)} characters; keep it under "
+                        f"{HOOK_FIT_CHARS} so it fits on 3 lines")
     if len(draft.kicker.split()) > KICKER_MAX_WORDS:
         problems.append(f"kicker must be at most {KICKER_MAX_WORDS} words")
     if len(draft.caption_body) > CAPTION_BODY_MAX_CHARS:
@@ -175,8 +190,10 @@ def assemble(draft: WriterDraft, c: Candidate, post_id: str, slot: Slot, cfg: Co
         except FigureError as e:
             problems.append(f"insight {i} figure: {e}")
             figures.append(None)
-        if len(ins.body.split()) > 20:
-            problems.append(f"insight {i} has a figure, so its body must be <= 20 words")
+        n_words = len(ins.body.split())
+        if n_words > 20:
+            problems.append(f"insight {i} has a figure, so its body must be <= 20 words; it "
+                            f"has {n_words}. Cut {n_words - 20}+ words or drop the figure")
 
     grade = reading_grade(draft)
     if grade > cfg.limits.max_reading_grade:

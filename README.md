@@ -64,6 +64,12 @@ uv run python -m waypoint draft --date 2026-10-17 --force   # redo slots that al
 uv run python -m waypoint write .cache/gather/<date>/candidates/<slug>   # draft one candidate
 ```
 
+**Stopgap while Gemini's free tier is too small to tune with** (the writer model allows 20 requests a day): add `--llm claude` (or set `WAYPOINT_LLM=claude`) before the command to send the text calls through the local Claude Code CLI (`claude -p`, your own subscription). Embeddings still use Gemini, and the Gemini call caps are lifted. It is local only; the scheduled workflows always use Gemini. `WAYPOINT_CLAUDE_MODEL` (default `sonnet`) and `WAYPOINT_CLAUDE_FAST_MODEL` (default `haiku`) pick the models.
+
+```
+uv run python -m waypoint --llm claude draft --date tomorrow
+```
+
 `draft` writes `drafts/<date>-<am|pm>/` with `post.json`, `source.txt` (what the writer saw), `factcheck.json` (every attempt, every claim with its evidence quote), the slides and `preview.png`. Each candidate goes through: write → local checks (copy limits, reading grade ≤ 7, figure layout, every number found in the source) → render (the text must fit) → Gemini fact-check, with each evidence quote verified against the source. Any failure is fed back to the writer for a rewrite (at most 3 writer calls and 2 fact-checks per candidate), then the next candidate is tried. A slot that can't be filled gets `FAILED.md` instead of a post. The prompts live in `waypoint/write/prompts/`.
 
 Each render writes `slides/01.jpg … 05.jpg` (1080×1350, JPEG q90, sRGB) and a `preview.png` contact sheet. If a slide's copy doesn't fit at the minimum type sizes, or a figure would be too small to read, the render fails and writes nothing.
