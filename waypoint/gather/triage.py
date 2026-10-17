@@ -2,7 +2,9 @@
 verdict (PLAN.md 4.3 exclusions), plus the cheap keyword safety filter that runs first.
 
 With Gemini, candidates are labelled in batches (one call per `triage_batch_size`), and
-labels are cached in .cache/triage.json by URL so re-runs don't spend calls. With --no-llm,
+labels are cached in .cache/triage.json by URL so re-runs don't spend calls. Each label
+echoes its article's title and is matched to the article by that title, not by index alone:
+a shifted index once put one article's labels on another. With --no-llm,
 simple keyword heuristics stand in.
 """
 
@@ -17,7 +19,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from waypoint.dedupe import url_key
+from waypoint.dedupe import jaccard, title_norm, url_key
 from waypoint.models import FACULTIES, Candidate
 from waypoint.write.gemini import GeminiClient
 
@@ -108,6 +110,9 @@ def heuristic_label(c: Candidate) -> None:
     c.surprise = c.surprise or 3
 
 
+CACHE_VERSION = "v2"  # bump when label meaning changes; v1 labels could be misaligned
+TITLE_MATCH_MIN = 0.5  # Jaccard of normalised titles for a label to count as that article's
+
 # --- Gemini triage --------------------------------------------------------------------------
 
 FacultyName = Literal[FACULTIES]  # type: ignore[valid-type]
@@ -115,6 +120,7 @@ FacultyName = Literal[FACULTIES]  # type: ignore[valid-type]
 
 class _Label(BaseModel):
     index: int
+    title: str = Field(description="the ARTICLE's title, copied exactly")
     faculty: FacultyName
     topic: str = Field(description="the subject in 1-4 words, e.g. 'Heat pumps'")
     key_claim: str = Field(description="the single most interesting fact, one plain sentence")
@@ -131,6 +137,7 @@ TRIAGE_PROMPT = """You pick source articles for "Waypoint", an Instagram account
 short, true, surprising explainers in plain English for curious adults.
 
 For each ARTICLE below return:
+- index and title: the ARTICLE's number and its title, copied exactly.
 - faculty: the best fit for what the article is about, from this list: {faculties}.
   "usual faculties" are the feed's typical areas; prefer them only when they fit (a
   technology feed's story about birds is "Animals & Nature").
@@ -165,11 +172,15 @@ class TriageCache:
             except ValueError:
                 self.data = {}
 
+    @staticmethod
+    def key(c: Candidate, model: str) -> str:
+        return f"{CACHE_VERSION}|{model}|{url_key(c.url)}"
+
     def get(self, c: Candidate, model: str) -> dict | None:
-        return self.data.get(f"{model}|{url_key(c.url)}")
+        return self.data.get(self.key(c, model))
 
     def put(self, c: Candidate, model: str, label: dict) -> None:
-        self.data[f"{model}|{url_key(c.url)}"] = label
+        self.data[self.key(c, model)] = label
 
     def save(self) -> None:
         if self.path:
@@ -184,6 +195,21 @@ def _apply(c: Candidate, label: dict) -> None:
     c.surprise = label["surprise"]
     c.safe = label["safe"]
     c.safety_reason = None if label["safe"] else (label.get("safety_reason") or "llm: unsafe")
+
+
+def match_label(label: _Label, batch: Sequence[Candidate]) -> Candidate | None:
+    """The article a label belongs to: its index if the echoed title agrees, otherwise the
+    one article whose title clearly matches, otherwise None."""
+    want = title_norm(label.title)
+    if 1 <= label.index <= len(batch):
+        c = batch[label.index - 1]
+        if jaccard(want, title_norm(c.title)) >= TITLE_MATCH_MIN:
+            return c
+    scored = sorted(((jaccard(want, title_norm(c.title)), i) for i, c in enumerate(batch)),
+                    reverse=True)
+    if scored and scored[0][0] >= TITLE_MATCH_MIN:
+        return batch[scored[0][1]]
+    return None
 
 
 def llm_label(cands: Sequence[Candidate], gemini: GeminiClient, batch_size: int,
@@ -205,9 +231,13 @@ def llm_label(cands: Sequence[Candidate], gemini: GeminiClient, batch_size: int,
             articles="\n".join(_article_block(i, c) for i, c in enumerate(batch, 1)))
         res = gemini.generate_json(prompt, _Labels, purpose="triage")
         for label in res.labels:
-            if 1 <= label.index <= len(batch):
-                data = label.model_dump(exclude={"index"})
-                _apply(batch[label.index - 1], data)
-                cache.put(batch[label.index - 1], model, data)
+            c = match_label(label, batch)
+            if c is None:
+                log.warning("triage: label %d (%r) matches no article; dropped",
+                            label.index, label.title[:60])
+                continue
+            data = label.model_dump(exclude={"index", "title"})
+            _apply(c, data)
+            cache.put(c, model, data)
     cache.save()
     return [c for c in cands if c.key_claim is not None]

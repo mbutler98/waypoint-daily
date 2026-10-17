@@ -162,18 +162,23 @@ def _draft(args: argparse.Namespace) -> int:
                             cache_dir=CACHE_DIR, embeddings_path=EMBEDDINGS_PATH)
         cands: list | None = None
         planned = []
+        existing = {slot: None if args.force else load_existing(drafts_dir / f"{date}-{slot}")
+                    for slot in ("am", "pm")}
+        todo = [slot for slot, post in existing.items() if post is None]
         for slot in ("am", "pm"):
             post_id = f"{date.isoformat()}-{slot}"
-            existing = None if args.force else load_existing(drafts_dir / post_id)
-            if existing is not None:
-                results.append(SlotResult(slot, post_id, existing, None,
+            if existing[slot] is not None:
+                results.append(SlotResult(slot, post_id, existing[slot], None,
                                           drafts_dir / post_id, skipped=True))
-                planned.append(candidate_from_post(existing))
+                planned.append(candidate_from_post(existing[slot]))
                 continue
             if cands is None:
                 cands = gatherer.process(gatherer.collect_all())
             ranked = rank_slot(slot, cands, posted, config, today, planned, gatherer.fallback)
-            res = draft_slot(slot, post_id, ranked, config, gemini, drafts_dir)
+            # each slot left gets an equal share of the writer model's remaining budget
+            share = gemini.calls_left(config.gemini.model) // (len(todo) - todo.index(slot))
+            with gemini.capped(config.gemini.model, share):
+                res = draft_slot(slot, post_id, ranked, config, gemini, drafts_dir)
             results.append(res)
             if res.candidate is not None:
                 planned.append(res.candidate)

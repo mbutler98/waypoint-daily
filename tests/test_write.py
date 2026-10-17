@@ -292,3 +292,16 @@ def test_no_candidates_writes_failed(cfg, tmp_path):
                      fake_render())
     assert res.post is None
     assert (tmp_path / "d" / "2026-10-17-pm" / "FAILED.md").is_file()
+
+
+def test_slot_cap_stops_before_a_candidate_it_cannot_finish(cfg, tmp_path):
+    bad = copy.deepcopy(GOOD)
+    bad["hook"] = "Bees beat 73% of maths students."  # invented number: 3 wasted writes
+    second = cand()
+    second.url = "https://example.com/second"
+    gemini, models = fake_gemini(cfg, scripted([bad] * 3 + [GOOD], [supported()]))
+    with gemini.capped(cfg.gemini.model, 4):
+        res = draft_slot("am", "2026-10-17-am", [cand(), second], cfg, gemini,
+                         tmp_path / "d", tmp_path / "s", fake_render())
+    assert res.post is None and len(models.prompts) == 3  # 1 call left: second not started
+    assert res.reports[1].reason.startswith("not tried: only 1")

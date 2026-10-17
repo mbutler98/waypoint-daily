@@ -2,7 +2,13 @@ import pytest
 from helpers import ApiError, fake_gemini
 from pydantic import BaseModel
 
-from waypoint.write.gemini import GeminiBudgetExceeded, GeminiClient, GeminiError, RateLimiter
+from waypoint.write.gemini import (
+    GeminiBudgetExceeded,
+    GeminiClient,
+    GeminiError,
+    GeminiQuotaExhausted,
+    RateLimiter,
+)
 
 
 class Out(BaseModel):
@@ -70,3 +76,44 @@ def test_usage_is_logged(cfg, caplog):
     with caplog.at_level("INFO"):
         g.log_usage()
     assert "Gemini calls this run: 1" in caplog.text and "triage=1" in caplog.text
+
+
+class QuotaError(Exception):
+    """A 429 whose details name a per-day quota, like google.genai's ClientError."""
+
+    def __init__(self):
+        super().__init__("429 RESOURCE_EXHAUSTED. {'quotaId': "
+                         "'GenerateRequestsPerDayPerProjectPerModel-FreeTier'}")
+        self.code = 429
+
+
+def test_daily_quota_429_stops_at_once(cfg):
+    g, _ = fake_gemini(cfg, lambda p: {"answer": 1}, errors=[QuotaError()])
+    with pytest.raises(GeminiQuotaExhausted):
+        g.generate_json("q", Out, purpose="t")
+    assert g.total_calls == 1  # no retries against a quota that resets tomorrow
+
+
+def test_model_budget_and_cap(cfg):
+    cfg.gemini.model_budgets = {cfg.gemini.model: 3}
+    g, _ = fake_gemini(cfg, lambda p: {"answer": 1})
+    g.generate_json("q", Out, purpose="t")  # the fast model has no budget of its own
+    model = cfg.gemini.model
+    assert g.calls_left(model) == 3
+    with g.capped(model, 1):
+        g.generate_json("q", Out, purpose="t", model=model)
+        assert g.calls_left(model) == 0
+        with pytest.raises(GeminiBudgetExceeded):
+            g.generate_json("q", Out, purpose="t", model=model)
+    assert g.calls_left(model) == 2  # the cap is lifted; the model budget still counts
+    g.generate_json("q", Out, purpose="t", model=model)
+    g.generate_json("q", Out, purpose="t", model=model)
+    with pytest.raises(GeminiBudgetExceeded):
+        g.generate_json("q", Out, purpose="t", model=model)
+
+
+def test_model_budget_must_name_a_configured_model(cfg):
+    data = cfg.gemini.model_dump()
+    data["model_budgets"] = {"gemini-old-flash": 10}
+    with pytest.raises(ValueError, match="unknown model"):
+        type(cfg.gemini).model_validate(data)

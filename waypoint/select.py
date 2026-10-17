@@ -81,8 +81,9 @@ def score(c: Candidate, cfg: Config, today: dt.date) -> float:
 
 
 def eligible(c: Candidate, blocked: set[str], cooldown_topics: set[str],
-             taken_urls: set[str]) -> bool:
+             taken_urls: set[str], min_surprise: int = 1) -> bool:
     return (c.safe and c.faculty is not None and c.faculty not in blocked
+            and (c.surprise or 3) >= min_surprise
             and _topic_key(c.topic or c.title) not in cooldown_topics
             and c.url not in taken_urls)
 
@@ -95,7 +96,8 @@ def rank_slot(slot: Slot, cands: Sequence[Candidate], posted: Sequence[PostedEnt
     blocked = blocked_faculties(posted, planned, cfg.limits.faculty_cooldown_posts)
     cooldown = topics_on_cooldown(posted, planned, today, cfg.limits.topic_cooldown_days)
     taken = {c.url for c in planned}
-    ok = [c for c in cands if eligible(c, blocked, cooldown, taken)]
+    ok = [c for c in cands
+          if eligible(c, blocked, cooldown, taken, cfg.limits.min_surprise)]
     for c in ok:
         c.score = score(c, cfg, today)
     preferred = set(getattr(cfg.slot_kinds, slot))
@@ -109,7 +111,8 @@ def rank_slot(slot: Slot, cands: Sequence[Candidate], posted: Sequence[PostedEnt
         allowed = [f for f in FACULTIES if f not in blocked and cfg.faculties[f] > 0]
         seen = {c.url for c in ranked} | taken
         extra = [c for c in fallback(allowed, n - len(ranked))
-                 if c.url not in seen and eligible(c, blocked, cooldown, taken)]
+                 if c.url not in seen
+                 and eligible(c, blocked, cooldown, taken, cfg.limits.min_surprise)]
         for c in extra:
             c.score = score(c, cfg, today)
         ranked += by_score(extra)

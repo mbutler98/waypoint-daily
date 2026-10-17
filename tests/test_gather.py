@@ -52,10 +52,11 @@ def test_llm_gather_labels_and_drops_unsafe(cfg, tmp_path):
     def respond(prompt):
         if "ARTICLE" not in prompt:
             return {"verdicts": []}
-        n = len(re.findall(r"^ARTICLE \d+$", prompt, re.M))
-        labels = [{"index": i, "faculty": "Animals & Nature", "topic": f"Bees {i}",
+        titles = re.findall(r"^title: (.*)$", prompt, re.M)
+        labels = [{"index": i, "title": titles[i - 1], "faculty": "Animals & Nature",
+                   "topic": f"Bees {i}",
                    "key_claim": f"Bees fact number {i}.", "surprise": 4, "safe": i != 2,
-                   "safety_reason": "war" if i == 2 else None} for i in range(1, n + 1)]
+                   "safety_reason": "war" if i == 2 else None} for i in range(1, len(titles) + 1)]
         return {"labels": labels}
 
     gemini, models = fake_gemini(cfg, respond)
@@ -99,3 +100,19 @@ def test_guess_faculty_heuristic():
     assert guess_faculty(c) == "Space"
     single = make_candidate("Anything", faculty=None, hints=["Flight"])
     assert guess_faculty(single) == "Flight"
+
+
+def test_triage_labels_follow_titles_not_indexes():
+    from waypoint.gather.triage import _Label, match_label
+
+    batch = [make_candidate("Bees can count to three"),
+             make_candidate("NASA names a new centre director")]
+
+    def label(index, title):
+        return _Label(index=index, title=title, faculty="Space", topic="t", key_claim="k",
+                      surprise=3, safe=True)
+
+    assert match_label(label(1, "Bees can count to three"), batch) is batch[0]
+    # A shifted index is realigned by title; a title that matches nothing is dropped.
+    assert match_label(label(1, "NASA names a new centre director"), batch) is batch[1]
+    assert match_label(label(2, "Bird migration tracking"), batch) is None

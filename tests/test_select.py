@@ -73,7 +73,7 @@ def test_topic_cooldown(cfg):
 
 
 def test_fallback_chain_news_then_evergreen_then_wikipedia(cfg):
-    news = make_candidate("News", faculty="Space", kind="news", surprise=2)
+    news = make_candidate("News", faculty="Space", kind="news", surprise=3)
     ever = make_candidate("Ever", faculty="History", kind="evergreen", surprise=5)
     calls = []
 
@@ -120,3 +120,9 @@ def test_returns_at_most_n_per_slot(cfg):
     picks = select_day(pool(), [], cfg, TODAY)
     assert all(len(v) == cfg.limits.candidates_per_slot for v in picks.values())
     assert picks["am"][0].url != picks["pm"][0].url
+
+
+def test_low_surprise_is_not_eligible(cfg):
+    dull = make_candidate("NASA names a director", surprise=cfg.limits.min_surprise - 1)
+    ok = make_candidate("Bees count", surprise=cfg.limits.min_surprise)
+    assert [c.title for c in rank_slot("am", [dull, ok], [], cfg, TODAY)] == ["Bees count"]

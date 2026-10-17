@@ -5,7 +5,8 @@
 
 Any failure is fed back to the writer for a rewrite. A candidate gets at most
 1 + limits.max_writer_retries writer calls and MAX_FACTCHECKS fact-checks; then the next
-candidate is tried. A slot that can't be filled gets drafts/<id>/FAILED.md and no post.
+candidate is tried, if the writer model's budget still has room for a write and a
+fact-check. A slot that can't be filled gets drafts/<id>/FAILED.md and no post.
 Work happens in .cache/staging/<id>/ and only a complete draft is copied into drafts/.
 """
 
@@ -32,6 +33,7 @@ log = logging.getLogger(__name__)
 DRAFTS_DIR = REPO_ROOT / "drafts"
 STAGING_DIR = CACHE_DIR / "staging"
 MAX_FACTCHECKS = 2  # the first check plus one re-check after a rewrite (PLAN.md Phase 4)
+MIN_CALLS_PER_CANDIDATE = 2  # a write and a fact-check; don't start a candidate without them
 
 Renderer = Callable[[Post, Path, Config], RenderResult]
 
@@ -179,6 +181,12 @@ def draft_slot(slot: Slot, post_id: str, ranked: Sequence[Candidate], cfg: Confi
         _write_failed(out_dir, post_id, [], "No eligible candidates for this slot.")
         return result
     for c in tries:
+        left = gemini.calls_left(cfg.gemini.model)
+        if left < MIN_CALLS_PER_CANDIDATE:
+            result.reports.append(CandidateReport(
+                c.url, c.title, reason=f"not tried: only {left} {cfg.gemini.model} call(s) "
+                                       "left in this slot's budget"))
+            break
         try:
             post, report = draft_candidate(c, post_id, slot, cfg, gemini,
                                            staging_dir / post_id, render)
