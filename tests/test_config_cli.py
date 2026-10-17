@@ -8,7 +8,7 @@ from pydantic import ValidationError
 from waypoint.cli import NOT_IMPLEMENTED_EXIT, RENDER_FAILED_EXIT, main
 from waypoint.config import DEFAULT_CONFIG_PATH, Config, load_config
 
-COMMANDS = ["gather", "draft", "render", "publish", "refresh-token", "sample"]
+COMMANDS = ["gather", "draft", "write", "render", "publish", "refresh-token", "sample"]
 
 
 def test_repo_config_loads_with_safe_defaults():
@@ -47,12 +47,22 @@ def test_help_lists_all_commands():
 @pytest.mark.parametrize(
     "argv",
     [
-        ["draft"], ["publish", "am"], ["refresh-token"],
+        ["publish", "am"], ["refresh-token"],
     ],
 )
 def test_stubs_exit_not_implemented(argv, capsys):
     assert main(argv) == NOT_IMPLEMENTED_EXIT
     assert "not implemented" in capsys.readouterr().err
+
+
+def test_draft_without_key_fails_before_any_network(monkeypatch, tmp_path, capsys):
+    import waypoint.state
+
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.setattr(waypoint.state, "load_dotenv", lambda *a, **k: None)
+    assert main(["draft", "--date", "2026-10-17", "--out", str(tmp_path)]) == 1
+    assert "GEMINI_API_KEY is not set" in capsys.readouterr().err
+    assert list(tmp_path.iterdir()) == []
 
 
 def test_render_without_post_json_fails_cleanly(tmp_path, capsys):

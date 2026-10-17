@@ -1,0 +1,242 @@
+{
+  "source_url": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director",
+  "title": "NASA Names Stephen Cash Marshall Space Flight Center Director",
+  "passed": true,
+  "reason": "",
+  "gemini_calls": 5,
+  "attempts": [
+    {
+      "attempt": 1,
+      "stage": "checks",
+      "problems": [
+        "reading grade is 7.8; it must be <= 7. Use shorter sentences and words"
+      ]
+    },
+    {
+      "attempt": 2,
+      "stage": "factcheck",
+      "problems": [
+        "slide 4: \"Going to Mars requires more power.\" is not supported by SOURCE. The source mentions working on advanced propulsion and nuclear power for deep-space missions, but does not state that going to Mars requires more power.",
+        "slide 5: \"Deeper space missions need new power.\" is not supported by SOURCE. The source discusses advancing nuclear power and propulsion, but never states that deeper space missions strictly require new power.",
+        "slide 5: \"Nuclear propulsion will help carry the first humans to Mars.\" is not supported by SOURCE. The source states that nuclear power and propulsion is an area of focus expected to grow as NASA works toward sending humans to Mars, not that nuclear propulsion will carry them.",
+        "caption: \"Going deeper into space takes far more power.\" is not supported by SOURCE. The source does not state that traveling deeper into space requires far more power.",
+        "caption: \"Future trips to Mars will test those limits.\" is not supported by SOURCE. The source makes no claim about future Mars trips testing limits.",
+        "caption: \"Nuclear propulsion is expected to carry the first humans to Mars.\" is not supported by SOURCE. The source states that nuclear power and propulsion is an area of focus expected to grow as NASA works toward sending the first humans to Mars, not that the drive itself is expected to carry them."
+      ],
+      "passed": false,
+      "claims": [
+        {
+          "where": "slide 2",
+          "claim": "NASA has built rocket engines for sixty years.",
+          "supported": true,
+          "evidence_quote": "Established in 1960, Marshall has played a central role in American space exploration for more than six decades, from developing the Saturn rockets that carried astronauts to the Moon during Apollo to advancing the propulsion systems",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "NASA's Saturn rockets carried astronauts to the Moon.",
+          "supported": true,
+          "evidence_quote": "developing the Saturn rockets that carried astronauts to the Moon during Apollo",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "NASA is building the Artemis SLS rocket.",
+          "supported": true,
+          "evidence_quote": "Marshall plays a critical role in NASA’s Artemis program, including the development of NASA’s SLS (Space Launch System) rocket",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "NASA manages Moon landers to support sustained exploration of the Moon and future missions to Mars.",
+          "supported": true,
+          "evidence_quote": "management of the Human Landing System Program, as well as other capabilities supporting sustained exploration of the Moon and future missions to Mars.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Going to Mars requires more power.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source mentions working on advanced propulsion and nuclear power for deep-space missions, but does not state that going to Mars requires more power."
+        },
+        {
+          "where": "slide 4",
+          "claim": "NASA is working on nuclear propulsion.",
+          "supported": true,
+          "evidence_quote": "Marshall plays a key role in the advancement of nuclear power and propulsion",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Nuclear propulsion and advanced systems will help carry crews deeper into space.",
+          "supported": true,
+          "evidence_quote": "takes on new challenges in advanced propulsion, nuclear power, and the systems that will carry us deeper into the solar system",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Deeper space missions need new power.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source discusses advancing nuclear power and propulsion, but never states that deeper space missions strictly require new power."
+        },
+        {
+          "where": "slide 5",
+          "claim": "Nuclear propulsion will help carry the first humans to Mars.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source states that nuclear power and propulsion is an area of focus expected to grow as NASA works toward sending humans to Mars, not that nuclear propulsion will carry them."
+        },
+        {
+          "where": "caption",
+          "claim": "For over sixty years, NASA has built rocket engines.",
+          "supported": true,
+          "evidence_quote": "Established in 1960, Marshall has played a central role in American space exploration for more than six decades, from developing the Saturn rockets that carried astronauts to the Moon during Apollo to advancing the propulsion systems",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Saturn rockets carried Apollo astronauts all the way to the Moon.",
+          "supported": true,
+          "evidence_quote": "developing the Saturn rockets that carried astronauts to the Moon during Apollo",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Going deeper into space takes far more power.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source does not state that traveling deeper into space requires far more power."
+        },
+        {
+          "where": "caption",
+          "claim": "NASA is building the Artemis SLS rocket and new Moon landers.",
+          "supported": true,
+          "evidence_quote": "including the development of NASA’s SLS (Space Launch System) rocket, management of the Human Landing System Program",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Future trips to Mars will test those limits.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source makes no claim about future Mars trips testing limits."
+        },
+        {
+          "where": "caption",
+          "claim": "NASA is working on nuclear power and propulsion.",
+          "supported": true,
+          "evidence_quote": "Marshall plays a key role in the advancement of nuclear power and propulsion",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Nuclear propulsion is expected to carry the first humans to Mars.",
+          "supported": false,
+          "evidence_quote": "",
+          "problem": "The source states that nuclear power and propulsion is an area of focus expected to grow as NASA works toward sending the first humans to Mars, not that the drive itself is expected to carry them."
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "stage": "factcheck",
+      "problems": [],
+      "passed": true,
+      "claims": [
+        {
+          "where": "slide 2",
+          "claim": "NASA has built rockets for over sixty years.",
+          "supported": true,
+          "evidence_quote": "Established in 1960, Marshall has played a central role in American space exploration for more than six decades, from developing the Saturn rockets",
+          "problem": ""
+        },
+        {
+          "where": "slide 2",
+          "claim": "Saturn rockets carried Apollo astronauts to the Moon.",
+          "supported": true,
+          "evidence_quote": "from developing the Saturn rockets that carried astronauts to the Moon during Apollo",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "NASA is developing the SLS rocket for Artemis.",
+          "supported": true,
+          "evidence_quote": "Marshall plays a critical role in NASA’s Artemis program, including the development of NASA’s SLS (Space Launch System) rocket",
+          "problem": ""
+        },
+        {
+          "where": "slide 3",
+          "claim": "NASA manages Moon landers to support future missions to Mars.",
+          "supported": true,
+          "evidence_quote": "management of the Human Landing System Program, as well as other capabilities supporting sustained exploration of the Moon and future missions to Mars.",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "NASA is advancing nuclear propulsion.",
+          "supported": true,
+          "evidence_quote": "Marshall plays a key role in the advancement of nuclear power and propulsion",
+          "problem": ""
+        },
+        {
+          "where": "slide 4",
+          "claim": "Focus on nuclear propulsion is expected to grow as NASA works toward sending humans to Mars.",
+          "supported": true,
+          "evidence_quote": "an area of focus that is expected to grow as NASA works towards sending the first humans to Mars.",
+          "problem": ""
+        },
+        {
+          "where": "slide 5",
+          "claim": "Focus on nuclear power is expected to grow as NASA works toward Mars.",
+          "supported": true,
+          "evidence_quote": "advancement of nuclear power and propulsion, an area of focus that is expected to grow as NASA works towards sending the first humans to Mars.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "For more than sixty years, NASA has built rocket power.",
+          "supported": true,
+          "evidence_quote": "Established in 1960, Marshall has played a central role in American space exploration for more than six decades, from developing the Saturn rockets",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "Saturn rockets carried astronauts to the Moon during Apollo.",
+          "supported": true,
+          "evidence_quote": "from developing the Saturn rockets that carried astronauts to the Moon during Apollo",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "NASA is building new systems to carry us deeper into space.",
+          "supported": true,
+          "evidence_quote": "systems that will carry us deeper into the solar system",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "NASA's new systems include the Artemis SLS rocket and Moon landers that support future trips to Mars.",
+          "supported": true,
+          "evidence_quote": "development of NASA’s SLS (Space Launch System) rocket, management of the Human Landing System Program, as well as other capabilities supporting sustained exploration of the Moon and future missions to Mars.",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "NASA is advancing nuclear power and propulsion.",
+          "supported": true,
+          "evidence_quote": "Marshall plays a key role in the advancement of nuclear power and propulsion",
+          "problem": ""
+        },
+        {
+          "where": "caption",
+          "claim": "The focus on nuclear power and propulsion is expected to grow as NASA works toward sending the first humans to Mars.",
+          "supported": true,
+          "evidence_quote": "an area of focus that is expected to grow as NASA works towards sending the first humans to Mars.",
+          "problem": ""
+        }
+      ]
+    }
+  ]
+}

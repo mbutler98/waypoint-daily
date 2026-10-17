@@ -131,6 +131,8 @@ The `cta` slide is the **sign-off** (renamed in Phase 2 in spirit; the type name
 
 `figure` is either a Waypoint `visuals.js` spec (`{"type":"chart",...}` or `{"type":"diagram",...}`) or `{"type":"manim","template":"cycle","params":{...}}` (Phase 7).
 
+The Phase 4 writer never writes these specs directly. It fills a flat `FigureDraft` (`column`, `bar` or `line` chart, `timeline`, `steps`), and `waypoint/write/figures.py` turns that into the `visuals.js` spec stored here (it lays out diagram coordinates, so the LLM never writes them).
+
 ### 3.2.1 Gather output: `Candidate` (Phase 3)
 
 `waypoint gather` writes `.cache/gather/<date>/candidates.json` (`slots: {am: [...], pm: [...]}` ranked best first, every candidate, every rejection with its reason, call counts) and `candidates/<slug>/{candidate.json, source.txt}`. A candidate is:

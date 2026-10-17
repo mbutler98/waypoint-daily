@@ -11,6 +11,7 @@ from __future__ import annotations
 import collections
 import logging
 import os
+import re
 import time
 from collections.abc import Callable, Sequence
 from typing import Any, TypeVar
@@ -35,6 +36,17 @@ class GeminiError(RuntimeError):
 
 class GeminiBudgetExceeded(GeminiError):
     """The run hit limits.max_gemini_calls_per_run."""
+
+
+RETRY_DELAY_RE = re.compile(r"retryDelay['\"]?\s*:\s*['\"]?(\d+(?:\.\d+)?)s")
+
+
+def _retry_delay(exc: Exception, attempt: int) -> float:
+    """The server's suggested delay on a 429 (RetryInfo), else exponential backoff."""
+    m = RETRY_DELAY_RE.search(str(exc))
+    if m:
+        return min(90.0, float(m.group(1)) + 1)
+    return min(60.0, 2.0 ** attempt)
 
 
 def _status_of(exc: Exception) -> int | None:
@@ -97,21 +109,22 @@ class GeminiClient:
                 status = _status_of(e)
                 if status not in RETRY_STATUS or attempt == MAX_ATTEMPTS:
                     raise GeminiError(f"Gemini {purpose} failed: {type(e).__name__}: {e}") from e
-                delay = min(60.0, 2.0 ** attempt)
+                delay = _retry_delay(e, attempt)
                 log.warning("Gemini %s got HTTP %s; retry %d in %.0fs",
                             purpose, status, attempt, delay)
                 self.sleep(delay)
         raise AssertionError("unreachable")
 
     def generate_json(self, prompt: str, schema: type[T], *, purpose: str,
-                      model: str | None = None, system: str | None = None) -> T:
+                      model: str | None = None, system: str | None = None,
+                      temperature: float = 0.2) -> T:
         """One structured-output call; returns a validated instance of `schema`."""
         from google.genai import types
 
         config = types.GenerateContentConfig(
             response_mime_type="application/json",
             response_schema=schema,
-            temperature=0.2,
+            temperature=temperature,
             system_instruction=system,
         )
         resp = self._call(purpose, lambda: self.client.models.generate_content(
