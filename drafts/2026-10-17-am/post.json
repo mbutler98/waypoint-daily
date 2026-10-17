@@ -1,0 +1,66 @@
+{
+  "id": "2026-10-17-am",
+  "slot": "am",
+  "faculty": "Space",
+  "topic": "Bird migration tracking",
+  "source": {
+    "url": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director",
+    "title": "NASA Names Stephen Cash Marshall Space Flight Center Director",
+    "publisher": "NASA",
+    "published": "2026-10-16",
+    "kind": "news"
+  },
+  "key_claim": "NASA is advancing nuclear power and propulsion as an area of focus expected to grow while working toward sending humans to Mars.",
+  "slides": [
+    {
+      "type": "hook",
+      "kicker": "Spaceflight",
+      "headline": "Building Moon rockets was only the start."
+    },
+    {
+      "type": "insight",
+      "n": 1,
+      "headline": "Six decades of rocket power",
+      "body": "NASA has built rockets for over sixty years. Its Saturn rockets carried Apollo astronauts all the way to the Moon.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 2,
+      "headline": "New rockets for the Moon",
+      "body": "NASA now builds the SLS rocket for Artemis. It also manages Moon landers to aid future trips to Mars.",
+      "figure": null
+    },
+    {
+      "type": "insight",
+      "n": 3,
+      "headline": "Focus turns to nuclear drives",
+      "body": "NASA is advancing nuclear propulsion. This focus is expected to grow as NASA works to send humans to Mars.",
+      "figure": null
+    },
+    {
+      "type": "cta",
+      "headline": "NASA is looking far past the Moon.",
+      "body": "Nuclear power is expected to grow as NASA works toward Mars."
+    }
+  ],
+  "caption": "Building Moon rockets was only the start.\n\nFor more than sixty years, NASA has built rocket power. Its Saturn rockets carried astronauts to the Moon during Apollo.\n\nThe catch? The agency is now building new systems to carry us deeper into space. That includes the Artemis SLS rocket and Moon landers that support future trips to Mars.\n\nThe payoff? NASA is advancing nuclear power and propulsion. That focus is expected to grow as NASA works toward sending the first humans to Mars. 🚀\n\nSource: NASA — NASA Names Stephen Cash Marshall Space Flight Center Director\n\nSave this for your next curiosity rabbit hole.\n\nFollow @waypoint.daily for two ideas worth knowing, every day.",
+  "hashtags": [
+    "#NASA",
+    "#SpaceExploration",
+    "#Artemis",
+    "#MarsMission",
+    "#WaypointDaily"
+  ],
+  "alt_text": [
+    "Title slide reading: Spaceflight. Building Moon rockets was only the start.",
+    "Slide explaining that NASA has built rockets for over sixty years, carrying astronauts to the Moon on Saturn rockets.",
+    "Slide showing that NASA builds the SLS rocket for Artemis and manages landers to support trips to Mars.",
+    "Slide describing NASA's work on nuclear propulsion as it aims to send humans to Mars.",
+    "Summary slide reading: NASA is looking far past the Moon. Nuclear power is expected to grow as NASA works toward Mars."
+  ],
+  "status": "draft",
+  "approval_issue": null,
+  "ig_media_id": null,
+  "ig_permalink": null
+}

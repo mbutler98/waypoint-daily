@@ -59,6 +59,7 @@ class Limits(_Model):
     candidates_per_slot: int = Field(ge=1)
     max_gemini_calls_per_run: int = Field(ge=1)
     max_writer_retries: int = Field(ge=0)
+    max_draft_candidates: int = Field(ge=1)
 
 
 class Gemini(_Model):

@@ -3,8 +3,8 @@
 Automated Instagram educational carousels (tension hook → discovery → complication → payoff → takeaway sign-off), twice a day, free to run.
 
 **Read [PLAN.md](PLAN.md) sections 1–4 before any work, then do only your assigned phase (section 5).**
-When done, tick that phase's acceptance boxes and add a line to the Build log (section 7).
-Do not re-open the decisions in section 1.
+When done, tick that phase's acceptance boxes and add a line to the Build log (section 7). Do not
+re-open the decisions in section 1.
 
 ## Run
 
@@ -22,9 +22,9 @@ uv run ruff check                  # lint (CI runs both)
 - `dry_run` (config.yaml) must be respected by every network write: log it and skip it.
 - Never print, log or commit secrets: env vars / Actions secrets only (locally a gitignored `.env`).
 - No live network in tests: recorded fixtures + the fake Gemini in `tests/helpers.py` (`import helpers`).
-- `state/posted.json` is append-only. Never rewrite history.
-- If any step fails, post nothing for that slot and record why. No partial carousels.
-- Keep model names, API versions and limits in config.yaml, not in code.
+- `state/posted.json` is append-only. Never rewrite history. If any step fails, post nothing for that slot and record why. No partial carousels.
+- Model names, API versions, limits: config.yaml, not code. Prompts: `waypoint/write/prompts/`
+  (tune with `waypoint write .cache/gather/<date>/candidates/<slug>`).
 - Slide look lives in `waypoint/render/templates/` (tokens.css, slide.css). Never edit the vendored
   `visuals.js`; re-skin with CSS. A look change must update the golden image on purpose:
   `WAYPOINT_UPDATE_GOLDEN=1 uv run pytest tests/test_render.py`, then inspect it.

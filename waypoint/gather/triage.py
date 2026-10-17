@@ -131,13 +131,16 @@ TRIAGE_PROMPT = """You pick source articles for "Waypoint", an Instagram account
 short, true, surprising explainers in plain English for curious adults.
 
 For each ARTICLE below return:
-- faculty: the best fit from this list: {faculties}. If the article lists allowed
-  faculties, choose from those.
+- faculty: the best fit for what the article is about, from this list: {faculties}.
+  "usual faculties" are the feed's typical areas; prefer them only when they fit (a
+  technology feed's story about birds is "Animals & Nature").
 - topic: the subject in 1-4 words (e.g. "Heat pumps", "Octopus camouflage").
 - key_claim: the single most interesting, specific fact the article supports, in one plain
   sentence. Only facts stated in the article.
 - surprise: 1-5. 5 = most people would say "wait, really?" and want to swipe; 3 = useful but
-  familiar; 1 = dry, incremental or only interesting to specialists.
+  familiar; 1 = dry, incremental or only interesting to specialists. Institutional news
+  (appointments, funding, partnerships, launches, awards, events, product or book
+  announcements) is 1-2 unless it reveals a surprising fact about how the world works.
 - safe: false if the article is mainly about politics or elections, war, crime, a tragedy
   or deaths, graphic content, a named private individual, or if a post would have to give
   personal medical, legal or financial ADVICE. Explaining how something works is safe.
@@ -147,7 +150,7 @@ For each ARTICLE below return:
 
 
 def _article_block(i: int, c: Candidate) -> str:
-    hints = f"\nallowed faculties: {', '.join(c.faculty_hints)}" if c.faculty_hints else ""
+    hints = f"\nusual faculties: {', '.join(c.faculty_hints)}" if c.faculty_hints else ""
     body = re.sub(r"\s+", " ", c.text)[:1500]
     return f"ARTICLE {i}\ntitle: {c.title}\nsource: {c.publisher}{hints}\ntext: {body}\n"
 
@@ -175,10 +178,7 @@ class TriageCache:
 
 
 def _apply(c: Candidate, label: dict) -> None:
-    fac = label["faculty"]
-    if c.faculty_hints and fac not in c.faculty_hints:
-        fac = guess_faculty(c)  # model ignored the allowed list; fall back
-    c.faculty = fac
+    c.faculty = label["faculty"]  # the feed's hints are a suggestion, not a limit
     c.topic = label["topic"].strip()[:60]
     c.key_claim = label["key_claim"].strip()
     c.surprise = label["surprise"]
